@@ -2,7 +2,7 @@
 
 ## Task
 
-Create a tree that clicks on a headline hides-shows children:
+Create an expandable tree.
 
 Requirements: 
 
