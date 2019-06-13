@@ -7,7 +7,8 @@ Create an expandable tree.
 Requirements: 
 
 - Use delegation.
-- Clicking outside the title text (in an empty place) should not do anything.
+- Clicking on the headline should hide or show elements (as in the screenshots).
+- Clicking outside the title text (in an empty place) should do nothing.
 - When you hover over the title - it becomes bold, implemented through CSS.
 
 ### Screenshot of the tree
