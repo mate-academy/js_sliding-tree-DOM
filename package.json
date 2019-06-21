@@ -1,7 +1,7 @@
 {
-  "name": "gulp-boilerplate",
+  "name": "js_sliding-tree",
   "version": "1.0.0",
-  "description": "Frontend boilerplate based on gulp",
+  "description": "Create an expandable tree.",
   "main": "index.js",
   "scripts": {
     "start": "gulp default --silent",
