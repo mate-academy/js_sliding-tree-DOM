@@ -1,4 +1,4 @@
-# Sibling tree
+# Sliding tree
 
 ## Task
 
