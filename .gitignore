@@ -4,3 +4,5 @@ node_modules
 yarn.lock
 package-lock.json
 dist
+.sass-cache
+styles.css.map
