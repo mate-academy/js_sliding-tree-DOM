@@ -24,4 +24,4 @@ Requirements:
 
 **Result**
 
-- [UPDATE DEMO LINK](https://<your_account>.github.io/<repo_name>/)
+- [LINK](https://nikakarelets.github.io/js_sliding-tree-DOM/src/index)
