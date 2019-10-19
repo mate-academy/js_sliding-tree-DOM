@@ -5,3 +5,8 @@
 body {
   background: $c-gray;
 }
+
+span:hover {
+  cursor: pointer;
+  font-weight: bold;
+}
