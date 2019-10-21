@@ -1,8 +1,9 @@
 'use strict';
 
 const tree = document.querySelector('.tree');
+const selectors = tree.querySelectorAll('li');
 
-for (const li of tree.querySelectorAll('li')) {
+for (const li of selectors) {
   const span = document.createElement('span');
   li.prepend(span);
   span.append(span.nextSibling);
