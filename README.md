@@ -26,4 +26,4 @@ Requirements:
 
 - [UPDATE DEMO LINK](https://<your_account>.github.io/<repo_name>/)
 
-- [MY DEMO LINK](https://kostya-flern.github.io/js_sliding-tree-DOM/src/)
+- [MY DEMO LINK](https://kostya-flern.github.io/js_sliding-tree-DOM/)
