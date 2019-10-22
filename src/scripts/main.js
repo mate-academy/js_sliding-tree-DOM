@@ -11,9 +11,3 @@ treeHeaders.addEventListener('click', (action) => {
   }
   innerInfo.hidden = !innerInfo.hidden;
 });
-// const span = document.createElement('span');
-// const li = document.getElementsByTagName('li');
-// for (const text of li) {
-//   text.prepend(span);
-//   console.log(text.textContent);
-// } не получилось ;(
