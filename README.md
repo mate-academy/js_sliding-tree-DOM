@@ -24,4 +24,4 @@ Requirements:
 
 **Result**
 
-- [UPDATE DEMO LINK](https://<your_account>.github.io/<repo_name>/)
+- [solution](https://dmitriymush.github.io/js_sliding-tree-DOM/)
