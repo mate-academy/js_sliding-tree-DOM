@@ -13,16 +13,8 @@ body {
   background: #eee;
 }
 
-p {
-  margin: 0;
-  padding: 0;
-  display: inline;
-}
-
-p:hover {
+span:hover {
   font-weight: bold;
-  display: inline-block;
-  max-width: max-content;
 }
 
 /*# sourceMappingURL=main.css.map */
