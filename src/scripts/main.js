@@ -1,5 +1,4 @@
 'use strict';
-
 const tree = document.querySelector('.tree');
 const allLiAtTree = tree.querySelectorAll('li');
 for (const li of allLiAtTree) {

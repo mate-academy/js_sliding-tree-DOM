@@ -10,4 +10,7 @@ h1 {
 body {
   background: #eee; }
 
+span:hover {
+  font-weight: bold; }
+
 /*# sourceMappingURL=main.css.map */
