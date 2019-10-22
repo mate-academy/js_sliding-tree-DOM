@@ -1,3 +1,12 @@
 'use strict';
+document.querySelector('.tree').addEventListener('click', (myEvent) => {
+  const hidable = myEvent.target.parentElement.querySelector('ul');
+  if (myEvent.target.tagName !== 'SPAN') {
+    return;
+  }
+  if (!hidable) {
+    return;
+  }
 
-console.log('hello mate academy!');
+  hidable.hidden = !hidable.hidden;
+});
