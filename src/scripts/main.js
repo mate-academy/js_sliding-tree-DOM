@@ -4,10 +4,7 @@ const mainList = document.querySelector('.tree');
 
 mainList.addEventListener('click', (e) => {
   const hide = e.target.parentElement.querySelector('ul');
-  if (e.target.tagName !== 'SPAN') {
-    return;
-  }
-  if (!hide) {
+  if (e.target.tagName !== 'SPAN' || !hide) {
     return;
   }
 
