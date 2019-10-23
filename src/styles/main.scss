@@ -5,3 +5,8 @@
 body {
   background: $c-gray;
 }
+
+.highlighted:hover {
+  font-weight: bold;
+  cursor: pointer;
+}
