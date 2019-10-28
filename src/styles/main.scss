@@ -2,6 +2,6 @@
 @import "fonts";
 @import "typography";
 
-body {
-  background: $c-gray;
+.tree span:hover {
+  cursor: pointer;
 }
