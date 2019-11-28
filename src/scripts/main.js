@@ -2,13 +2,13 @@
 
 const tree = document.querySelector('.tree');
 
-for (const li of tree.querySelectorAll('li')) {
+tree.querySelectorAll('li').forEach(li => {
   const span = document.createElement('span');
 
   span.className += 'list-item';
   li.prepend(span);
   span.append(span.nextSibling);
-}
+});
 
 tree.onclick = function(action) {
   if (action.target.tagName !== 'SPAN') {
@@ -17,9 +17,7 @@ tree.onclick = function(action) {
 
   const children = action.target.parentNode.querySelector('ul');
 
-  if (!children) {
-    return;
+  if (children) {
+    children.hidden = !children.hidden;
   }
-
-  children.hidden = !children.hidden;
 };
