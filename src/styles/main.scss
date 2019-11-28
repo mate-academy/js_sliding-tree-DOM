@@ -5,3 +5,10 @@
 body {
   background: $c-gray;
 }
+
+span {
+  cursor: pointer;
+  &:hover {
+    color: red;
+  }
+}
