@@ -1,6 +1,6 @@
 'use strict';
 
-const tree = document.getElementsByClassName('tree')[0];
+const tree = document.querySelector('.tree');
 const ul = document.querySelectorAll('ul');
 
 [...ul].forEach(item => {
@@ -19,7 +19,7 @@ tree.addEventListener('click', () => {
 
   [...event.target.parentNode.children].map((item) => {
     if (item.tagName !== 'SPAN') {
-      item.classList.toggle('switch');
+      item.classList.toggle('hidden');
     };
   });
 });
