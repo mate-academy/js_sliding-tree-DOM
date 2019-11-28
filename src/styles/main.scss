@@ -5,3 +5,19 @@
 body {
   background: $c-gray;
 }
+
+li {
+  cursor: pointer;
+}
+
+li.closed > ul {
+  display: none;
+}
+
+li.open > ul {
+  display: block;
+}
+
+li.closed:hover {
+  font-weight: bold;
+}
