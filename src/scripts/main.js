@@ -5,12 +5,12 @@ const listItems = document.querySelectorAll('li');
 
 for (const item of listItems) {
   if (item.children.length) {
-    item.className = 'closed';
+    item.classList.add('closed');
   }
 }
 
-tree.addEventListener('click', (occurrence) => {
-  const requiredListItem = occurrence.target;
+tree.addEventListener('click', (e) => {
+  const requiredListItem = e.target;
 
   if (requiredListItem.tagName !== 'LI') {
     return;
@@ -18,6 +18,5 @@ tree.addEventListener('click', (occurrence) => {
 
   if (requiredListItem.children.length) {
     requiredListItem.classList.toggle('closed');
-    requiredListItem.classList.toggle('open');
   }
 });

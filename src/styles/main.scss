@@ -10,12 +10,12 @@ li {
   cursor: pointer;
 }
 
-li.closed > ul {
-  display: none;
+li > ul {
+  display: block;
 }
 
-li.open > ul {
-  display: block;
+li.closed > ul {
+  display: none;
 }
 
 li.closed:hover {
