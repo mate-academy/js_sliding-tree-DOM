@@ -5,3 +5,10 @@
 body {
   background: $c-gray;
 }
+
+span {
+
+  &:hover {
+    font-weight: bold;
+  }
+}
