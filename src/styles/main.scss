@@ -6,8 +6,8 @@ body {
   background: $c-gray;
 }
 
-* {
-  box-sizing: border-box;
+.switch {
+  display: none;
 }
 
 span:hover {

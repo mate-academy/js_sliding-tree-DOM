@@ -18,14 +18,8 @@ tree.addEventListener('click', () => {
   };
 
   [...event.target.parentNode.children].map((item) => {
-    if (item.tagName === 'SPAN') {
-      return;
-    };
-
-    if (item.children && item.style.display !== 'none') {
-      item.style.display = 'none';
-    } else if (item.children) {
-      item.style.display = 'block';
+    if (item.tagName !== 'SPAN') {
+      item.classList.toggle('switch');
     };
   });
 });
