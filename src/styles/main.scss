@@ -5,3 +5,11 @@
 body {
   background: $c-gray;
 }
+
+.list-item {
+  cursor: pointer;
+
+  &:hover {
+    font-weight: bold;
+  }
+}
