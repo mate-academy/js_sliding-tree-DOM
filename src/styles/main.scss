@@ -5,3 +5,15 @@
 body {
   background: $c-gray;
 }
+
+.list-name {
+
+  &:hover {
+    font-weight: bold;
+    cursor: pointer;
+  }
+}
+
+.hide {
+  display: none;
+}
