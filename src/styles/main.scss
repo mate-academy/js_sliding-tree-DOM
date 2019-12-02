@@ -4,4 +4,42 @@
 
 body {
   background: $c-gray;
+  font-size: 24px;
+}
+
+.tree,
+ul {
+  list-style-type: none;
+}
+
+.tree {
+  li {
+    margin: 5px;
+  }
+  & span {
+    transition: font-weight 1s ease, background-color 1s ease;
+    cursor: pointer;
+    &:not(:last-child) {
+      background-color: #00acdc;
+      border: 1px solid #00acdc;
+      border-radius: 5px;
+      &:hover {
+        font-weight: bold;
+      }
+      &::before {
+        content: "\21D3";
+      }
+    }
+  }
+}
+
+.show {
+  &:hover {
+    background-color: #00acdc;
+    border: 1px solid #00acdc;
+    border-radius: 5px;
+  }
+  &::before {
+    content: "\27A5";
+  }
 }
