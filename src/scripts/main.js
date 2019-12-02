@@ -22,10 +22,4 @@ tree.onclick = function(e) {
   }
 
   childrenContainer.hidden = !childrenContainer.hidden;
-
-  if (childrenContainer.hidden) {
-    e.target.classList.toggle('show');
-  } else {
-    e.target.classList.toggle('show');
-  }
 };
