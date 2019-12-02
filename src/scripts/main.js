@@ -10,11 +10,9 @@ for (const li of document.querySelectorAll('li')) {
 function hideList() {
   if (event.target.nextSibling !== null) {
     if (!event.target.nextSibling.hidden) {
-      event.target.nextSibling.style.display = 'none';
       event.target.nextSibling.hidden = true;
     } else if (event.target.nextSibling.hidden) {
-      event.target.nextSibling.style.display = 'block';
-      event.target.nextSibling.hidden = !event.target.nextSibling.hidden;
+      event.target.nextSibling.hidden = false;
     }
   }
 }
