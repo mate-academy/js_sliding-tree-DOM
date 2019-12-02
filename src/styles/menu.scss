@@ -1,0 +1,19 @@
+@import "utils";
+
+.tree {
+  display: flex;
+  flex-direction: column;
+  width: min-content;
+
+  span {
+
+    &:hover {
+      font-weight: bold;
+      cursor: pointer;
+    }
+  }
+}
+
+.hide {
+  display: none;
+}
