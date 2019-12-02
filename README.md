@@ -24,4 +24,4 @@ Requirements:
 
 **Result**
 
-- [UPDATE DEMO LINK](https://PavloPantus/js_sliding-tree-DOM/)
+- [UPDATE DEMO LINK](https://PavloPantus.github.io/js_sliding-tree-DOM/)
