@@ -1,3 +1,23 @@
 @import "utils";
 @import "fonts";
 @import "typography";
+
+body {
+  background: #eee;
+}
+
+li {
+  cursor: pointer;
+}
+
+li > ul {
+  display: block;
+}
+
+li.closed > ul {
+  display: none;
+}
+
+li.closed:hover {
+  font-weight: bold;
+}
