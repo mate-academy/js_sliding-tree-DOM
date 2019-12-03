@@ -24,4 +24,4 @@ Requirements:
 
 **Result**
 
-- [UPDATE DEMO LINK](https://Maxlabliuk.github.io/<repo_name>/)
+- [UPDATE DEMO LINK](https://Maxlabliuk.github.io/js_sliding-tree-DOM/)
