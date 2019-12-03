@@ -4,7 +4,7 @@
   "description": "Create an expandable tree.",
   "main": "index.js",
   "scripts": {
-    "start": "gulp default --silent",
+    "start": "gulp default",
     "build": "gulp build",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
