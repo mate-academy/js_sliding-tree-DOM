@@ -5,3 +5,20 @@
 body {
   background: $c-gray;
 }
+
+ul {
+  height: auto;
+  overflow: hidden;
+}
+
+.HideShow {
+  height: 0;
+}
+
+.boldText {
+  font-weight: bold;
+}
+
+.normalText {
+  font-weight: normal;
+}
