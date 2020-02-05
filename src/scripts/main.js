@@ -7,7 +7,7 @@ const handleListClick = ({ target }) => {
     const nextLi = target.children[0].children;
 
     for (let i = 0; i < nextLi.length; i++) {
-      nextLi[i].classList.toggle('displaied');
+      nextLi[i].classList.toggle('opened');
     }
   }
 };
