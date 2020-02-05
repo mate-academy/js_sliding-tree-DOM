@@ -5,3 +5,7 @@
 body {
   background: $c-gray;
 }
+
+span {
+  @include hover(font-weight, bold);
+}
