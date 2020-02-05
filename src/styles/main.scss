@@ -5,3 +5,11 @@
 body {
   background: $c-gray;
 }
+
+.hidden {
+  display: none;
+}
+
+span:hover {
+  font-weight: bold;
+}
