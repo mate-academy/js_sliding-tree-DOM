@@ -11,9 +11,11 @@ for (const li of liList) {
 }
 
 const onClickHandler = function(evt) {
-  const item = evt.target.parentNode.querySelector('ul');
+  const { target } = evt;
 
-  if (evt.target.tagName !== 'SPAN' || !item) {
+  const item = target.parentNode.querySelector('ul');
+
+  if (target.tagName !== 'SPAN' || !item) {
     return;
   }
 
