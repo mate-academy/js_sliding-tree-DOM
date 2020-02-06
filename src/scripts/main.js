@@ -13,14 +13,12 @@ for (const item of li) {
 const toggleHandler = function(e) {
   const { target } = e;
 
-  if (target.tagName !== 'SPAN') {
-    return;
-  }
+  if (target.tagName === 'SPAN') {
+    const childUl = e.target.parentNode.querySelector('ul');
 
-  const childUl = e.target.parentNode.querySelector('ul');
-
-  if (childUl) {
-    childUl.hidden = !childUl.hidden;
+    if (childUl) {
+      childUl.hidden = !childUl.hidden;
+    }
   }
 
   return false;
