@@ -9,12 +9,14 @@ tree.querySelectorAll('li').forEach(item => {
   item.removeChild(node);
 });
 
-function handler(event1) {
-  if (event1.target.tagName !== 'SPAN') {
+function handler(e) {
+  const { target: { tagName, parentElement } } = e;
+
+  if (tagName !== 'SPAN') {
     return;
   }
 
-  const innerUl = event1.target.parentElement.querySelector('ul');
+  const innerUl = parentElement.querySelector('ul');
 
   if (innerUl) {
     innerUl.hidden = !innerUl.hidden;
