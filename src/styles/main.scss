@@ -5,3 +5,15 @@
 body {
   background: $c-gray;
 }
+
+.tree__toggle {
+  display: none;
+}
+
+ul > li:hover {
+  font-weight: bold;
+}
+
+li:hover > ul {
+  font-weight: normal;
+}
