@@ -5,3 +5,11 @@
 body {
   background: $c-gray;
 }
+
+li {
+  cursor: pointer;
+}
+
+.open {
+  display: none;
+}
