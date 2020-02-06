@@ -10,16 +10,14 @@ for (const element of li) {
   span.append(span.nextSibling);
 }
 
-tree.onclick = function(ev) {
+tree.addEventListener('click', function(ev) {
   if (ev.target.tagName !== 'SPAN') {
     return;
   }
 
   const childrenContainer = ev.target.parentNode.querySelector('ul');
 
-  if (!childrenContainer) {
-    return;
+  if (childrenContainer) {
+    childrenContainer.hidden = !childrenContainer.hidden;
   }
-
-  childrenContainer.hidden = !childrenContainer.hidden;
-};
+});

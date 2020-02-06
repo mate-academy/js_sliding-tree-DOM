@@ -9,8 +9,8 @@ body {
 
 .tree span {
   cursor: pointer;
-}
 
-.tree span:hover {
-  font-weight: bold;
+  &:hover {
+    font-weight: bold;
+  }
 }
