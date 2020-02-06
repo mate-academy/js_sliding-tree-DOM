@@ -5,3 +5,19 @@
 body {
   background: $c-gray;
 }
+
+ul ul > li {
+  display: none;
+}
+
+.opened {
+  display: block;
+}
+
+li:hover {
+  font-weight: bold;
+}
+
+li:hover ul {
+  font-weight: normal;
+}
