@@ -3,7 +3,9 @@
 const list = document.querySelector('.tree');
 
 const handleListClick = ({ target }) => {
-  if (target.nodeName === 'LI' && target.childElementCount > 0) {
+  const { nodeName, childElementCount } = target;
+
+  if (nodeName === 'LI' && childElementCount > 0) {
     const nextLi = target.children[0].children;
 
     for (let i = 0; i < nextLi.length; i++) {
