@@ -1,7 +1,9 @@
 @import "utils";
 @import "fonts";
 @import "typography";
+@import "tree";
 
 body {
   background: $c-gray;
+  font-family: Arial, Helvetica, sans-serif;
 }
