@@ -10,18 +10,20 @@ for (const item of li) {
   span.append(span.nextSibling);
 }
 
-const toggleList = function(e) {
-  if (e.target.tagName !== 'SPAN') {
+const toggleHandler = function(e) {
+  const { target } = e;
+
+  if (target.tagName !== 'SPAN') {
     return;
   }
 
   const childUl = e.target.parentNode.querySelector('ul');
 
-  if (!childUl) {
-    return;
+  if (childUl) {
+    childUl.hidden = !childUl.hidden;
   }
 
-  childUl.hidden = !childUl.hidden;
+  return false;
 };
 
-tree.addEventListener('click', toggleList);
+tree.addEventListener('click', toggleHandler);
