@@ -4,4 +4,13 @@
 
 body {
   background: $c-gray;
+  font-size: 24px;
+}
+
+.tree span {
+  cursor: pointer;
+
+  &:hover {
+    font-weight: bold;
+  }
 }
