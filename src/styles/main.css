@@ -1,0 +1,7 @@
+span {
+  cursor: pointer;
+}
+
+span:hover {
+  font-weight: bold;
+}
