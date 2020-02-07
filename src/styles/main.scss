@@ -5,3 +5,19 @@
 body {
   background: $c-gray;
 }
+
+.tree {
+  display: inline-block;
+}
+
+li {
+  cursor: pointer;
+
+  &:hover {
+    font-weight: bold;
+  }
+}
+
+li:hover > ul {
+  font-weight: normal;
+}
