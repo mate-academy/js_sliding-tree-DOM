@@ -5,3 +5,19 @@
 body {
   background: $c-gray;
 }
+
+.tree {
+  display: inline-block;
+}
+
+span {
+  cursor: pointer;
+
+  &:hover {
+    font-weight: 700;
+  }
+}
+
+.hidden {
+  display: none;
+}
