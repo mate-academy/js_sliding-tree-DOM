@@ -1,3 +1,11 @@
 'use strict';
 
-console.log('hello mate academy!');
+const tree = document.querySelector('.tree');
+
+const hiddenText = (e) => {
+  const { target } = e;
+
+  target.firstElementChild.toggleAttribute('hidden');
+};
+
+tree.addEventListener('click', hiddenText);
