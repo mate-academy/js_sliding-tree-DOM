@@ -5,3 +5,7 @@
 body {
   background: $c-gray;
 }
+
+.tree span:hover {
+  font-weight: bold;
+}
