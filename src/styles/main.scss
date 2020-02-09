@@ -5,3 +5,17 @@
 body {
   background: $c-gray;
 }
+
+ul {
+  list-style: none;
+}
+
+p {
+  cursor: pointer;
+  margin: 0;
+
+  &:hover {
+    color: red;
+    font-size: 120%;
+  }
+}
