@@ -10,7 +10,7 @@ for (const li of list) {
   span.append(span.nextSibling);
 }
 
-tree.onclick = function(e) {
+tree.addEventListener('click', (e) => {
   if (e.target.tagName !== 'SPAN') {
     return;
   }
@@ -22,4 +22,4 @@ tree.onclick = function(e) {
   }
 
   ulContainer.hidden = !ulContainer.hidden;
-};
+});
