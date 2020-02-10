@@ -5,3 +5,13 @@
 body {
   background: $c-gray;
 }
+
+.hide {
+  display: none;
+}
+
+.tree__anchor:hover {
+  color: blueviolet;
+  text-decoration: underline;
+  cursor: pointer;
+}
