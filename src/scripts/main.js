@@ -16,11 +16,7 @@ function insertSpan(list) {
 
 const handleSlidToggle = function(e) {
   const slideToggle = function() {
-    if (e.target.nextSibling.classList.contains('hide')) {
-      e.target.nextSibling.classList.remove('hide');
-    } else {
-      e.target.nextSibling.classList.add('hide');
-    }
+    e.target.nextSibling.classList.toggle('hide');
   };
 
   if (e.target.tagName === 'SPAN') {
