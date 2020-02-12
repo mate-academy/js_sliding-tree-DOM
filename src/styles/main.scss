@@ -5,3 +5,16 @@
 body {
   background: $c-gray;
 }
+
+ul {
+  list-style: none;
+}
+
+p {
+  cursor: pointer;
+  margin: 0;
+
+  &:hover {
+    font-weight: bold;
+  }
+}
