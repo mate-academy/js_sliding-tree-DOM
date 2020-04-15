@@ -5,3 +5,19 @@
 body {
   background: $c-gray;
 }
+
+li {
+  width: fit-content;
+}
+
+.list__item {
+  &:hover {
+    font-weight: bold;
+  }
+}
+
+// @for $i from 0 through 30 {
+//   .li-hover--#{$i}:hover {
+//     font-weight: bold;
+//   }
+// }
