@@ -5,3 +5,13 @@
 body {
   background: $c-gray;
 }
+
+.head {
+  &:hover {
+    font-weight: bold;
+  }
+
+  &:hover > ul {
+    font-weight: normal;
+  }
+}
