@@ -5,3 +5,9 @@
 body {
   background: $c-gray;
 }
+
+.bold-text {
+  &:hover {
+    font-weight: bold;
+  }
+}
