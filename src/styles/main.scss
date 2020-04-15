@@ -5,3 +5,8 @@
 body {
   background: $c-gray;
 }
+
+.tree span:not(:last-child):hover {
+  font-weight: bold;
+  cursor: pointer;
+}
