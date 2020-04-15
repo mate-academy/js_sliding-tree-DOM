@@ -14,7 +14,8 @@ for (const li of listOfLi) {
 tree.addEventListener('click', (arg) => {
   const ul = arg.target.parentNode.querySelector('ul');
 
-  if (!ul) {
+  if (arg.target.tagName !== 'SPAN'
+  || (arg.target.tagName === 'SPAN' && !ul)) {
     return;
   }
 
