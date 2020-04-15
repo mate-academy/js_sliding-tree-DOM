@@ -5,3 +5,15 @@
 body {
   background: $c-gray;
 }
+
+.hide {
+  display: none;
+}
+
+.tree {
+  &__item-text {
+    &:hover {
+      font-weight: bold;
+    }
+  }
+}
