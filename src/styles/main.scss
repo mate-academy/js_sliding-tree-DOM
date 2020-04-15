@@ -8,9 +8,15 @@ body {
 
 .tree {
   li {
+    float: left;
+    clear: both;
+    position: relative;
     &:hover {
       font-weight: bold;
       ul {
+        font-weight: normal;
+      }
+      li & {
         font-weight: normal;
       }
     }
