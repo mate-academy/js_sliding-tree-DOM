@@ -5,3 +5,13 @@
 body {
   background: $c-gray;
 }
+
+.tree {
+  width: fit-content;
+  span {
+    cursor: pointer;
+    &:hover {
+      font-weight: 700;
+    }
+  }
+}
