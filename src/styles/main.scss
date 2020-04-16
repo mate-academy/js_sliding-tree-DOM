@@ -5,3 +5,12 @@
 body {
   background: $c-gray;
 }
+
+span {
+  cursor: pointer;
+
+  &:hover {
+    font-weight: bold;
+    background-color: lightblue;
+  }
+}
