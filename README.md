@@ -26,5 +26,5 @@ Requirements:
 
    Replace `<your_account>` with your Github username in the links
 
-    - [DEMO LINK](https://andreas-just.github.io/js_sort-table-DOM/)
-    - [PULL REQUEST](https://github.com/mate-academy/js_sort-table-DOM/pull/19)
+    - [DEMO LINK](https://andreas-just.github.io/js_sliding-tree-DOM/)
+    - [PULL REQUEST](https://github.com/mate-academy/js_sliding-tree-DOM/pull/91)
