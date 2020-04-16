@@ -5,3 +5,10 @@
 body {
   background: $c-gray;
 }
+
+.head {
+  &:hover {
+    font-weight: bold;
+    cursor: pointer;
+  }
+}
