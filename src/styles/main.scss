@@ -5,3 +5,14 @@
 body {
   background: $c-gray;
 }
+
+span {
+  cursor: pointer;
+  &:hover {
+    font-weight: 700;
+  }
+}
+
+.hide {
+  display: none;
+}
