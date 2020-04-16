@@ -9,9 +9,6 @@ body {
 .head {
   &:hover {
     font-weight: bold;
-  }
-
-  &:hover > ul {
-    font-weight: normal;
+    cursor: pointer;
   }
 }

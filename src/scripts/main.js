@@ -1,18 +1,24 @@
 'use strict';
 
+const tree = document.querySelector('.tree');
+const list = document.querySelectorAll('.tree > li');
+
+for (const item of list) {
+  const span = document.createElement('span');
+
+  span.classList.add('head');
+  span.append(item.firstChild);
+  item.prepend(span);
+}
+
 function onClick(value) {
-  const item = value.target;
-  const elem = item.firstElementChild;
-
-  if (elem.matches('ul')) {
-    elem.hidden = !elem.hidden;
+  if (!value.target.matches('.head')) {
+    return;
   }
+
+  const elem = value.target.nextSibling;
+
+  elem.hidden = !elem.hidden;
 }
 
-const list = document.querySelector('.tree');
-
-for (const child of list.children) {
-  child.classList.add('head');
-}
-
-list.addEventListener('click', onClick);
+tree.addEventListener('click', onClick);
