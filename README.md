@@ -4,7 +4,7 @@
 
 Create an expandable tree.
 
-Requirements: 
+Requirements:
 
 - Use delegation.
 - Clicking on the headline should hide or show elements (as in the screenshots).
@@ -24,4 +24,4 @@ Requirements:
 
 **Result**
 
-- [UPDATE DEMO LINK](https://<your_account>.github.io/<repo_name>/)
+- [UPDATE DEMO LINK](https://panasiuk-yuriy.github.io/js_sliding-tree-DOM/)
