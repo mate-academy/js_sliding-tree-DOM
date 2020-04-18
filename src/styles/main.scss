@@ -5,3 +5,13 @@
 body {
   background: $c-gray;
 }
+
+li {
+  width: fit-content;
+}
+
+span {
+  &:hover {
+    font-weight: bold;
+  }
+}
