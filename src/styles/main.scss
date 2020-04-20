@@ -4,4 +4,13 @@
 
 body {
   background: $c-gray;
+
+  span {
+    cursor: pointer;
+    transition: 300ms all;
+
+    &:hover {
+      font-weight: bold;
+    }
+  }
 }
