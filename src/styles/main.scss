@@ -5,3 +5,13 @@
 body {
   background: $c-gray;
 }
+
+span {
+  cursor: pointer;
+  user-select: none;
+}
+
+span:hover {
+  font-weight: 600;
+  color: black;
+}
