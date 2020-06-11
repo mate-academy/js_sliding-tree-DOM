@@ -1,12 +1,9 @@
 'use strict';
 
 document.querySelector('.tree').addEventListener('click', function(e) {
-  const title = e.target.firstChild;
-  const list = title.nextElementSibling;
+  const list = e.target.firstChild.nextElementSibling;
 
-  if (e.target.tagName !== 'LI' || !list) {
-    return;
+  if (e.target.tagName === 'LI' && list) {
+    list.classList.toggle('hidden');
   }
-
-  list.classList.toggle('hidden');
 });
