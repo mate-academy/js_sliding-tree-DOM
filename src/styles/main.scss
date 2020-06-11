@@ -2,6 +2,28 @@
 @import "fonts";
 @import "typography";
 
+html {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
 body {
   background: $c-gray;
+}
+
+li {
+  cursor: pointer;
+}
+
+.tree {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.selected {
+  font-weight: bold;
+}
+
+.hidden {
+  display: none;
 }
