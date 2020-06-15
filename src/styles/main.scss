@@ -6,6 +6,10 @@ body {
   background: $c-gray;
 }
 
+li {
+  cursor: pointer;
+}
+
 .hide {
   display: none;
 }

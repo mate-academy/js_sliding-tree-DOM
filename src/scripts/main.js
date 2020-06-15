@@ -11,3 +11,18 @@ tree.addEventListener('click', e => {
     [ ...title.children ].forEach(item => item.classList.toggle('hide'));
   }
 });
+
+tree.onmouseover = function({ target }) {
+  if (target.firstElementChild) {
+    target.style.fontWeight = 'bold';
+
+    [ ...target.children ]
+      .forEach(element => {
+        element.style.fontWeight = 'normal';
+      });
+  }
+};
+
+tree.onmouseout = function({ target }) {
+  target.style.fontWeight = 'normal';
+};
