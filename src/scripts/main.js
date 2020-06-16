@@ -11,16 +11,14 @@ for (const item of liItems) {
 }
 
 function hideItems(e) {
-  const item = e.target.closest('li');
+  const item = e.target;
 
-  if (!item) {
-    return;
-  }
+  if (item.tagName === 'SPAN') {
+    const list = item.parentElement.querySelector('ul');
 
-  if (item.children.length) {
-    const children = item.children[1];
-
-    children.hidden = !children.hidden;
+    if (list) {
+      list.hidden = !list.hidden;
+    }
   }
 };
 tree.addEventListener('click', hideItems);
