@@ -5,3 +5,17 @@
 body {
   background: $c-gray;
 }
+
+.tree {
+  li {
+    font-weight: normal;
+  }
+  
+  .hovered {
+    font-weight: bold;
+  }
+}
+
+.hidden {
+  display: none;
+}
