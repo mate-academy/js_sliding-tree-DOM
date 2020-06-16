@@ -8,7 +8,7 @@ function catchTarget(e) {
   return target.tagName === 'LI' && target.children.length !== 0;
 };
 
-tree.addEventListener('click', function(e) {
+tree.addEventListener('click', e => {
   if (catchTarget(e)) {
     if (e.target.children[0].style.display !== 'none') {
       e.target.children[0].style.display = 'none';
@@ -20,14 +20,14 @@ tree.addEventListener('click', function(e) {
   }
 });
 
-tree.addEventListener('mouseover', function(e) {
+tree.addEventListener('mouseover', e => {
   if (catchTarget(e)) {
     e.target.style.fontWeight = 'bold';
     e.target.children[0].style.fontWeight = 'normal';
   }
 });
 
-tree.addEventListener('mouseout', function(e) {
+tree.addEventListener('mouseout', e => {
   if (catchTarget(e) && e.target.children[0].style.display === 'none') {
     e.target.style.fontWeight = 'bold';
   } else {
