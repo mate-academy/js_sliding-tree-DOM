@@ -5,3 +5,15 @@
 body {
   background: $c-gray;
 }
+
+.tree {
+  width: 200px;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  font-family: "Roboto", sans-serif;
+}
+
+li {
+  cursor: pointer;
+}
