@@ -3,14 +3,22 @@
 const tree = document.querySelector('.tree');
 
 tree.addEventListener('click', function(e) {
-  const subList = e.target.querySelector('ul');
+  e.target.firstElementChild.classList.toggle('hidden');
+});
 
-  (subList.style.display !== 'none')
-    ? changeStyle('none', 'bold')
-    : changeStyle('block', 'normal');
+tree.addEventListener('mouseover', function(e) {
+  const subList = e.target.firstElementChild;
 
-  function changeStyle(display, fontWeight) {
-    subList.style.display = display;
-    e.target.style.fontWeight = fontWeight;
-  }
+  if (e.target.tagName === 'LI' && subList) {
+    e.target.style.fontWeight = 'bold';
+    subList.style.fontWeight = 'normal';
+  };
+});
+
+tree.addEventListener('mouseout', function(e) {
+  const subList = e.target.firstElementChild;
+
+  if (e.target.tagName === 'LI' && subList) {
+    e.target.style.fontWeight = 'normal';
+  };
 });
