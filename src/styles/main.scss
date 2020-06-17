@@ -3,5 +3,19 @@
 @import "typography";
 
 body {
-  background: $c-gray;
+  background: #fff;
+}
+
+li {
+  font-weight: normal;
+}
+
+.hidden {
+  display: none;
+}
+
+.hover {
+  font-weight: bold;
+
+  cursor: pointer;
 }
