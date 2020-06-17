@@ -23,7 +23,7 @@ mainList.addEventListener('mousemove', makeBold);
 function makeBold(e) {
   const currentItem = e.target;
 
-  if (e.target.tagName !== 'LI') {
+  if (e.target.tagName !== 'LI' || !currentItem.children[0]) {
     return;
   }
 
