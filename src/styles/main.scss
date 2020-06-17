@@ -5,3 +5,17 @@
 body {
   background: #fff;
 }
+
+li {
+  font-weight: normal;
+}
+
+.hidden {
+  display: none;
+}
+
+.hover {
+  font-weight: bold;
+
+  cursor: pointer;
+}
