@@ -5,3 +5,16 @@
 body {
   background: $c-gray;
 }
+
+li {
+  font-weight: normal;
+}
+
+.hovered {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.hidden {
+  display: none;
+}
