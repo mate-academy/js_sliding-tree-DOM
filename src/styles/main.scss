@@ -5,3 +5,11 @@
 body {
   background: $c-gray;
 }
+
+ul {
+  font-weight: normal;
+}
+
+li:hover {
+  font-weight: bold;
+}
