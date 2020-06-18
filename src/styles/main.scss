@@ -5,3 +5,19 @@
 body {
   background: $c-gray;
 }
+
+.tree {
+  font-size: 34px;
+}
+
+li {
+  font-weight: normal;
+}
+
+.hover {
+  font-weight: bold;
+}
+
+.hidden {
+  display: none;
+}
