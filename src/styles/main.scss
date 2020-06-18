@@ -6,18 +6,6 @@ body {
   background: $c-gray;
 }
 
-li {
-  font-weight: normal;
-}
-
-.tree {
-  width: 200px;
-}
-
-.hovered-text {
+span:hover {
   font-weight: bold;
-}
-
-.closed-tree {
-  display: none;
 }

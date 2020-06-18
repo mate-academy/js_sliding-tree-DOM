@@ -1,21 +1,23 @@
 'use strict';
 
 const tree = document.querySelector('.tree');
+const items = document.querySelectorAll('li');
 
-function closer(action) {
-  const element = action.target.firstElementChild;
+for (const item of items) {
+  const span = document.createElement('span');
 
-  if (element) {
-    element.classList.toggle('closed-tree');
-  }
+  item.prepend(span);
+  span.prepend(span.nextSibling);
 }
 
-function hover(action) {
-  if (action.target.firstElementChild) {
-    action.target.classList.toggle('hovered-text');
+function closer(action) {
+  if (action.target.tagName === 'SPAN') {
+    const list = action.target.parentElement.querySelector('ul');
+
+    if (list) {
+      list.hidden = !list.hidden;
+    }
   }
 }
 
 tree.addEventListener('click', closer);
-tree.addEventListener('mouseover', hover);
-tree.addEventListener('mouseout', hover);
