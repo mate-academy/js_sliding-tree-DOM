@@ -5,3 +5,15 @@
 body {
   background: $c-gray;
 }
+
+.tree {
+  display: inline-block;
+}
+
+.hover {
+  font-weight: bold;
+}
+
+li {
+  font-weight: normal;
+}
