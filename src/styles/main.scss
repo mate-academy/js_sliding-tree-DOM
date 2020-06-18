@@ -5,3 +5,18 @@
 body {
   background: $c-gray;
 }
+
+.tree {
+  li {
+    font-weight: normal;
+  }
+
+  .hovered {
+    cursor: pointer;
+    font-weight: bold;
+  }
+}
+
+.hide {
+  display: none;
+}
