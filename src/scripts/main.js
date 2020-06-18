@@ -12,4 +12,23 @@ tree.addEventListener('click', (e) => {
       ? branch.setAttribute('hidden', true)
       : branch.removeAttribute('hidden');
   };
+}
+
+);
+
+tree.addEventListener('mouseover', (e) => {
+  if (e.target.firstElementChild.tagName === 'UL') {
+    e.target.style.fontWeight = 'bold';
+    e.target.firstElementChild.style.fontWeight = 'normal';
+  }
+});
+
+tree.addEventListener('mouseout', (e) => {
+  const branch = e.target;
+
+  if (
+    branch.firstElementChild.tagName === 'UL'
+      && branch.firstElementChild.getAttribute('hidden') === null) {
+    branch.style.fontWeight = 'normal';
+  }
 });
