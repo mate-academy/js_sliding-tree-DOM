@@ -5,3 +5,20 @@
 body {
   background: $c-gray;
 }
+
+.text-hover {
+  font-weight: bold;
+}
+
+.hover {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.closer {
+  display: none;
+}
+
+li {
+  font-weight: normal;
+}
