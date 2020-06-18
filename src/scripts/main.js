@@ -19,16 +19,16 @@ tree.addEventListener('click', (e) => {
 tree.addEventListener('mouseover', (e) => {
   if (e.target.firstElementChild.tagName === 'UL') {
     e.target.style.fontWeight = 'bold';
+    e.target.style.cursor = 'pointer';
     e.target.firstElementChild.style.fontWeight = 'normal';
+    e.target.firstElementChild.style.cursor = 'default';
   }
 });
 
 tree.addEventListener('mouseout', (e) => {
   const branch = e.target;
 
-  if (
-    branch.firstElementChild.tagName === 'UL'
-      && branch.firstElementChild.getAttribute('hidden') === null) {
+  if (branch.firstElementChild.tagName === 'UL') {
     branch.style.fontWeight = 'normal';
   }
 });
