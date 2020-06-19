@@ -5,3 +5,11 @@
 body {
   background: $c-gray;
 }
+
+.hidden {
+  display: none;
+}
+
+li:hover {
+  cursor: pointer;
+}
