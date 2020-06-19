@@ -5,3 +5,12 @@
 body {
   background: $c-gray;
 }
+
+li {
+  width: 0;
+  font-weight: normal;
+}
+
+.display-none {
+  display: none;
+}
