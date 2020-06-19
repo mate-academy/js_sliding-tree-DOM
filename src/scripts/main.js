@@ -17,18 +17,24 @@ tree.addEventListener('click', (e) => {
 );
 
 tree.addEventListener('mouseover', (e) => {
-  if (e.target.firstElementChild.tagName === 'UL') {
-    e.target.style.fontWeight = 'bold';
-    e.target.style.cursor = 'pointer';
-    e.target.firstElementChild.style.fontWeight = 'normal';
-    e.target.firstElementChild.style.cursor = 'default';
+  const branch = e.target;
+
+  if (branch.firstElementChild) {
+    if (branch.firstElementChild.tagName === 'UL') {
+      branch.style.fontWeight = 'bold';
+      branch.style.cursor = 'pointer';
+      branch.firstElementChild.style.fontWeight = 'normal';
+      branch.firstElementChild.style.cursor = 'default';
+    }
   }
 });
 
 tree.addEventListener('mouseout', (e) => {
   const branch = e.target;
 
-  if (branch.firstElementChild.tagName === 'UL') {
-    branch.style.fontWeight = 'normal';
+  if (branch.firstElementChild) {
+    if (branch.firstElementChild.tagName === 'UL') {
+      branch.style.fontWeight = 'normal';
+    }
   }
 });
