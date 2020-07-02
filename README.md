@@ -18,9 +18,8 @@ Requirements:
 
 
 ---
-**Read the guideline before start**
 
-[Guideline](https://github.com/mate-academy/js_task-DOM-guideline)
+Follow [this instruction](https://github.com/mate-academy/layout_task-guideline/blob/master/README.md) to solve task
 
 **Result**
 
