@@ -8,8 +8,7 @@
 Create an expandable tree.
 
 Requirements: 
-- Use delegation.
-- Clicking on the headline should hide or show elements (as in the screenshots).
+- Clicking on the headline should hide or show elements.
 - Clicking outside the title text (in an empty place) should do nothing.
 
 Hint: you need to cover each header text to `span` tag.
