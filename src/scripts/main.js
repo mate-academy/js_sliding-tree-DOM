@@ -5,13 +5,12 @@ const treeLi = tree.querySelectorAll('li');
 
 [...treeLi].map(item => {
   if (item.childNodes.length > 1) {
-    return item.prepend(document.createElement('span'));
+    const span = document.createElement('span');
+
+    item.prepend(span);
+    span.append(span.nextSibling);
   }
 });
-
-const spanLi = tree.querySelectorAll('span');
-
-[...spanLi].map(item => item.append(item.nextSibling));
 
 tree.addEventListener('click', event => {
   const point = event.target;
@@ -21,9 +20,5 @@ tree.addEventListener('click', event => {
     return;
   }
 
-  if (pointFirstChild.hidden) {
-    pointFirstChild.hidden = false;
-  } else {
-    pointFirstChild.hidden = true;
-  }
+  pointFirstChild.hidden = !pointFirstChild.hidden;
 });
