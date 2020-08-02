@@ -8,21 +8,24 @@ const items = list.querySelectorAll('li');
     const span = document.createElement('span');
 
     item.prepend(span);
-
-    const header = item.querySelector('span');
-
-    header.append(item.childNodes[1]);
-
-    header.addEventListener('click', () => {
-      const ul = item.querySelector('ul');
-
-      if (document.getComputedStyle(ul).display === 'none') {
-        ul.style.display = 'block';
-
-        return;
-      }
-
-      ul.style.display = 'none';
-    });
+    item.querySelector('span').append(item.childNodes[1]);
   }
+});
+
+list.addEventListener('click', (event) => {
+  const target = event.target;
+
+  if (!target.matches('span')) {
+    return;
+  }
+
+  const ul = target.nextSibling;
+
+  if (window.getComputedStyle(ul).display === 'none') {
+    ul.style.display = 'block';
+
+    return;
+  }
+
+  ul.style.display = 'none';
 });
