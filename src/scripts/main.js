@@ -2,31 +2,31 @@
 
 const tree = document.querySelector('.tree');
 
-function tagB(
+function tagSpan(
   tagWithList = 'li',
-  tagForWrap = document.createElement('b')
+  tagForWrap = document.createElement('span')
 ) {
   const items = tree.querySelectorAll(tagWithList);
 
   items.forEach((e) => {
     if ((e.childNodes[0].nodeType === 3 || e.childNodes[0].nodeName === '#text')
      && e.childNodes.length > 1) {
-      const bTag = document.createElement('b');
+      const spanTag = document.createElement('span');
 
-      bTag.append(e.childNodes[0]);
-      e.prepend(bTag);
+      spanTag.append(e.childNodes[0]);
+      e.prepend(spanTag);
 
-      bTag.innerHTML = bTag.innerText;
-      bTag.style.cursor = 'pointer';
+      spanTag.innerHTML = spanTag.innerText;
+      spanTag.style.cursor = 'pointer';
     }
   });
 
   tree.addEventListener('click', (ev) => {
-    if (ev.target.tagName.toLowerCase() !== 'b') {
+    if (ev.target.tagName.toLowerCase() !== 'span') {
       return;
     }
 
-    if (ev.target.matches('b')) {
+    if (ev.target.matches('span')) {
       if (ev.target.parentNode.querySelector('ul').hidden === false) {
         ev.target.parentNode.querySelector('ul').hidden = true;
       } else {
@@ -36,4 +36,4 @@ function tagB(
   });
 }
 
-tagB();
+tagSpan();
