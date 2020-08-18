@@ -4,14 +4,14 @@ const findTree = document.querySelector('.tree');
 let createSpan = document.createElement('span');
 const arrHeader = [...findTree.children];
 
-function findHeader(arrHead) {
+function findHead(arrHead) {
   arrHead.forEach(elem => {
     if (!elem.childElementCount) {
       return;
     }
 
     if (elem.nodeName === 'UL') {
-      findHeader([...elem.children]);
+      findHead([...elem.children]);
     }
 
     createSpan = document.createElement('span');
@@ -19,11 +19,11 @@ function findHeader(arrHead) {
     createSpan.textContent = elem.firstChild.textContent.trim();
     elem.prepend(createSpan);
     elem.childNodes[1].parentNode.removeChild(elem.childNodes[1]);
-    findHeader([...elem.children]);
+    findHead([...elem.children]);
   });
 };
 
-findHeader(arrHeader);
+findHead(arrHeader);
 
 const tree = document.querySelector('.tree');
 
