@@ -1,4 +1,6 @@
 'use strict';
+document.body.style.display = 'block';
+document.body.style.padding = '200px 0 0 40%';
 
 document.querySelectorAll('li').forEach((li) => {
   li.style.cursor = 'pointer';
