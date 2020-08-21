@@ -18,3 +18,15 @@ span:hover {
   font-weight: 700;
   cursor: pointer;
 }
+
+li {
+  display: inline;
+}
+
+ul li ul li {
+  display: inline;
+}
+
+ul li ul li ul li {
+  display: block;
+}
