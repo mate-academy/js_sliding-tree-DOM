@@ -1,25 +1,28 @@
 'use strict';
 
 // write code here
-const tree = document.querySelector('.tree');
+const list = document.querySelectorAll('li');
+const span = document.createElement('span');
 
-tree.addEventListener('click', event => {
-  event.target.firstElementChild.classList.toggle('hidden');
-});
+function handler(event) {
+  const item = event.target.parentElement;
 
-tree.addEventListener('mouseover', event => {
-  const subList = event.target.firstElementChild;
+  if (item.children.length === 1) {
+    return;
+  }
 
-  if (event.target.tagName === 'LI' && subList) {
-    event.target.style.fontWeight = 'bold';
-    subList.style.fontWeight = 'normal';
-  };
-});
+  if (!item.children[1].hidden) {
+    item.children[1].hidden = true;
+  } else {
+    item.children[1].hidden = false;
+  }
+}
 
-tree.addEventListener('mouseout', event => {
-  const subList = event.target.firstElementChild;
+for (const item of [...list]) {
+  item.prepend(span.cloneNode(true));
 
-  if (event.target.tagName === 'LI' && subList) {
-    event.target.style.fontWeight = 'normal';
-  };
-});
+  const element = item.querySelector('span');
+
+  element.append(item.childNodes[1]);
+  element.addEventListener('click', handler);
+}
