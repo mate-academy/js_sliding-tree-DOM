@@ -26,12 +26,12 @@ document.querySelectorAll('li').forEach(li => {
 
     if (flagToogler) {
       li.children[1].style.cssText = `
-        opacity: 0;
+        display: none;
       `;
       flagToogler = false;
     } else {
       li.children[1].style.cssText = `
-        opacity: 1;
+        display: block;
       `;
       flagToogler = true;
     }
