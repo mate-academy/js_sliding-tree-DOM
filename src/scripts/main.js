@@ -1,10 +1,11 @@
 'use strict';
 
-const list = [...document.querySelectorAll('li')];
+[...document.querySelectorAll('li')].forEach((li) => {
+  const span = document.createElement('span');
 
-for (let i = list.length - 1; i >= 0; i--) {
-  list[i].innerHTML = `<span>${list[i].innerHTML}</span>`;
-}
+  span.prepend(li.firstChild);
+  li.prepend(span);
+});
 
 [...document.querySelectorAll('ul')].forEach(el => {
   el.addEventListener('click', (event) => {
@@ -13,8 +14,8 @@ for (let i = list.length - 1; i >= 0; i--) {
     const targetNode = event.target;
 
     if (targetNode.tagName.toLowerCase() === 'span'
-      && targetNode.querySelector('ul')) {
-      const ul = targetNode.childNodes[1];
+    && targetNode.parentNode.querySelector('ul')) {
+      const ul = targetNode.parentNode.childNodes[1];
 
       ul.style.transformOrigin = 'top';
       ul.style.transition = '0.5s';
