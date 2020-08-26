@@ -15,11 +15,8 @@ tree.addEventListener('click', event => {
   const sibling = event.target.nextElementSibling;
 
   if (sibling) {
-    if (sibling.tagName === 'UL' && sibling.hidden === false) {
-      sibling.hidden = true;
-    } else
-    if (sibling.tagName === 'UL' && sibling.hidden === true) {
-      sibling.hidden = false;
+    if (sibling.tagName === 'UL') {
+      sibling.hidden = !sibling.hidden;
     }
   }
 });
