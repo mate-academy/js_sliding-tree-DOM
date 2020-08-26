@@ -2,6 +2,16 @@
 
 const liList = document.querySelectorAll('li');
 
+const ul = document.querySelector('ul');
+
+const ulPosition = ul.getBoundingClientRect();
+
+const ulTopMargin = parseFloat(window.getComputedStyle(ul).marginTop);
+
+ul.style.position = `fixed`;
+ul.style.top = `${ulPosition.top - ulTopMargin}px`;
+ul.style.left = `${ulPosition.left}px`;
+
 for (let i = 0; i < [...liList].length; i++) {
   if (liList[i].children.length > 0) {
     const span = document.createElement('span');
