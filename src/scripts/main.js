@@ -1,5 +1,11 @@
 'use strict';
 
+document.body.style.overflowX = 'hidden';
+
+document.querySelectorAll('ul').forEach(ul => {
+  ul.style.transitionDuration = '0.5s';
+});
+
 const points = document.querySelectorAll('li');
 
 points.forEach(li => {
@@ -17,10 +23,18 @@ points.forEach(li => {
       // error in console if I touch Cherry or other childrenless element
     }
 
-    if (window.getComputedStyle(ul).display !== 'none') {
-      ul.style.display = 'none';
+    if (ul.style.transform !== 'translateX(100vw)') {
+      ul.style.transform = 'translateX(100vw)';
+
+      setTimeout(() => {
+        ul.hidden = true;
+      }, 500);
     } else {
-      ul.style.display = 'block';
+      ul.hidden = false;
+
+      setTimeout(() => {
+        ul.style.transform = 'translateX(0)';
+      }, 500);
     }
   });
 });
