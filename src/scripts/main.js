@@ -1,5 +1,3 @@
-/* eslint-disable no-undef */
-// getComputedStyle is not defined they said
 'use strict';
 
 const points = document.querySelectorAll('li');
@@ -19,7 +17,7 @@ points.forEach(li => {
       // error in console if I touch Cherry or other childrenless element
     }
 
-    if (getComputedStyle(ul).display !== 'none') {
+    if (window.getComputedStyle(ul).display !== 'none') {
       ul.style.display = 'none';
     } else {
       ul.style.display = 'block';
