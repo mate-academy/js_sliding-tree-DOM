@@ -1,7 +1,13 @@
 'use strict';
 
 (function() {
+  const tree = document.querySelector('.tree');
   const list = document.querySelectorAll('li');
+
+  tree.style.cssText = `
+  position: absolute;
+  top: ${tree.getBoundingClientRect().top}px;
+  left: ${tree.getBoundingClientRect().left}px`;
 
   for (const elem of [...list]) {
     const textUl = elem.firstChild.textContent;
