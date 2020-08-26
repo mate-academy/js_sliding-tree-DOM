@@ -27,10 +27,12 @@ points.forEach(li => {
       ul.style.transform = 'translateX(100vw)';
 
       setTimeout(() => {
-        ul.hidden = true;
+        // ul.hidden = true;
+        ul.style.height = 0;
       }, 500);
     } else {
-      ul.hidden = false;
+      // ul.hidden = false;
+      ul.style.height = 'auto';
 
       setTimeout(() => {
         ul.style.transform = 'translateX(0)';
