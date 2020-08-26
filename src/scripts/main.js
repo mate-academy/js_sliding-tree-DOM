@@ -9,12 +9,12 @@ const headers = [...liAll].filter(li => li.children.length > 0);
   const span = document.createElement('span');
 
   li.prepend(span);
-  span.prepend(span.nextSibling.textContent);
+  span.prepend(span.nextSibling.textContent.trim());
   span.nextSibling.textContent = '';
 });
 
 tree.addEventListener('click', (event) => {
-  if (event.target.tagName === 'SPAN') {
+  if (event.target.nextElementSibling.tagName === 'UL') {
     if (event.target.nextElementSibling.style.display !== 'none') {
       event.target.nextElementSibling.style.display = 'none';
     } else {
