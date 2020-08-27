@@ -1,6 +1,12 @@
 'use strict';
 
 const lists = document.querySelectorAll('ul');
+const tree = document.querySelector('.tree');
+
+tree.style.cssText = `
+  position: absolute;
+  top: 100px;
+`;
 
 for (const list of lists) {
   for (const li of list.children) {
