@@ -2,6 +2,10 @@
 
 const tree = document.querySelector('.tree');
 
+tree.style.position = 'absolute';
+tree.style.top = '100px';
+tree.style.left = '50px';
+
 [...tree.querySelectorAll('li')]
   .forEach(li => {
     const span = document.createElement('span');
