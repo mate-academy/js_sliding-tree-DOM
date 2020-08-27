@@ -16,17 +16,13 @@ tree.style.cssText = `
   li.prepend(span);
 });
 
-[...document.querySelectorAll('ul')].forEach(el => {
-  el.addEventListener('click', (event) => {
-    event.stopPropagation();
+tree.addEventListener('click', (event) => {
+  const targetNode = event.target;
 
-    const targetNode = event.target;
+  if (targetNode.tagName.toLowerCase() === 'span'
+  && targetNode.parentNode.querySelector('ul')) {
+    const ul = targetNode.parentNode.childNodes[1];
 
-    if (targetNode.tagName.toLowerCase() === 'span'
-    && targetNode.parentNode.querySelector('ul')) {
-      const ul = targetNode.parentNode.childNodes[1];
-
-      ul.hidden = !ul.hidden;
-    }
-  });
+    ul.hidden = !ul.hidden;
+  };
 });
