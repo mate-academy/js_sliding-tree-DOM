@@ -3,6 +3,8 @@
 const list = document.querySelector('.tree');
 const items = [ ...document.querySelectorAll('li') ];
 
+list.style = 'position: absolute; top: 200px';
+
 items.forEach(item => {
   const span = document.createElement('span');
 
