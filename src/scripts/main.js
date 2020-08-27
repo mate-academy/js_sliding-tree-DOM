@@ -10,6 +10,9 @@ for (const a of document.querySelectorAll('li')) {
 
 const block = document.querySelector('.tree');
 
+block.style.position = 'absolute';
+block.style.top = '50px';
+
 block.addEventListener('click', (event) => {
   const ul = event.target;
 
