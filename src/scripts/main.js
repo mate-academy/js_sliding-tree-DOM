@@ -10,8 +10,8 @@ for (const li of [...liElements]) {
 }
 
 list.addEventListener('click', (event) => {
-  const li = event.target.parentElement;
-  const innerList = li.querySelector('ul');
+  const parentOfTarget = event.target.parentElement;
+  const innerList = parentOfTarget.querySelector('ul');
   const tagName = event.target.tagName;
 
   if (tagName === 'UL' || tagName === 'LI') {
