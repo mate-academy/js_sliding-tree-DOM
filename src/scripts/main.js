@@ -1,6 +1,7 @@
 'use strict';
 
 document.body.style.overflowX = 'hidden';
+document.body.style.justifyContent = 'flex-start';
 
 document.querySelectorAll('ul').forEach(ul => {
   ul.style.transitionDuration = '0.5s';
