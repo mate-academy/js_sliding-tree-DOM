@@ -13,8 +13,13 @@ const items = document.querySelectorAll('li');
     textNode.remove();
   });
 
+const ul = document.querySelector('.tree');
 const spans = document.querySelectorAll('span');
 let isVisible = true;
+
+ul.style.position = 'fixed';
+ul.style.top = ul.getBoundingClientRect().y + 'px';
+ul.style.left = ul.getBoundingClientRect().x + 'px';
 
 [...spans].forEach(span => {
   span.addEventListener('click', event => {
