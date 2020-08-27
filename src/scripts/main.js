@@ -2,6 +2,7 @@
 
 const tree = document.querySelector('.tree');
 const listElements = [...document.querySelectorAll('li')];
+
 const coords = tree.getBoundingClientRect();
 
 tree.style.cssText = `
