@@ -21,15 +21,7 @@ const hideList = (event) => {
     return;
   }
 
-  if (item.style.visibility === 'hidden') {
-    item.style.visibility = 'visible';
-    item.style.position = 'static';
-    item.style.opacity = '1';
-  } else {
-    item.style.visibility = 'hidden';
-    item.style.position = 'absolute';
-    item.style.opacity = '0';
-  }
+  item.hidden = !item.hidden;
 };
 
 fullList.addEventListener('click', hideList);
