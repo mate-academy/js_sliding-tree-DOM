@@ -8,14 +8,12 @@ for (const a of document.querySelectorAll('li')) {
   span.nextSibling.remove();
 }
 
-const spans = document.querySelectorAll('span');
+const block = document.querySelector('.tree');
 
-for (const a of spans) {
-  a.addEventListener('click', (event) => {
-    const ul = event.target;
+block.addEventListener('click', (event) => {
+  const ul = event.target;
 
-    if (ul.nextElementSibling.tagName === 'UL') {
-      ul.nextElementSibling.hidden = !ul.nextElementSibling.hidden;
-    }
-  });
-}
+  if (ul.nextElementSibling.tagName === 'UL') {
+    ul.nextElementSibling.hidden = !ul.nextElementSibling.hidden;
+  }
+});
