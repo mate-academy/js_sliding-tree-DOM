@@ -12,6 +12,7 @@ const block = document.querySelector('.tree');
 
 block.style.position = 'absolute';
 block.style.top = '50px';
+block.style.left = '40%';
 
 block.addEventListener('click', (event) => {
   const ul = event.target;
