@@ -13,11 +13,11 @@ function hideList() {
   spanWrapper('li');
 
   document.querySelector('.tree').addEventListener('click', (event) => {
-    if (event.target.nextSibling.nextSibling.nodeName === 'UL') {
-      if (event.target.nextSibling.nextSibling.style.display !== 'none') {
-        event.target.nextSibling.nextSibling.style.display = 'none';
+    if (event.target.nextElementSibling.nodeName === 'UL') {
+      if (event.target.nextElementSibling.style.display !== 'none') {
+        event.target.nextElementSibling.style.display = 'none';
       } else {
-        event.target.nextSibling.nextSibling.style.display = 'block';
+        event.target.nextElementSibling.style.display = 'block';
       }
     }
   });
