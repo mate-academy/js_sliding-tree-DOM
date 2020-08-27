@@ -10,15 +10,9 @@ for (const li of [...liElements]) {
 }
 
 list.addEventListener('click', (event) => {
-  const parentOfTarget = event.target.parentElement;
-  const innerList = parentOfTarget.querySelector('ul');
-  const tagName = event.target.tagName;
+  const innerList = event.target.nextElementSibling;
 
-  if (tagName === 'UL' || tagName === 'LI') {
-    return;
-  }
-
-  if (innerList !== null) {
+  if (event.target.tagName === 'SPAN' && innerList !== null) {
     innerList.hidden = !innerList.hidden;
   }
 });
