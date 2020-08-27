@@ -1,5 +1,14 @@
 'use strict';
 
+const tree = document.querySelector('.tree');
+const coords = tree.getBoundingClientRect();
+
+tree.style.cssText = `
+  position: absolute;
+  top: ${coords.top}px;
+  left: ${coords.left}px;
+`;
+
 [...document.querySelectorAll('li')].forEach((li) => {
   const span = document.createElement('span');
 
@@ -17,17 +26,7 @@
     && targetNode.parentNode.querySelector('ul')) {
       const ul = targetNode.parentNode.childNodes[1];
 
-      ul.style.transformOrigin = 'top';
-      ul.style.transition = '0.5s';
-      ul.style.overflow = 'hidden';
-
-      if ((ul.style.transform === 'scaleY(0)')) {
-        ul.style.transform = 'none';
-        ul.style.maxHeight = '';
-      } else {
-        ul.style.transform = 'scaleY(0)';
-        ul.style.maxHeight = '0';
-      }
+      ul.hidden = !ul.hidden;
     }
   });
 });
