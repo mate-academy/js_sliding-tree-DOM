@@ -3,6 +3,10 @@
 const tree = document.querySelector('.tree');
 const listElements = document.querySelectorAll('li');
 
+tree.style.position = 'absolute';
+tree.style.top = `${tree.getBoundingClientRect().top}px`;
+tree.style.left = `${tree.getBoundingClientRect().left}px`;
+
 [...listElements].forEach(element => {
   const span = document.createElement('span');
 
