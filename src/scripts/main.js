@@ -12,15 +12,11 @@ allLi.forEach(oneLi => {
 });
 
 list.addEventListener('click', event => {
-  if (event.target.tagName !== 'SPAN') {
+  const item = event.target;
+  const childrenContainer = item.nextElementSibling;
+
+  if (item.tagName !== 'SPAN' || !childrenContainer) {
     return;
   }
-
-  const childrenContainer = event.target.parentNode.querySelector('ul');
-
-  if (!childrenContainer) {
-    return;
-  }
-
   childrenContainer.hidden = !childrenContainer.hidden;
 });
