@@ -1,7 +1,12 @@
 'use strict';
 
-const textlist = document.querySelector('.tree').innerText;
+const tree = document.querySelector('.tree');
+const textlist = tree.innerText;
 const itemList = document.querySelectorAll('li');
+
+tree.style.position = 'absolute';
+tree.style.top = `${tree.getBoundingClientRect().top}px`;
+tree.style.left = `${tree.getBoundingClientRect().left}px`;
 
 const textListArray = textlist.split('\n');
 
