@@ -2,6 +2,11 @@
 
 const headers = [...document.querySelectorAll('li')]
   .filter(element => element.children.length > 0);
+const tree = document.querySelector('.tree');
+
+tree.style.position = 'absolute';
+tree.style.top = '25%';
+tree.style.left = '40%';
 
 headers.forEach(header => {
   const wrapper = document.createElement('span');
