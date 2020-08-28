@@ -22,3 +22,4 @@ tree.addEventListener('click', (event) => {
 
 tree.style.position = 'absolute';
 tree.style.top = '50px';
+tree.style.left = `${document.body.offsetWidth / 2 - tree.offsetWidth / 2}px`;
