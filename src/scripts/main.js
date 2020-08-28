@@ -19,3 +19,6 @@ tree.addEventListener('click', (event) => {
     target.nextElementSibling.hidden = false;
   }
 });
+
+tree.style.position = 'absolute';
+tree.style.top = '50px';
