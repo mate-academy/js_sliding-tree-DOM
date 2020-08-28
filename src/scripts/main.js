@@ -4,6 +4,12 @@
 const list = document.querySelector('.tree');
 const elem = [...list.querySelectorAll('li')];
 
+list.style.cssText = `
+  position: absolute;
+  top: ${list.getBoundingClientRect().top}px;
+  left: ${list.getBoundingClientRect().left}px;
+`;
+
 elem.forEach(li => {
   const span = document.createElement('span');
 
