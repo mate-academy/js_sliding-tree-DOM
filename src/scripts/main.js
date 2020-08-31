@@ -1,13 +1,15 @@
 'use strict';
 
 [...document.querySelectorAll('li')].forEach(elem => {
-  const name = elem.firstChild.textContent;
+  if (elem.children.length !== 0) {
+    const name = elem.firstChild.textContent;
 
-  elem.firstChild.textContent = '';
+    elem.firstChild.textContent = '';
 
-  elem.insertAdjacentHTML('afterbegin', `
-    <span class="header">${name}</span>
+    elem.insertAdjacentHTML('afterbegin', `
+      <span class="header">${name}</span>
   `);
+  }
 });
 
 const tree = document.querySelector('.tree');
