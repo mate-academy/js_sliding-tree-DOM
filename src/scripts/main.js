@@ -1,3 +1,20 @@
 'use strict';
 
-// write code here
+const [...list] = document.querySelectorAll('li');
+
+for (let i = 0; i < list.length; i++) {
+  const span = document.createElement('span');
+
+  list[i].prepend(span);
+  span.append(span.nextSibling);
+}
+
+const tree = document.querySelector('.tree');
+
+tree.addEventListener('click', (event) => {
+  const clientClick = event.target;
+
+  if (clientClick.nextSibling.tagName === 'UL') {
+    clientClick.nextSibling.hidden = !clientClick.nextSibling.hidden;
+  };
+});
