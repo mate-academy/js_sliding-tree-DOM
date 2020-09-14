@@ -15,8 +15,6 @@ tree.addEventListener('click', (event) => {
   const clientClick = event.target;
 
   if (clientClick.nextSibling.tagName === 'UL') {
-    clientClick.nextSibling.hidden = true;
-  } else {
-    clientClick.nextSibling.hidden = false;
-  }
+    clientClick.nextSibling.hidden = !clientClick.nextSibling.hidden;
+  };
 });
