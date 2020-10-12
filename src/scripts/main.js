@@ -14,10 +14,8 @@ listItems.forEach(item => {
 
 tree.addEventListener('click', event => {
   if (event.target.tagName === 'SPAN') {
-    if (event.target.parentElement.lastElementChild.style.display === 'none') {
-      event.target.parentElement.lastElementChild.style.display = 'block';
-    } else {
-      event.target.parentElement.lastElementChild.style.display = 'none';
-    }
+    const elementStyle = event.target.parentElement.lastElementChild.style;
+
+    elementStyle.display = elementStyle.display === 'none' ? 'block' : 'none';
   }
 });
