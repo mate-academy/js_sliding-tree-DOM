@@ -10,14 +10,14 @@ titles.forEach(({ firstChild }) => {
 
   firstChild.after(span);
   span.prepend(firstChild);
-})
+});
 
 tree.addEventListener('click', ({ target }) => {
-  if (target.tagName !== 'LI' || !target.firstElementChild) {
+  const list = target.nextSibling;
+
+  if (target.tagName !== 'SPAN' || !list) {
     return;
   }
-
-  const list = target.firstElementChild;
 
   list.style.display = window.getComputedStyle(list).display === 'block'
     ? 'none'
