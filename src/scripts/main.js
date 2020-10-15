@@ -19,7 +19,9 @@ tree.addEventListener('click', ({ target }) => {
     return;
   }
 
-  list.style.display = window.getComputedStyle(list).display === 'block'
+  const currentDisplay = window.getComputedStyle(list).display;
+
+  list.style.display = (currentDisplay === 'block')
     ? 'none'
     : 'block';
 });
