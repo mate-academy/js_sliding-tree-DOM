@@ -1,11 +1,11 @@
 'use strict';
 
 for (const element of document.querySelectorAll('li')) {
-  const span = document.createElement('span');
+  const newSpan = document.createElement('span');
 
-  element.prepend(span);
-  span.innerText = span.nextSibling.textContent;
-  span.nextSibling.remove();
+  element.prepend(newSpan);
+  newSpan.innerText = newSpan.nextSibling.textContent;
+  newSpan.nextSibling.remove();
 }
 
 const tree = document.querySelector('.tree');
