@@ -1,14 +1,15 @@
 'use strict';
 
 const tree = document.querySelector('.tree');
+const { top, left } = tree.getBoundingClientRect();
 
 tree.style.position = 'absolute';
-tree.style.top = tree.getBoundingClientRect().top + 'px';
-tree.style.left = tree.getBoundingClientRect().left + 'px';
+tree.style.top = top + 'px';
+tree.style.left = left + 'px';
 
-const liList = document.querySelectorAll('li');
+const listItems = document.querySelectorAll('li');
 
-for (const item of liList) {
+for (const item of listItems) {
   if (item.children.length) {
     const span = document.createElement('span');
 
@@ -17,7 +18,7 @@ for (const item of liList) {
   }
 }
 
-document.addEventListener('click', event => {
+tree.addEventListener('click', event => {
   const header = event.target;
 
   if (header.nextElementSibling.tagName === 'UL') {
