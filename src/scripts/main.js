@@ -1,6 +1,7 @@
 'use strict';
 
-const listTitle = document.querySelectorAll('li');
+const listTitle = [...document.querySelectorAll('li')]
+  .filter(title => title.children.length);
 
 listTitle.forEach(li => {
   const wrapper = document.createElement('span');
