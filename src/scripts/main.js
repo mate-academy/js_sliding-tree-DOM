@@ -14,12 +14,12 @@ for (const item of list) {
 
 tree.addEventListener('click', event => {
   if (event.target.tagName === 'SPAN') {
-    const styles = event.target.parentElement.lastElementChild.style;
+    const ulStyles = event.target.parentElement.lastElementChild.style;
 
-    if (styles.display === 'none') {
-      styles.display = 'block';
+    if (ulStyles.display === 'none') {
+      ulStyles.display = 'block';
     } else {
-      styles.display = 'none';
+      ulStyles.display = 'none';
     }
   }
 });
