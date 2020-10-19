@@ -3,7 +3,7 @@
 const list = document.querySelector('.tree');
 const treeList = list.querySelectorAll('ul');
 
-list.style = 'position: absolute; top: 180px; left 400px';
+treeList.style = 'position: absolute; top: 200px; left 300px; right: 700px';
 
 for (const tree of treeList) {
   const listName = tree.previousSibling.data.trim();
@@ -14,11 +14,11 @@ for (const tree of treeList) {
 }
 
 list.addEventListener('click', event => {
-  const cheked = event.target;
+  const target = event.target;
 
-  if (cheked.tagName === 'SPAN') {
-    const name = cheked.nextElementSibling;
+  if (target.tagName === 'SPAN') {
+    const item = target.nextElementSibling;
 
-    name.hidden = !name.hidden;
+    item.hidden = !item.hidden;
   }
 });
