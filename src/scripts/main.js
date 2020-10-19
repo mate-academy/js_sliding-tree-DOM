@@ -3,6 +3,8 @@
 const list = document.querySelector('.tree');
 const treeList = list.querySelectorAll('ul');
 
+list.style = 'position: absolute; top: 180px; left 400px';
+
 for (const tree of treeList) {
   const listName = tree.previousSibling.data.trim();
 
@@ -17,10 +19,6 @@ list.addEventListener('click', event => {
   if (cheked.tagName === 'SPAN') {
     const name = cheked.nextElementSibling;
 
-    if (name.style.display === 'block') {
-      name.style.display = 'none';
-    } else {
-      name.style.display = 'block';
-    }
+    name.hidden = !name.hidden;
   }
 });
