@@ -15,8 +15,6 @@ tree.addEventListener('click', (event) => {
   if (event.target.tagName === 'SPAN') {
     const list = event.target.nextSibling;
 
-    (list.style.display !== 'none')
-      ? list.style.display = 'none'
-      : list.style.display = 'block';
+    list.hidden = !list.hidden;
   }
 });
