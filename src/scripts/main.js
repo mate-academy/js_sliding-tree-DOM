@@ -17,14 +17,7 @@ tree.addEventListener('click', event => {
     return;
   }
 
-  const element = event.target;
-  const elementDisplay = element.nextSibling.style.display;
+  const element = event.target.nextElementSibling;
 
-  if (elementDisplay !== 'none') {
-    element.nextSibling.style.display = 'none';
-  }
-
-  if (elementDisplay === 'none') {
-    element.nextSibling.style.display = 'block';
-  }
+  element.hidden = !element.hidden;
 });
