@@ -1,6 +1,14 @@
 'use strict';
 
-for (const element of document.querySelectorAll('li')) {
+const listItems = document.querySelectorAll('li');
+const listItemsWithChildren = [...listItems]
+  .filter((listItem) => {
+    const childList = listItem.querySelector('ul');
+
+    return !!childList;
+  });
+
+for (const element of listItemsWithChildren) {
   const newSpan = document.createElement('span');
 
   element.prepend(newSpan);
