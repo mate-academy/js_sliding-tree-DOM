@@ -8,13 +8,11 @@ for (const element of document.querySelectorAll('li')) {
 }
 
 const tree = document.querySelector('.tree');
+const { top, left } = tree.getBoundingClientRect();
 
-(function ({ style }) {
-  style.position = 'absolute';
-  style.top = `${tree.getBoundingClientRect().top}px`;
-  style.left = `${tree.getBoundingClientRect().left}px`;
-}(tree));
-
+tree.style.position = 'absolute';
+tree.style.top = `${top}px`;
+tree.style.left = `${left}px`;
 
 tree.addEventListener('click', (event) => {
   const point = event.target;
