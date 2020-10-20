@@ -3,6 +3,10 @@
 const tree = document.querySelector('.tree');
 const listItem = document.querySelectorAll('li');
 
+tree.style.position = 'absolute';
+tree.style.top = tree.offsetTop + 'px';
+tree.style.left = tree.offsetLeft + 'px';
+
 listItem.forEach(li => {
   if (li.children.length > 0 && li.children[0].tagName === 'UL') {
     const span = document.createElement('span');
