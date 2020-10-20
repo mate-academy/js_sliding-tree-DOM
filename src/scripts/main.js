@@ -4,7 +4,7 @@ const tree = document.querySelector('.tree');
 const list = document.querySelectorAll('li');
 
 for (const item of list) {
-  if (item.children.length > 0 && item.firstElementChild.tagName === 'UL') {
+  if (item.firstElementChild && item.firstElementChild.tagName === 'UL') {
     const span = document.createElement('span');
 
     item.prepend(span);
