@@ -1,21 +1,28 @@
 'use strict';
 
-const tree = document.querySelector('.tree');
-const treeElements = document.querySelectorAll('li');
+const listItems = document.querySelectorAll('li');
+const listItemsWithChildren = [...listItems]
+  .filter((listItem) => {
+    const childList = listItem.querySelector('ul');
+    return !!childList;
+});
 
-for (const element of treeElements) {
+listItemsWithChildren.forEach((listItem) => {
+  const textNode = listItem.firstChild;
   const elementWrapper = document.createElement('span');
 
-  element.prepend(elementWrapper);
-  elementWrapper.append(elementWrapper.nextSibling);
-}
+  listItem.prepend(elementWrapper);
+  elementWrapper.append(textNode);
+});
+
+const tree = document.querySelector('.tree');
 
 tree.addEventListener('click', event => {
-  const target = event.target;
-
-  if (target.tagName !== 'SPAN') {
+  if (event.target.tagName !== 'SPAN') {
     return;
   }
 
-  target.nextElementSibling.hidden = !target.nextElementSibling.hidden;
+  const childList = event.target.nextElementSibling;
+
+  childList.hidden = !childList.hidden;
 });
