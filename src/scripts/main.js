@@ -1,9 +1,9 @@
 'use strict';
 
 const list = document.querySelector('.tree');
-const allLi = document.querySelectorAll('li');
+const listItems = document.querySelectorAll('li');
 
-for (const li of allLi) {
+for (const li of listItems) {
   const childList = li.querySelector('ul');
 
   if (childList) {
@@ -23,5 +23,4 @@ list.addEventListener('click', function(event) {
   const ul = event.target.nextElementSibling;
 
   ul.hidden = !ul.hidden;
-  event.target.style.fontWeight = ul.hidden ? '700' : '400';
 });
