@@ -1,7 +1,9 @@
 'use strict';
 
 const tree = document.querySelector('.tree');
-const list = document.querySelectorAll('li');
+
+const list = [...document.querySelectorAll('li')]
+  .filter((listItem) => !!listItem.querySelector('ul'));
 
 list.forEach(item => {
   const span = document.createElement('span');
