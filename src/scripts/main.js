@@ -13,13 +13,11 @@ for (const item of list) {
 }
 
 tree.addEventListener('click', event => {
-  if (event.target.tagName === 'SPAN') {
-    const ulStyles = event.target.parentElement.lastElementChild.style;
-
-    if (ulStyles.display === 'none') {
-      ulStyles.display = 'block';
-    } else {
-      ulStyles.display = 'none';
-    }
+  if (event.target.tagName !== 'SPAN') {
+    return;
   }
+
+  const childList = event.target.nextElementSibling;
+
+  childList.hidden = !childList.hidden;
 });
