@@ -1,25 +1,29 @@
 'use strict';
 
-const tree = document.querySelector('.tree');
-const lists = tree.querySelectorAll('ul');
+const listItems = document.querySelectorAll('li');
+const listItemsWithChildren = [...listItems]
+  .filter((listItem) => {
+    const childList = listItem.querySelector('ul');
 
-lists.forEach(list => {
-  const listHeader = list.previousSibling.data;
+    return Boolean(childList);
+  });
 
-  list.previousSibling.remove();
-  list.insertAdjacentHTML('beforebegin', `<span>${listHeader}</span>`);
+listItemsWithChildren.forEach((listItem) => {
+  const textNode = listItem.firstChild;
+  const textContainer = document.createElement('span');
+
+  textContainer.append(textNode);
+  listItem.prepend(textContainer);
 });
 
-tree.addEventListener('click', ({ target }) => {
-  const list = target.nextSibling;
+const tree = document.querySelector('.tree');
 
-  if (target.tagName !== 'SPAN' || !list) {
+tree.addEventListener('click', (event) => {
+  if (event.target.tagName !== 'SPAN') {
     return;
   }
 
-  const currentDisplay = window.getComputedStyle(list).display;
+  const childList = event.target.nextElementSibling;
 
-  list.style.display = (currentDisplay === 'block')
-    ? 'none'
-    : 'block';
+  childList.hidden = !childList.hidden;
 });
