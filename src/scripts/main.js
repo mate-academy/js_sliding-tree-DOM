@@ -1,15 +1,15 @@
 'use strict';
 
-const listElement = document.querySelectorAll('li');
+const listElements = document.querySelectorAll('li');
 
-for (const i of listElement) {
-  const addSpan = document.createElement('span');
+for (const listElement of listElements) {
+  const wrapper = document.createElement('span');
 
-  addSpan.className = 'active';
+  wrapper.className = 'active';
 
-  if (i.firstElementChild) {
-    i.prepend(addSpan);
-    addSpan.append(i.childNodes[1]);
+  if (listElement.firstElementChild) {
+    listElement.prepend(wrapper);
+    wrapper.append(listElement.childNodes[1]);
   }
 }
 
