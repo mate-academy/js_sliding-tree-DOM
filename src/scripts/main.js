@@ -2,8 +2,14 @@
 
 const tree = document.querySelector('.tree');
 const treeListsElements = tree.querySelectorAll('li');
+const treeListsElementsWithChildren = [...treeListsElements]
+  .filter(listItem => {
+    const childList = listItem.querySelector('ul');
 
-treeListsElements.forEach(li => {
+    return Boolean(childList);
+  });
+
+treeListsElementsWithChildren.forEach(li => {
   const span = document.createElement('span');
 
   li.prepend(span);
