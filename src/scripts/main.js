@@ -1,25 +1,22 @@
 'use strict';
 
 const tree = document.querySelector('.tree');
-const listLi = document.querySelectorAll('li');
+const listItems = [...tree.querySelectorAll('li')]
+  .filter(item => Boolean(item.querySelector('ul')));
 
-for (const li of listLi) {
-  if (li.children.length > 0 && li.firstElementChild.tagName === 'UL') {
-    const span = document.createElement('span');
+listItems.forEach(listItem => {
+  const span = document.createElement('span');
 
-    li.prepend(span);
-    span.append(li.childNodes[1]);
+  span.append(listItem.firstChild);
+  listItem.prepend(span);
+});
+
+tree.addEventListener('click', ({ target }) => {
+  if (target.tagName !== 'SPAN') {
+    return;
   }
-}
 
-tree.addEventListener('click', (event) => {
-  if (event.target.tagName === 'SPAN') {
-    const displaySpan = event.target.nextSibling.style;
+  const displaySpan = target.nextElementSibling;
 
-    if (displaySpan.display !== 'none') {
-      displaySpan.display = 'none';
-    } else {
-      displaySpan.display = 'block';
-    }
-  }
+  displaySpan.hidden = !displaySpan.hidden;
 });
