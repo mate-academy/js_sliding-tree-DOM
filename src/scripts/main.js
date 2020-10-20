@@ -8,7 +8,7 @@ headers.forEach((element) => {
   const wrapper = document.createElement('span');
 
   element.prepend(wrapper);
-  wrapper.append(wrapper.nextSibling);
+  wrapper.append(wrapper.nextElementSibling);
 });
 
 list.addEventListener('click', (event) => {
