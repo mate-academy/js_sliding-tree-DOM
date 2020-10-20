@@ -1,9 +1,16 @@
 'use strict';
 
 const list = document.querySelector('.tree');
-const listItmes = list.querySelectorAll('li');
+const listItms = list.querySelectorAll('li');
 
-for (const li of listItmes) {
+const listItemsWithChildren = [...listItms]
+  .filter(listItem => {
+    const childList = listItem.querySelector('ul');
+
+    return !!childList;
+  });
+
+for (const li of listItemsWithChildren) {
   const span = document.createElement('span');
 
   li.prepend(span);
