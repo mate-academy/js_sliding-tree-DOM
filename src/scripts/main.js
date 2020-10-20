@@ -4,8 +4,9 @@ const listItems = document.querySelectorAll('li');
 const listItemsWithChildren = [...listItems]
   .filter((listItem) => {
     const childList = listItem.querySelector('ul');
+
     return !!childList;
-});
+  });
 
 listItemsWithChildren.forEach((listItem) => {
   const textNode = listItem.firstChild;
