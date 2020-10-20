@@ -3,7 +3,7 @@
 const list = document.querySelector('.tree');
 const treeList = list.querySelectorAll('ul');
 
-treeList.style = 'position: absolute; top: 200px; left 300px; right: 700px';
+list.style.cssText = 'position: absolute ; top: 200px; left 300px';
 
 for (const tree of treeList) {
   const listName = tree.previousSibling.data.trim();
