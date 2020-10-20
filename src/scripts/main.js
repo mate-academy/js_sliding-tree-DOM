@@ -1,11 +1,11 @@
 'use strict';
 
 const tree = document.querySelector('.tree');
-const list = tree.querySelectorAll('ul');
+const lists = tree.querySelectorAll('ul');
 
 tree.style.cssText = 'position: absolute; top: 200px; left: 600px;';
 
-for (const elem of list) {
+for (const elem of lists) {
   const listName = elem.previousSibling.data.trim();
 
   elem.previousSibling.remove();
@@ -13,9 +13,7 @@ for (const elem of list) {
   elem.insertAdjacentHTML('beforebegin', `<span>${listName}</span>`);
 };
 
-tree.addEventListener('click', (event) => {
-  const target = event.target;
-
+tree.addEventListener('click', ({ target }) => {
   if (target.tagName === 'SPAN') {
     const element = target.nextElementSibling;
 
