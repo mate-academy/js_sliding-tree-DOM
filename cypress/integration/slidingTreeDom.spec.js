@@ -1,19 +1,19 @@
 'use strict';
 
-Cypress.Commands.add('hideTree', (selector) => {
-  cy.get('ul').contains(selector).click();
+Cypress.Commands.add('slideTree', (selector) => {
+  cy.contains(selector).click();
 
-  cy.get('ul').contains(selector).parent().should(($ul) => {
-    const ul = $ul.find('ul').is(':hidden');
+  cy.contains(selector).parent().should(($ul) => {
+    const isHidden = $ul.find('ul').is(':hidden');
 
-    expect(ul).to.equal(true);
+    expect(isHidden).to.equal(true);
   });
-  cy.get('ul').contains(selector).click();
+  cy.contains(selector).click();
 
-  cy.get('ul').contains(selector).parent().should(($ul) => {
-    const ul = $ul.find('ul').is(':visible');
+  cy.contains(selector).parent().should(($ul) => {
+    const isVisible = $ul.find('ul').is(':visible');
 
-    expect(ul).to.equal(true);
+    expect(isVisible).to.equal(true);
   });
 });
 
@@ -23,14 +23,14 @@ describe(('Sliding tree'), () => {
   });
 
   it(`should hide/show first level <ul> elements by click `, () => {
-    cy.hideTree('Fruit');
-    cy.hideTree('Fish');
+    cy.slideTree('Fruit');
+    cy.slideTree('Fish');
   });
 
   it(`should hide/show second level <ul> elements by click`, () => {
-    cy.hideTree('Red');
-    cy.hideTree('Yellow');
-    cy.hideTree('Ocean fishes');
-    cy.hideTree('Freshwater fish');
+    cy.slideTree('Red');
+    cy.slideTree('Yellow');
+    cy.slideTree('Ocean fishes');
+    cy.slideTree('Freshwater fish');
   });
 });
