@@ -13,7 +13,7 @@ Requirements:
 - Clicking on the headline should hide or show elements.
 - Clicking outside the title text (in an empty place) should do nothing.
 
-Hint: you need to cover each header text to `span` tag.
+Hint: you need to wrap each header text into `span` tag.
 
 Do not change HTML or CSS in this task.
 
