@@ -1,7 +1,9 @@
 1. Replace `<your_account>` with your Github username in the link
     - [DEMO LINK](https://<your_account>.github.io/js_sliding-tree-DOM/)
 2. Follow [this instructions](https://mate-academy.github.io/layout_task-guideline/)
-    - There are no tests for this task so use `npm run lint` command instead of `npm test` 
+    - Run `npm run test` command to test your code;
+    - Run `npm run test:only -- -n` to run fast test ignoring linter;
+    - Run `npm run test:only -- -l` to run fast test with additional info in console ignoring linter.
 
 ### Task: Sliding tree
 
@@ -11,7 +13,7 @@ Requirements:
 - Clicking on the headline should hide or show elements.
 - Clicking outside the title text (in an empty place) should do nothing.
 
-Hint: you need to cover each header text to `span` tag.
+Hint: you need to wrap each header text into `span` tag.
 
 Do not change HTML or CSS in this task.
 
