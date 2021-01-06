@@ -16,20 +16,20 @@ for (const item of subList) {
   item.firstElementChild.nextSibling.remove();
 }
 
-tree.addEventListener('click', (mouseEvent) => {
-  if (mouseEvent.target.classList.contains('list')) {
-    if (mouseEvent.target.nextElementSibling.style.display === 'none') {
-      mouseEvent.target.nextElementSibling.style.display = 'block';
+tree.addEventListener('click', (e) => {
+  if (e.target.classList.contains('list')) {
+    if (e.target.nextElementSibling.style.display === 'none') {
+      e.target.nextElementSibling.style.display = 'block';
     } else {
-      mouseEvent.target.nextElementSibling.style.display = 'none';
+      e.target.nextElementSibling.style.display = 'none';
     }
   }
 
-  if (mouseEvent.target.classList.contains('sub-list')) {
-    if (mouseEvent.target.nextElementSibling.style.display === 'none') {
-      mouseEvent.target.nextElementSibling.style.display = 'block';
+  if (e.target.classList.contains('sub-list')) {
+    if (e.target.nextElementSibling.style.display === 'none') {
+      e.target.nextElementSibling.style.display = 'block';
     } else {
-      mouseEvent.target.nextElementSibling.style.display = 'none';
+      e.target.nextElementSibling.style.display = 'none';
     }
   }
 });
