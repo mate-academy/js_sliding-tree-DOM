@@ -13,6 +13,10 @@ function addSpan(elements) {
 }
 
 const hide = (newEvent) => {
+  if (!newEvent.target.closest('span')) {
+    return;
+  }
+
   const elem = newEvent.target.closest('span').nextSibling;
 
   elem.style.display === 'none'
