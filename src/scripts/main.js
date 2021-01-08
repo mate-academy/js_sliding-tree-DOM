@@ -15,10 +15,6 @@ headlines.addEventListener('click', (e) => {
   const list = e.target.nextSibling;
 
   if (e.target.tagName === 'SPAN') {
-    if (list.style.display === 'none') {
-      list.style.display = '';
-    } else {
-      list.style.display = 'none';
-    }
+    list.hidden = !list.hidden;
   }
 });
