@@ -5,11 +5,10 @@ const headers = [...document.querySelectorAll('li')];
 for (const header of headers) {
   const text = header.firstChild.data;
 
-  header.insertAdjacentHTML('afterbegin', `<span>${text}</span>`);
-
-  if (header.firstChild.nextSibling.nodeName === '#text') {
+  if (header.childNodes.length > 1) {
+    header.insertAdjacentHTML('afterbegin', `<span>${text}</span>`);
     header.firstChild.nextSibling.data = '';
-  };
+  }
 }
 
 const spans = [...document.querySelectorAll('span')];
