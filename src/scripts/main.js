@@ -1,22 +1,17 @@
 'use strict';
 
-const list = document.querySelector('.tree');
+const tree = document.querySelector('.tree');
+const list = document.querySelectorAll('li');
 
-[...list.children].forEach(element => {
+[...list].filter(e => e.children.length > 0).forEach(element => {
   headerWrapper(element);
-
-  [...element.children[1].children].forEach(item => {
-    headerWrapper(item);
-  });
 });
 
-list.addEventListener('click', (fact) => {
-  if (fact.target.classList.contains('open')) {
-    fact.target.classList.toggle('open');
-    fact.target.nextSibling.style.display = 'block';
-  } else if (fact.target.classList.contains('wrap')) {
-    fact.target.classList.add('open');
-    fact.target.nextSibling.style.display = 'none';
+tree.addEventListener('click', (fact) => {
+  const el = fact.target.nextElementSibling;
+
+  if (el.tagName === 'UL') {
+    el.hidden = !el.hidden;
   }
 });
 
