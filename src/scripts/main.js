@@ -2,10 +2,10 @@
 
 const root = document.querySelector('.tree');
 
-root.querySelectorAll('ul').forEach(item => creating(item));
-root.addEventListener('click', e => hiding(e));
+root.querySelectorAll('ul').forEach(item => wrapInSpan(item));
+root.addEventListener('click', e => hideElement(e));
 
-function creating(item) {
+function wrapInSpan(item) {
   const elem = item.previousSibling;
 
   elem.parentNode.insertAdjacentHTML('afterbegin',
@@ -14,7 +14,7 @@ function creating(item) {
   elem.textContent = '';
 }
 
-function hiding(e) {
+function hideElement(e) {
   if (e.target.matches('span')) {
     const child = e.target.nextElementSibling;
 
