@@ -13,11 +13,7 @@ list.forEach(el => {
 
 function hider(e) {
   if (e.target.tagName === 'SPAN') {
-    if (e.target.nextElementSibling.hidden === false) {
-      e.target.nextElementSibling.hidden = true;
-    } else {
-      e.target.nextElementSibling.hidden = false;
-    }
+    e.target.nextElementSibling.hidden = !e.target.nextElementSibling.hidden;
   }
 }
 
