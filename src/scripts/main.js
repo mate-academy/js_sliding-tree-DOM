@@ -14,5 +14,7 @@ list.forEach(item => {
 });
 
 tree.addEventListener('click', (e) => {
-  e.target.nextElementSibling.hidden = !e.target.nextElementSibling.hidden;
+  if (e.target.nextElementSibling.tagName === 'UL') {
+    e.target.nextElementSibling.hidden = !e.target.nextElementSibling.hidden;
+  }
 });
