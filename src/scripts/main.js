@@ -3,7 +3,7 @@
 const allLi = document.querySelectorAll('ul li');
 const list = document.querySelector('.tree');
 
-for (let item of [...allLi]) {
+[...allLi].forEach(item => {
   const spanContent = item.firstChild.textContent.trim();
 
   item.firstChild.remove();
@@ -11,9 +11,8 @@ for (let item of [...allLi]) {
   item.insertAdjacentHTML('afterbegin', `
     <span>${spanContent}</span>
   `);
-}
+});
 
-
-list.addEventListener('click', (event) => {
-  event.target.nextElementSibling.hidden = !event.target.nextElementSibling.hidden;
+list.addEventListener('click', (e) => {
+  e.target.nextElementSibling.hidden = !e.target.nextElementSibling.hidden;
 });
