@@ -18,13 +18,8 @@ liHeaders.forEach(spanner);
 subLiHeaders.forEach(spanner);
 
 list.addEventListener('click', (e) => {
-  if (e.target.nextSibling.tagName === 'UL') {
-    if (!e.target.nextSibling.hidden) {
-      e.target.nextSibling.hidden = true;
-
-      return;
-    }
-
-    e.target.nextSibling.hidden = false;
+  if (!e.target.nextSibling.tagName === 'UL') {
+    return;
   }
+  e.target.nextSibling.hidden = !e.target.nextSibling.hidden;
 });
