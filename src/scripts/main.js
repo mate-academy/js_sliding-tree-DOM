@@ -1,21 +1,20 @@
 'use strict';
 
 const items = [...document.querySelectorAll('li')];
+const tree = document.querySelector('.tree');
 
 items.forEach(item => {
-  const list = item.querySelector('ul');
-
-  if (!list) {
-    return;
-  }
-
-  const textOfItem = item.firstChild;
+  const textOfItem = item.firstChild.textContent;
   const span = document.createElement('span');
 
-  textOfItem.replaceWith(span);
-  span.textContent = textOfItem.data.trim();
+  if (item.childNodes.length > 1) {
+    item.firstChild.replaceWith(span);
+    span.append(textOfItem);
+  }
+});
 
-  span.addEventListener('click', () => {
-    list.hidden = !list.hidden;
-  });
+tree.addEventListener('click', (e) => {
+  if (e.target.tagName === 'SPAN') {
+    e.target.nextElementSibling.hidden = !e.target.nextElementSibling.hidden;
+  }
 });
