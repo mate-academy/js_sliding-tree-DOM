@@ -5,12 +5,12 @@ const list = document.querySelector('.tree');
 const listTitle = list.querySelectorAll('li');
 
 function hideElement(element) {
-  const hiddenElement = element.target.nextSibling.style;
+  const hiddenElement = element.target.nextSibling;
 
-  if (hiddenElement.display === 'none') {
-    hiddenElement.display = 'block';
+  if (hiddenElement.hidden === true) {
+    hiddenElement.hidden = false;
   } else {
-    hiddenElement.display = 'none';
+    hiddenElement.hidden = true;
   }
 }
 
