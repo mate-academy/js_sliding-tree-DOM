@@ -4,8 +4,8 @@ const list = document.querySelector('.tree');
 
 const listTitle = list.querySelectorAll('li');
 
-function hideElement(element) {
-  const hiddenElement = element.target.nextSibling;
+function toggleVisibility(ev) {
+  const hiddenElement = ev.target.nextSibling;
 
   if (hiddenElement.hidden === true) {
     hiddenElement.hidden = false;
@@ -20,5 +20,5 @@ for (const title of listTitle) {
   title.prepend(wrapper);
   wrapper.append(wrapper.nextSibling);
 
-  wrapper.addEventListener('click', hideElement);
+  wrapper.addEventListener('click', toggleVisibility);
 }
