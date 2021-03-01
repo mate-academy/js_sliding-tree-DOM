@@ -13,10 +13,10 @@ items.forEach(item => {
   }
 });
 
-function hideHandler(e) {
-  const toggler = e.target.closest('li').querySelector('ul');
+function toggleVisibility(e) {
+  const toggledElement = e.target.closest('li').querySelector('ul');
 
-  toggler.hidden = !toggler.hidden;
+  toggledElement.hidden = !toggledElement.hidden;
 };
 
-list.addEventListener('click', hideHandler);
+list.addEventListener('click', toggleVisibility);
