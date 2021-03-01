@@ -9,7 +9,7 @@ for (const li of tree.querySelectorAll('li')) {
   span.append(span.nextSibling);
 }
 
-const hide = (occasion) => {
+const visibilitySwitch = (occasion) => {
   const list = occasion.target.parentNode.querySelector('ul');
 
   if (occasion.target.tagName !== 'SPAN') {
@@ -23,5 +23,5 @@ const hide = (occasion) => {
   list.hidden = !list.hidden;
 };
 
-tree.addEventListener('click', hide);
+tree.addEventListener('click', visibilitySwitch);
 // write code here
