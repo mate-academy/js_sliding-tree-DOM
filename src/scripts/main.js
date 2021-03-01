@@ -9,11 +9,10 @@ liTitles.map(li => {
   span.innerText = li.firstChild.textContent;
 
   li.firstChild.replaceWith(span);
-  span.nextElementSibling.style.display = 'block';
+
+  const list = li.querySelector('ul');
 
   span.addEventListener('click', () => {
-    span.nextElementSibling.style.display !== 'block'
-      ? span.nextElementSibling.style.display = 'block'
-      : span.nextElementSibling.style.display = 'none';
+    list.hidden = !list.hidden;
   });
 });
