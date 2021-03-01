@@ -13,14 +13,10 @@ items.forEach(item => {
   }
 });
 
-function hide(e) {
-  if (e.target.closest('li')) {
-    if (e.target.nextElementSibling.hidden) {
-      e.target.nextElementSibling.hidden = false;
-    } else {
-      e.target.nextElementSibling.hidden = true;
-    }
-  }
+function hideHandler(e) {
+  const toggler = e.target.closest('li').querySelector('ul');
+
+  toggler.hidden = !toggler.hidden;
 };
 
-list.addEventListener('click', hide);
+list.addEventListener('click', hideHandler);
