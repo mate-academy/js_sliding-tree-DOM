@@ -1,18 +1,20 @@
 'use strict';
 
+const tree = document.querySelector('.tree');
 const liAll = document.querySelectorAll('li');
-const liTitles = [...liAll].filter(li => li.children.length > 0);
 
-liTitles.map(li => {
-  const span = document.createElement('span');
+liAll.forEach(li => {
+  if (li.children.length > 0) {
+    const span = document.createElement('span');
 
-  span.innerText = li.firstChild.textContent;
+    span.innerText = li.firstChild.textContent;
 
-  li.firstChild.replaceWith(span);
+    li.firstChild.replaceWith(span);
+  }
 
-  const list = li.querySelector('ul');
+  tree.addEventListener('click', (e) => {
+    const list = e.target.closest('li').querySelector('ul');
 
-  span.addEventListener('click', () => {
     list.hidden = !list.hidden;
   });
 });
