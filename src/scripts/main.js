@@ -1,14 +1,15 @@
 'use strict';
 
-const [...ul] = document.querySelectorAll('ul');
-const headers = ul.map(item => item.closest('li'))
-  .filter(item => item !== null);
+const ul = [...document.querySelectorAll('ul')];
+const headers = ul.map(item => {
+  return item.closest('li');
+}).filter(item => item !== null);
 
 headers.map(item => {
   return item.insertAdjacentHTML('afterbegin', `<span></span>`);
 });
 
-const [...spans] = document.querySelectorAll('span');
+const spans = [...document.querySelectorAll('span')];
 
 spans.map(span => span.append(span.nextSibling));
 
