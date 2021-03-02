@@ -14,10 +14,8 @@ for (const item of items) {
   }
 }
 
-function toggleViseble(e) {
+tree.addEventListener('click', (e) => {
   const toggle = e.target.closest('li').querySelector('ul');
 
   toggle.hidden = !toggle.hidden;
-};
-
-tree.addEventListener('click', toggleViseble);
+});
