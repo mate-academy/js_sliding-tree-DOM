@@ -11,10 +11,10 @@ liAll.forEach(li => {
 
     li.firstChild.replaceWith(span);
   }
+});
 
-  tree.addEventListener('click', (e) => {
-    const list = e.target.closest('li').querySelector('ul');
+tree.addEventListener('click', (e) => {
+  const list = e.target.closest('li').querySelector('ul');
 
-    list.hidden = !list.hidden;
-  });
+  list.hidden = !list.hidden;
 });
