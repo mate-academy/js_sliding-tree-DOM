@@ -16,9 +16,5 @@ const forest = document.querySelectorAll('li');
 list.addEventListener('click', (e) => {
   const item = e.target.closest('li').querySelector('ul');
 
-  if (item.hidden) {
-    item.hidden = false;
-  } else {
-    item.hidden = true;
-  }
+  item.hidden = !item.hidden;
 });
