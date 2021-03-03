@@ -2,9 +2,9 @@
 
 const list = document.querySelector('.tree');
 
-const forest = document.querySelectorAll('li');
+const listLies = document.querySelectorAll('li');
 
-[...forest].filter(li => li.children.length > 0)
+[...listLies].filter(li => li.children.length > 0)
   .forEach(li => {
     const span = document.createElement('span');
 
