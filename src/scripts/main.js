@@ -1,9 +1,9 @@
 'use strict';
 
 const tree = document.querySelector('.tree');
-const items = [...tree.querySelectorAll('li')];
+const listItem = [...tree.querySelectorAll('li')];
 
-items.forEach(item => {
+listItem.forEach(item => {
   const list = item.querySelector('ul');
 
   if (!list) {
@@ -11,12 +11,12 @@ items.forEach(item => {
   }
 
   const textNode = item.firstChild;
-  const span = document.createElement('span');
+  const titleWrapper = document.createElement('span');
 
-  textNode.replaceWith(span);
-  span.textContent = textNode.data.trim();
+  textNode.replaceWith(titleWrapper);
+  titleWrapper.textContent = textNode.data.trim();
 
-  span.addEventListener('click', () => {
+  titleWrapper.addEventListener('click', () => {
     list.hidden = !list.hidden;
   });
 });
