@@ -8,15 +8,18 @@ headers.forEach(element => {
     const span = document.createElement('span');
 
     span.innerText = element.firstChild.textContent;
+    span.className = 'headerSpan';
     element.firstChild.replaceWith(span);
   }
 });
 
 root.addEventListener('click', (actualEvent) => {
-  const item = actualEvent.target.parentNode.querySelector('ul');
+  const groupOfElements = actualEvent.target.closest('.headerSpan');
 
-  if (!item || !root.contains(item)) {
+  if (!groupOfElements || !root.contains(groupOfElements)) {
     return;
   }
-  item.hidden = !item.hidden;
+
+  groupOfElements.nextElementSibling.hidden
+  = !groupOfElements.nextElementSibling.hidden;
 });
