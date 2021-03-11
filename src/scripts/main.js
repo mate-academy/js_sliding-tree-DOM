@@ -13,7 +13,7 @@ for (const element of elementsToSpan) {
 }
 
 list.addEventListener('click', (e) => {
-  if (e.target.className === 'span') {
+  if (e.target.closest('.span')) {
     const innerList = e.target.nextElementSibling;
 
     innerList.hidden = !innerList.hidden;
