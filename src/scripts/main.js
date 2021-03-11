@@ -13,8 +13,8 @@ for (const branch of branches) {
   branch.firstChild.replaceWith(wrap);
 }
 
-tree.addEventListener('click', e => {
-  const list = e.target.closest('.spanToWrap');
+tree.addEventListener('click', clickEvent => {
+  const list = clickEvent.target.closest('.spanToWrap');
 
   if (list !== null && !list) {
     return;
