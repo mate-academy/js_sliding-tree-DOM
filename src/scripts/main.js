@@ -11,16 +11,16 @@ for (const li of tree.querySelectorAll('li')) {
   span.append(span.nextSibling);
 }
 
-tree.onclick = function(e) {
-  if (e.target.tagName !== 'SPAN') {
+tree.addEventListener('click', (clickEvent) => {
+  if (clickEvent.target.tagName !== 'SPAN') {
     return;
   }
 
-  const childrenContainer = e.target.parentNode.querySelector('ul');
+  const childrenContainer = clickEvent.target.parentNode.querySelector('ul');
 
   if (!childrenContainer) {
     return;
   }
 
   childrenContainer.hidden = !childrenContainer.hidden;
-};
+});
