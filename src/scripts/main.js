@@ -1,4 +1,3 @@
-/* eslint-disable no-useless-return */
 'use strict';
 
 const tree = document.querySelector('.tree');
