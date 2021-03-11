@@ -6,21 +6,19 @@ const branches = document.querySelectorAll('li');
 for (const branch of branches) {
   const wrap = document.createElement('span');
 
+  wrap.className = 'spanToWrap';
+
   wrap.innerText = branch.firstChild.textContent;
 
   branch.firstChild.replaceWith(wrap);
 }
 
 tree.addEventListener('click', e => {
-  const list = e.target.closest('li').querySelector('ul');
+  const list = e.target.closest('.spanToWrap');
 
-  if (list === null) {
+  if (list !== null && !list) {
     return;
   }
 
-  if (list.style.display === 'none') {
-    list.style.display = 'block';
-  } else {
-    list.style.display = 'none';
-  }
+  list.nextElementSibling.hidden = !list.nextElementSibling.hidden;
 });
