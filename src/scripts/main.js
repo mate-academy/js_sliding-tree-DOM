@@ -7,15 +7,15 @@ const elementsToSpan = [...document.querySelectorAll('li')]
 for (const element of elementsToSpan) {
   const elementContent = element.firstChild.textContent;
 
-  element.firstChild.remove();
-
-  element.insertAdjacentHTML('afterbegin',
-    `<span>${elementContent}</span>`
-  );
+  element.firstChild.replaceWith(document.createElement('span'));
+  element.firstChild.textContent = elementContent;
+  element.firstChild.classList.add('span');
 }
 
 list.addEventListener('click', (e) => {
-  if (e.target.tagName.toLowerCase() === 'span') {
-    e.target.nextElementSibling.hidden = !e.target.nextElementSibling.hidden;
+  if (e.target.className === 'span') {
+    const innerList = e.target.nextElementSibling;
+
+    innerList.hidden = !innerList.hidden;
   }
 });
