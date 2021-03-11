@@ -10,17 +10,15 @@ for (const item of [...listOfLi]) {
     item.firstChild.remove();
 
     item.insertAdjacentHTML('afterbegin', `
-      <span>${textContant}</span>
+      <span class="wrapper">${textContant}</span>
     `);
   }
 }
 
 tree.addEventListener('click', e => {
-  if (e.target.tagName !== 'SPAN') {
-    return;
-  }
+  const spanClick = e.target.closest('.wrapper');
 
-  if (e.target.tagName === 'SPAN') {
+  if (spanClick || tree.contains(spanClick)) {
     const innerList = e.target.nextElementSibling;
 
     innerList.hidden = !innerList.hidden;
