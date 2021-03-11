@@ -7,9 +7,11 @@ const liElement = [...document.querySelectorAll('li')];
 for (let i = 0; i < liElement.length; i++) {
   const spanElement = document.createElement('span');
 
-  spanElement.innerText = liElement[i].firstChild.nodeValue;
-  liElement[i].prepend(spanElement);
-  liElement[i].childNodes[1].remove();
+  if (liElement[i].children.length > 0) {
+    spanElement.innerText = liElement[i].firstChild.nodeValue;
+    liElement[i].prepend(spanElement);
+    liElement[i].childNodes[1].remove();
+  }
 }
 
 const closeTree = (clickHandler) => {
