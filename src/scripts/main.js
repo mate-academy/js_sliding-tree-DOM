@@ -10,16 +10,17 @@ listOfTree.forEach(element => {
   const span = document.createElement('span');
   const firstChildOfElement = element.firstChild;
 
+  span.className = 'titleOfList';
   span.textContent = firstChildOfElement.textContent;
 
   firstChildOfElement.replaceWith(span);
 });
 
 tree.addEventListener('click', clickEvent => {
-  const element = clickEvent.target;
+  const element = clickEvent.target.closest('.titleOfList');
   const childrenListOfElement = element.parentNode.querySelector('ul');
 
-  if (element.tagName !== 'SPAN') {
+  if (!element || !tree.contains(element)) {
     return;
   }
 
