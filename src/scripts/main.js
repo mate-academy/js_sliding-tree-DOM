@@ -8,15 +8,17 @@ elementsList.forEach(li => {
     const span = document.createElement('span');
 
     span.innerText = li.firstChild.textContent;
-
+    span.className = 'spanItem';
     li.firstChild.replaceWith(span);
   }
 });
 
 tree.addEventListener('click', (clickEvent) => {
-  const list = clickEvent.target;
+  const list = clickEvent.target.closest('.spanItem');
 
-  if (list.tagName === 'SPAN') {
-    (list.nextSibling.hidden = !list.nextSibling.hidden);
+  if (!list || !tree.contains(list)) {
+    return;
   }
+
+  list.nextSibling.hidden = !list.nextSibling.hidden;
 });
