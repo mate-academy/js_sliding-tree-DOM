@@ -20,7 +20,8 @@ function visibilityToggler(e) {
     return;
   }
 
-  toggledElement.nextElementSibling.hidden = !toggledElement.nextElementSibling.hidden;
+  toggledElement.nextElementSibling.hidden
+    = !toggledElement.nextElementSibling.hidden;
 };
 
 list.addEventListener('click', visibilityToggler);
