@@ -15,7 +15,7 @@ for (const li of tree.querySelectorAll('li')) {
 tree.addEventListener('click', (clickEvent) => {
   const list = clickEvent.target.closest('.branch');
 
-  if (!list || list !== null) {
+  if (!list || list === null) {
     return;
   }
 
