@@ -15,7 +15,7 @@ for (let i = 0; i < liElements.length; i++) {
 }
 
 const closeTree = (clickHandler) => {
-  if (clickHandler.closest('span')) {
+  if (clickHandler.target.closest('span')) {
     clickHandler.target.nextSibling.hidden = !clickHandler
       .target.nextSibling.hidden;
   };
