@@ -7,20 +7,17 @@ const tree = document.querySelector('.tree');
 for (const li of tree.querySelectorAll('li')) {
   const span = document.createElement('span');
 
+  span.classList.add('branch');
   li.prepend(span);
   span.append(span.nextSibling);
 }
 
 tree.addEventListener('click', (clickEvent) => {
-  if (clickEvent.target.tagName !== 'SPAN') {
+  const list = clickEvent.target.closest('.branch');
+
+  if (!list || list !== null) {
     return;
   }
 
-  const childrenContainer = clickEvent.target.parentNode.querySelector('ul');
-
-  if (!childrenContainer) {
-    return;
-  }
-
-  childrenContainer.hidden = !childrenContainer.hidden;
+  list.nextElementSibling.hidden = !list.nextElementSibling.hidden;
 });
