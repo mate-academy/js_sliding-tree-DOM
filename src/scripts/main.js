@@ -8,26 +8,20 @@ li.forEach(element => {
   if (element.children.length !== 0) {
     const wrapElement = document.createElement('span');
 
+    wrapElement.className = 'wrapper';
     wrapElement.textContent = element.firstChild.textContent;
     element.firstChild.replaceWith(wrapElement);
   }
 });
 
 list.addEventListener('click', (eventClick) => {
-  const elementToHidden = eventClick.target.nextSibling;
+  const elementToHide = eventClick.target.nextSibling;
 
-  if (!elementToHidden) {
+  if (!elementToHide) {
     return;
   }
 
-  if (eventClick.target.tagName === 'SPAN'
-    && elementToHidden.hidden === false) {
-    elementToHidden.hidden = true;
-
-    return;
-  }
-
-  if (eventClick.target.tagName === 'SPAN' && elementToHidden.hidden === true) {
-    elementToHidden.hidden = false;
+  if (eventClick.target.classList.contains('wrapper')) {
+    elementToHide.hidden = !elementToHide.hidden;
   }
 });
