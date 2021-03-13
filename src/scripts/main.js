@@ -6,16 +6,18 @@ const list = document.querySelectorAll('li');
 tree.addEventListener('click', (clickEvent) => {
   const ul = clickEvent.target.nextSibling;
 
-  if (ul.hidden) {
+  if (clickEvent.target.className === 'wrapper') {
     ul.hidden = !ul.hidden;
-  } else {
-    ul.hidden = 'true';
   }
 });
 
 for (const part of list) {
   const span = document.createElement('span');
 
+  span.className = 'wrapper';
   span.textContent = part.firstChild.textContent;
-  part.firstChild.replaceWith(span);
+
+  if (part.lastElementChild) {
+    part.firstChild.replaceWith(span);
+  }
 }
