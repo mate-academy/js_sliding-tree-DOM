@@ -8,14 +8,14 @@ const lists = [...document.querySelectorAll('li')]
 for (const list of lists) {
   const span = document.createElement('span');
 
-  span.classList.add('ul__heading');
+  span.classList.add('tree__heading');
   span.textContent = list.firstChild.textContent.trim();
 
   list.firstChild.replaceWith(span);
 }
 
 tree.addEventListener('click', clickEvent => {
-  if (clickEvent.target.closest('.ul__heading')) {
+  if (clickEvent.target.closest('.tree__heading')) {
     clickEvent.target.nextElementSibling.hidden
     = !clickEvent.target.nextElementSibling.hidden;
   }
