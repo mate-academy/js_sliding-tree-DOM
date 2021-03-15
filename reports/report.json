@@ -5,9 +5,9 @@
     "passes": 2,
     "pending": 0,
     "failures": 0,
-    "start": "2021-03-14T09:55:46.297Z",
-    "end": "2021-03-14T09:55:47.826Z",
-    "duration": 1503,
+    "start": "2021-03-14T11:17:42.586Z",
+    "end": "2021-03-14T11:17:44.016Z",
+    "duration": 1397,
     "testsRegistered": 2,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "3dc2a4c9-350c-46cd-bb90-6da2c5bb5b4c",
+      "uuid": "92bb3c74-ae9c-4fb8-a836-097be28b1234",
       "title": "",
       "fullFile": "cypress\\integration\\slidingTreeDom.spec.js",
       "file": "cypress\\integration\\slidingTreeDom.spec.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "4e8c28fe-1836-407d-b220-b6320e7e2ac3",
+          "uuid": "aa9d6e73-f81f-4f9e-9f0f-20b761e26676",
           "title": "Sliding tree",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "should hide/show first level <ul> elements by click ",
               "fullTitle": "Sliding tree should hide/show first level <ul> elements by click ",
               "timedOut": null,
-              "duration": 703,
+              "duration": 589,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -47,8 +47,8 @@
               "context": null,
               "code": "cy.toggleTree('Fruit');\ncy.toggleTree('Fish');",
               "err": {},
-              "uuid": "fe6c1eec-1c61-41cf-976a-2702f058955c",
-              "parentUUID": "4e8c28fe-1836-407d-b220-b6320e7e2ac3",
+              "uuid": "c92e66a8-7167-426e-89d9-317faf2468c0",
+              "parentUUID": "aa9d6e73-f81f-4f9e-9f0f-20b761e26676",
               "isHook": false,
               "skipped": false
             },
@@ -56,7 +56,7 @@
               "title": "should hide/show second level <ul> elements by click",
               "fullTitle": "Sliding tree should hide/show second level <ul> elements by click",
               "timedOut": null,
-              "duration": 800,
+              "duration": 808,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -65,21 +65,21 @@
               "context": null,
               "code": "cy.toggleTree('Red');\ncy.toggleTree('Yellow');\ncy.toggleTree('Ocean fishes');\ncy.toggleTree('Freshwater fish');",
               "err": {},
-              "uuid": "0f75f562-0474-4ef7-a5e1-bce3c3fe63c7",
-              "parentUUID": "4e8c28fe-1836-407d-b220-b6320e7e2ac3",
+              "uuid": "0e71ceb3-7a0c-4f1c-9efe-b0ed5c5aebe5",
+              "parentUUID": "aa9d6e73-f81f-4f9e-9f0f-20b761e26676",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "fe6c1eec-1c61-41cf-976a-2702f058955c",
-            "0f75f562-0474-4ef7-a5e1-bce3c3fe63c7"
+            "c92e66a8-7167-426e-89d9-317faf2468c0",
+            "0e71ceb3-7a0c-4f1c-9efe-b0ed5c5aebe5"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 1503,
+          "duration": 1397,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
