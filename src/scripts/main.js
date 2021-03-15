@@ -13,8 +13,8 @@ const liElements = document.querySelectorAll('li');
   }
 });
 
-tree.addEventListener('click', () => {
-  const list = event.target.closest('.spanElement');
+tree.addEventListener('click', (currentEvent) => {
+  const list = currentEvent.target.closest('.spanElement');
 
   if (!list || !tree.contains(list)) {
     return;
