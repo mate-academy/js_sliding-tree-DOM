@@ -7,13 +7,16 @@ listItems.forEach(item => {
   const textNode = item.firstChild;
   const span = document.createElement('span');
 
+  span.className = 'wrapper';
+
   textNode.replaceWith(span);
 
   span.textContent = textNode.data;
 });
 
 tree.addEventListener('click', (clickEvent) => {
-  const listOfGoods = clickEvent.target.closest('li').querySelector('ul');
+  const listOfGoods = clickEvent.target.closest('.wrapper');
 
-  listOfGoods.hidden = !listOfGoods.hidden;
+  listOfGoods.nextElementSibling.hidden
+  = !listOfGoods.nextElementSibling.hidden;
 });
