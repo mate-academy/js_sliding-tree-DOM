@@ -9,8 +9,6 @@ activeBranch.forEach(element => {
   element.previousSibling.replaceWith(listHead);
 
   listHead.onclick = () => {
-    listHead.nextElementSibling.hidden === false
-      ? listHead.nextElementSibling.hidden = true
-      : listHead.nextElementSibling.hidden = false;
+    listHead.nextElementSibling.hidden = !listHead.nextElementSibling.hidden;
   };
 });
