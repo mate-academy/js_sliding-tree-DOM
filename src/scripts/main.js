@@ -25,7 +25,5 @@ document.addEventListener('click', (eventOne) => {
     return;
   }
 
-  const display = item.nextSibling.style.display;
-
-  item.nextSibling.style.display = display === 'none' ? 'block' : 'none';
+  item.nextSibling.hidden = !item.nextSibling.hidden;
 });
