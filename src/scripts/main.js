@@ -10,10 +10,6 @@ for (const item of tree) {
   item.previousSibling.replaceWith(span);
 
   span.onclick = () => {
-    if (span.nextSibling.style.display === 'none') {
-      span.nextSibling.style.display = 'block';
-    } else {
-      span.nextSibling.style.display = 'none';
-    }
+    span.nextSibling.hidden = !span.nextSibling.hidden;
   };
 }
