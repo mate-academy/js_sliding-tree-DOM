@@ -17,10 +17,6 @@ tree.addEventListener('click', (e) => {
   if (e.target.matches('span')) {
     const toHide = e.target.nextSibling;
 
-    if (toHide.style.display === 'none') {
-      toHide.style.display = '';
-    } else {
-      toHide.style.display = 'none';
-    }
+    toHide.hidden = !toHide.hidden;
   }
 });
