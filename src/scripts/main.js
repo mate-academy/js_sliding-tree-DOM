@@ -11,6 +11,6 @@ lists.forEach(element => {
   const nextElement = span.nextElementSibling;
 
   span.onclick = () => {
-    nextElement.hidden = nextElement.hidden === false;
+    nextElement.hidden = !nextElement.hidden;
   };
 });
