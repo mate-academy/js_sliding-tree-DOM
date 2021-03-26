@@ -28,10 +28,6 @@ ulElem.addEventListener('click', (e) => {
   if (clickedElement.tagName === 'SPAN') {
     const listElem = clickedElement.nextSibling;
 
-    if (listElem.style.display === 'none') {
-      listElem.style.display = 'block';
-    } else {
-      listElem.style.display = 'none';
-    }
+    listElem.hidden = !listElem.hidden;
   }
 });
