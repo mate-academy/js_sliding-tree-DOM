@@ -5,11 +5,7 @@ const changer = function(e) {
 
   e.preventDefault();
 
-  if (target.nextElementSibling.style.display !== 'none') {
-    target.nextElementSibling.style.display = 'none';
-  } else {
-    target.nextElementSibling.style.display = 'block';
-  }
+  target.nextElementSibling.hidden = !target.nextElementSibling.hidden;
 };
 
 const list = document.querySelectorAll('ul');
