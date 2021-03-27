@@ -10,12 +10,6 @@ elements.forEach(element => {
   element.previousSibling.replaceWith(span);
 
   span.onclick = () => {
-    const nextSibling = span.nextElementSibling;
-
-    if (nextSibling.style.display === 'none') {
-      nextSibling.style.display = 'block';
-    } else {
-      nextSibling.style.display = 'none';
-    }
+    span.nextElementSibling.hidden = !span.nextElementSibling.hidden;
   };
 });
