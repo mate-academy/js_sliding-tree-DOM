@@ -13,7 +13,7 @@ itemList.forEach(item => {
   }
 });
 
-list.onclick = (eventClick) => {
+list.addEventListener('click', (eventClick) => {
   const subList = eventClick.target.nextElementSibling;
 
   if (!subList || subList.tagName !== 'UL') {
@@ -25,4 +25,4 @@ list.onclick = (eventClick) => {
   } else {
     subList.style.display = `block`;
   }
-};
+});
