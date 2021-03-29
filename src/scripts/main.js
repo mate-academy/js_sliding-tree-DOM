@@ -1,8 +1,8 @@
 'use strict';
 
-const allLists = document.querySelectorAll('.tree ul');
+const lists = document.querySelectorAll('.tree ul');
 
-for (const item of allLists) {
+for (const item of lists) {
   const span = document.createElement('span');
 
   span.innerText = item.previousSibling.textContent;
