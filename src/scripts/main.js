@@ -8,7 +8,7 @@ for (const element of elements) {
   span.textContent = element.previousSibling.textContent;
   element.previousSibling.replaceWith(span);
 
-  span.onclick = () => {
-    span.nextElementSibling.hidden = !span.nextElementSibling.hidden;
-  };
+  span.addEventListener('click', (e) => {
+    e.target.nextElementSibling.hidden = !e.target.nextElementSibling.hidden;
+  });
 };
