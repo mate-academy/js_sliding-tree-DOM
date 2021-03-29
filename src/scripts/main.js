@@ -10,10 +10,10 @@ const changer = function(e) {
 
 const list = document.querySelectorAll('ul');
 
-for (let i = 0; i < list.length; i++) {
+for (const item of list) {
   const span = document.createElement('span');
 
-  span.textContent = list[i].previousSibling.textContent;
-  list[i].previousSibling.replaceWith(span);
+  span.textContent = item.previousSibling.textContent;
+  item.previousSibling.replaceWith(span);
   span.addEventListener('click', changer);
 }
