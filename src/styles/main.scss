@@ -10,7 +10,11 @@ body {
   flex-direction: column;
 }
 
-span:hover {
+// span:hover {
+//   font-weight: 700;
+//   cursor: pointer;
+// }
+span:not(:last-child):hover {
   font-weight: 700;
   cursor: pointer;
 }
