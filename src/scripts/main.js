@@ -10,18 +10,6 @@ const spanIn = (node) => {
 
     liArr[i].prepend(span);
     span.append(span.nextSibling);
-
-    if (liArr[i].children.length > 0) {
-      spanIn(liArr[i].firstChild);
-    } else {
-      const text = liArr[i].innerText;
-
-      liArr[i].innerText = null;
-
-      liArr[i].insertAdjacentHTML('beforeend', `
-  <span>${text}</span>
-  `);
-    }
   }
 };
 
