@@ -1,19 +1,16 @@
 'use strict';
 
-const tree = document.querySelector('.tree');
-const listPoints = document.querySelectorAll('li');
+wrapInSpan(document.querySelectorAll('li'));
 
-wrapInSpan(listPoints);
-
-tree.addEventListener('click', (e) => {
+document.querySelector('.tree').addEventListener('click', (e) => {
   if (e.target.tagName.toLowerCase() !== 'span') {
     return;
   }
 
-  const innerList = e.target.parentNode.querySelector('ul');
+  const nestedList = e.target.parentNode.querySelector('ul');
 
-  if (innerList) {
-    innerList.style.display = innerList.style.display === 'none'
+  if (nestedList) {
+    nestedList.style.display = nestedList.style.display === 'none'
       ? 'block'
       : 'none';
   }
@@ -24,7 +21,6 @@ function wrapInSpan(items) {
     const newNode = document.createElement('span');
 
     newNode.innerText = element.firstChild.nodeValue.trim();
-    element.removeChild(element.firstChild);
-    element.insertAdjacentElement('afterbegin', newNode);
+    element.replaceChild(newNode, element.firstChild);
   });
 }
