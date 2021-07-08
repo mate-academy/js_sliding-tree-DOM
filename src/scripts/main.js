@@ -7,13 +7,13 @@ listItems.forEach(item => {
   if (item.children.length > 0) {
     const textInfo = item.childNodes[0];
     const restOfList = item.childNodes[1];
-    const wraper = document.createElement('span');
+    const wrapper = document.createElement('span');
 
-    wraper.classList.add('heading');
-    wraper.append(textInfo);
+    wrapper.classList.add('heading');
+    wrapper.append(textInfo);
 
     item.innerHTML = '';
-    item.append(wraper);
+    item.append(wrapper);
     item.append(restOfList);
   }
 });
