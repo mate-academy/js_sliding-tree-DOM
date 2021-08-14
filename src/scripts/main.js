@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 const treeList = document.querySelector('.tree');
 const treeItems = treeList.querySelectorAll('li');
@@ -16,4 +16,4 @@ treeList.onclick = function(e) {
   if (e.target.tagName === 'SPAN') {
     e.target.nextElementSibling.hidden = !e.target.nextElementSibling.hidden;
   }
-}
+};
