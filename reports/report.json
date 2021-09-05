@@ -1,0 +1,124 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2021-09-05T07:54:13.498Z",
+    "end": "2021-09-05T07:54:16.015Z",
+    "duration": 2462,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "3f60b7ef-083e-4125-9750-dad67b26b572",
+      "title": "",
+      "fullFile": "cypress\\integration\\slidingTreeDom.spec.js",
+      "file": "cypress\\integration\\slidingTreeDom.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "49a7e7f1-3d5c-43d8-a0c7-a018de8cdf55",
+          "title": "Sliding tree",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should hide/show first level <ul> elements by click ",
+              "fullTitle": "Sliding tree should hide/show first level <ul> elements by click ",
+              "timedOut": null,
+              "duration": 1286,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.toggleTree('Fruit');\ncy.toggleTree('Fish');",
+              "err": {},
+              "uuid": "17b18d3b-98d5-4599-aefb-913830f29a7d",
+              "parentUUID": "49a7e7f1-3d5c-43d8-a0c7-a018de8cdf55",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should hide/show second level <ul> elements by click",
+              "fullTitle": "Sliding tree should hide/show second level <ul> elements by click",
+              "timedOut": null,
+              "duration": 1176,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.toggleTree('Red');\ncy.toggleTree('Yellow');\ncy.toggleTree('Ocean fishes');\ncy.toggleTree('Freshwater fish');",
+              "err": {},
+              "uuid": "d1a60245-8102-4c2d-9d5f-e53a5f0b8e95",
+              "parentUUID": "49a7e7f1-3d5c-43d8-a0c7-a018de8cdf55",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "17b18d3b-98d5-4599-aefb-913830f29a7d",
+            "d1a60245-8102-4c2d-9d5f-e53a5f0b8e95"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 2462,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.2.1"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "raw_reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "5.1.0"
+    }
+  }
+}
