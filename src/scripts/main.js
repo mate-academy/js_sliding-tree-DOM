@@ -8,23 +8,17 @@ list.forEach(element => {
   nodes.forEach(item => {
     if (item.tagName === 'UL') {
       const span = document.createElement('span');
+
       element.prepend(span);
-      span.append(span.nextSibling)
+      span.append(span.nextSibling);
     }
   });
 
-  document.addEventListener('click', event => {
-    if (event.target.tagName === 'SPAN') {
-      const node = [...event.target.parentNode.childNodes];
-      for (let i = 0; i < node.length; i++) {
-        if (node[i].tagName === 'UL' && node[i].hidden === false) {
-          node[i].hidden = true;
-        } else {
-          node[i].hidden = false;
-        }
-      }
+  document.addEventListener('click', e => {
+    if (e.target.tagName === 'SPAN' && e.target.nextSibling.hidden === false) {
+      e.target.nextSibling.hidden = true;
     } else {
-      return;
+      e.target.nextSibling.hidden = false;
     }
-  })
+  });
 });
