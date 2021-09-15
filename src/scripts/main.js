@@ -10,15 +10,7 @@ listOfLi.forEach(item => {
     span.append(span.nextSibling);
 
     span.addEventListener('click', () => {
-      const itemLi = item.querySelectorAll('li');
-
-      itemLi.forEach(li => {
-        if (li.style.display === 'none') {
-          li.style.display = 'block';
-        } else {
-          li.style.display = 'none';
-        }
-      });
+      span.nextElementSibling.hidden = !span.nextElementSibling.hidden;
     });
   }
 });
