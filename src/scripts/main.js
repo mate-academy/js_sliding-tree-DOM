@@ -2,21 +2,21 @@
 
 const listItems = document.querySelectorAll('li');
 
-for (const li of listItems) {
+for (const listItem of listItems) {
   const span = document.createElement('span');
 
-  li.prepend(span);
+  listItem.prepend(span);
   span.append(span.nextSibling);
 }
 
-const handler = function(e) {
-  const target = e.target.closest('span');
+const handlerClick = function(clickEvent) {
+  const target = clickEvent.target.closest('span');
 
   if (!target) {
     return;
   }
 
-  const list = e.target.parentNode.querySelector('ul');
+  const list = clickEvent.target.parentNode.querySelector('ul');
 
   if (!list) {
     return;
@@ -25,4 +25,4 @@ const handler = function(e) {
   list.hidden = !list.hidden;
 };
 
-document.addEventListener('click', handler);
+document.addEventListener('click', handlerClick);
