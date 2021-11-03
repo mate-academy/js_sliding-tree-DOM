@@ -2,20 +2,21 @@
 
 // write code here
 const tree = document.querySelector('.tree');
+const lists = document.querySelectorAll('li > ul:first-child');
+
+[...lists].map(item => {
+  const span = document.createElement('span');
+
+  span.append(item.previousSibling);
+  item.parentElement.prepend(span);
+});
 
 tree.addEventListener('click', (event) => {
-  const item = event.target;
+  const item = event.target.closest('span');
 
   if (!item || !tree.contains(item)) {
     return;
   }
 
-  if (!item.classList.contains('hidden')) {
-    [...item.children].map(elem => elem.hidden = true);
-    item.classList.add('hidden');
-  } else {
-    [...item.children].map(elem => elem.hidden = false);
-    item.classList.remove('hidden');
-  };
-
+  [...item.nextElementSibling.children].map(elem => elem.hidden = !elem.hidden);
 });
