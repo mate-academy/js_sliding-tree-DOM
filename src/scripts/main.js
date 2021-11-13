@@ -14,7 +14,7 @@ item.forEach(elem => {
 
 list.addEventListener('click', e => {
   if (e.target.closest('span')) {
-    const span = e.target.closest('span').nextSibling;
+    const span = e.target.nextSibling;
 
     span.hidden = !span.hidden;
   }
