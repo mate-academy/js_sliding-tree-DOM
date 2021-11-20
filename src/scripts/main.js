@@ -13,7 +13,6 @@ for (const key of items) {
 const tree = document.querySelector('.tree');
 
 tree.addEventListener('click', e => {
-
   const item = e.target.closest('li').querySelector('ul');
 
   if (item) {
