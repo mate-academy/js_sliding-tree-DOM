@@ -21,7 +21,7 @@ for (const element of elements) {
 const tree = document.querySelector('.tree');
 
 tree.addEventListener('click', (e) => {
-  const clickPoint = event.target.closest('span');
+  const clickPoint = e.target.closest('span');
 
   if (!clickPoint) {
     return;
