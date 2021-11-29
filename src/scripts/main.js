@@ -10,15 +10,16 @@ for (let i = 0; i < ulList.length; i++) {
   }
 }
 
-document.body.addEventListener('click', (click) => {
-  const item = click.target.closest('.title');
+const tree = document.querySelector('.tree');
+
+tree.addEventListener('click', (click) => {
+  const item = click.target.closest('span');
 
   if (!item) {
     return;
   }
 
-  if (item.nextElementSibling.getAttribute('hidden') === null
-    || item.nextElementSibling.getAttribute('hidden') === true) {
+  if (item.nextElementSibling.getAttribute('hidden') === null) {
     item.nextElementSibling.setAttribute('hidden', true);
   } else {
     item.nextElementSibling.removeAttribute('hidden');
