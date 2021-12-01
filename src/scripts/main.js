@@ -4,18 +4,28 @@ const tree = document.querySelector('.tree');
 const liAll = document.querySelectorAll('li');
 
 for (const li of liAll) {
-  const span = document.createElement('span');
+  const ulAll = document.querySelectorAll('ul');
 
-  li.prepend(span);
-  span.append(span.nextSibling);
+  for (const ul of ulAll) {
+    const span = document.createElement('span');
+
+    if (li.contains(ul)) {
+      li.prepend(span);
+      span.append(span.nextSibling);
+    };
+  }
 };
 
-tree.onclick = function(events) {
-  const childrenContainer = events.target.parentNode.querySelector('ul');
+tree.addEventListener('click', (events) => {
+  const item = events.target.closest('li');
 
-  if (!childrenContainer) {
+  if (events.target.tagName !== 'SPAN') {
     return;
   }
 
-  childrenContainer.hidden = !childrenContainer.hidden;
-};
+  if (!item.children[1] || !tree.contains(item)) {
+    return;
+  }
+
+  item.children[1].hidden = !item.children[1].hidden;
+});
