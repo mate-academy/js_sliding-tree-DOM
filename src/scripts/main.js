@@ -15,9 +15,9 @@ for (const item of li) {
 tree.addEventListener('click', function hideAndShow(action) {
   const target = action.target.closest('span');
 
-  if (target.nextSibling.style.display === 'none') {
-    target.nextSibling.style.display = 'block';
+  if (target.nextElementSibling.style.display === 'none') {
+    target.nextElementSibling.style.display = 'block';
   } else {
-    target.nextSibling.style.display = 'none';
+    target.nextElementSibling.style.display = 'none';
   }
 });
