@@ -1,32 +1,23 @@
 'use strict';
 
 const tree = document.querySelector('.tree');
+const [...liTag] = document.querySelectorAll('li');
 
-addSpan(tree);
+liTag.forEach(li => {
+  const span = document.createElement('span');
 
-document.addEventListener('click', (e) => {
-  const element = e.target;
-
-  if (element.tagName === 'SPAN') {
-    if (element.nextElementSibling.hidden === true) {
-      element.nextElementSibling.hidden = false;
-    } else {
-      element.nextElementSibling.hidden = true;
-    }
-  }
+  li.prepend(span);
+  span.append(span.nextSibling);
 });
 
-function addSpan(ul) {
-  const list = [...ul.children];
+tree.addEventListener('click', (e) => {
+  if (e.target.tagName !== 'SPAN') {
+    return;
+  }
 
-  list.map((el) => {
-    if (el.children.length > 0 && el.tagName === 'UL') {
-      addSpan(el.children[0]);
+  const elementSibling = e.target.nextSibling;
 
-      const arr = el.innerText.split('\n');
-      const html = el.innerHTML.replace(arr[0], '');
-
-      el.innerHTML = `<span>${arr[0]}</span>` + html;
-    }
-  });
-}
+  if (elementSibling || elementSibling.tagName === 'UL') {
+    elementSibling.hidden = !elementSibling.hidden;
+  }
+});
