@@ -12,5 +12,7 @@ for (const li of list) {
 };
 
 tree.addEventListener('click', (action) => {
-  action.target.nextSibling.hidden = !action.target.nextSibling.hidden;
+  if (action.target.tagName === 'SPAN') {
+    action.target.nextSibling.hidden = !action.target.nextSibling.hidden;
+  }
 });
