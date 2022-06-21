@@ -4,15 +4,23 @@
 const li = document.getElementsByTagName('li');
 
 for (let i = 0; i < li.length; i++) {
-  li[i].addEventListener('click', (e) => {
+  const firstTextNode = li[i].firstChild;
+  const newSpan = document.createElement('span');
+
+  newSpan.appendChild(document.createTextNode(firstTextNode.nodeValue));
+  newSpan.style.width = 'min-content';
+
+  li[i].replaceChild(newSpan, firstTextNode);
+}
+
+for (let i = 0; i < li.length; i++) {
+  li[i].children[0].addEventListener('click', (e) => {
     e.stopPropagation();
 
-    for (let j = 0; j < li[i].children.length; j++) {
-      if (li[i].children[j].style.display === 'none') {
-        li[i].children[j].style.display = 'block';
-      } else {
-        li[i].children[j].style.display = 'none';
-      }
+    if (li[i].children[1].style.display === 'none') {
+      li[i].children[1].style.display = 'block';
+    } else {
+      li[i].children[1].style.display = 'none';
     }
   });
 }
