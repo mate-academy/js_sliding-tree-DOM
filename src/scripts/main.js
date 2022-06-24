@@ -8,7 +8,7 @@ const createSpan = (item) => {
 
   span.innerText = item.firstChild.textContent;
 
-  if (span.children.length > 0) {
+  if (item.children.length > 0) {
     span.className = 'item';
   }
 
