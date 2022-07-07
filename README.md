@@ -12,9 +12,13 @@ Create an expandable tree.
 Requirements: 
 - Clicking on the headline should hide or show elements.
 - Clicking outside the title text (in an empty place) should do nothing.
+Создайте расширяемое дерево.
 
+Требования:
+- Щелчок по заголовку должен скрыть или показать элементы.
+- Щелчок за пределами текста заголовка (в пустом месте) ничего не должен делать.
 Hint: you need to wrap each header text into `span` tag.
-
+Подсказка: вам нужно обернуть каждый текст заголовка тегом `span`.
 Do not change HTML or CSS in this task.
 
 ### Screenshot of the tree
