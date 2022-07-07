@@ -7,13 +7,14 @@ for (const item of document.querySelectorAll('li')) {
 
   const span = document.createElement('span');
 
+  span.dataset.clickable = true;
   span.innerText = item.childNodes[0].textContent.trim();
   item.childNodes[0].remove();
   item.prepend(span);
 }
 
 document.querySelector('.tree').addEventListener('click', e => {
-  if (e.target.tagName !== 'SPAN') {
+  if (!e.target.dataset.clickable) {
     return;
   }
 
