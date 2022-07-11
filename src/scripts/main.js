@@ -9,15 +9,22 @@ for (let i = 0; i < copy.length; i++) {
   const itemText = item.firstChild.textContent.trim();
   const span = document.createElement('span');
 
-  span.dataset.wrapper = `${itemText[0].toLowerCase() + itemText.slice(1)}`;
+  span.dataset.wrapper = true;
   span.append(document.createTextNode(itemText));
 
   item.replaceChild(span, copy[i].firstChild);
 }
 
 list.addEventListener('click', (eventOnclick) => {
-  if (eventOnclick.target.dataset.wrapper) {
-    eventOnclick
-      .target.nextSibling.hidden = !eventOnclick.target.nextSibling.hidden;
+  if (!eventOnclick.target.dataset.wrapper) {
+    return;
+  }
+
+  const item = eventOnclick.target.nextSibling;
+
+  if (!item.style.display) {
+    item.style.display = 'none';
+  } else {
+    item.style.display = '';
   }
 });
