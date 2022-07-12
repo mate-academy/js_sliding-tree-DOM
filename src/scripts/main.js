@@ -8,6 +8,7 @@ for (const item of listItems) {
 
   span.append(item.firstChild.textContent.trim());
   item.insertBefore(span, item.firstElementChild);
+  item.firstChild.remove();
 }
 
 tree.addEventListener('click', (e) => {
