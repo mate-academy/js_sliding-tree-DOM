@@ -16,15 +16,9 @@ for (let i = 0; i < copy.length; i++) {
 }
 
 list.addEventListener('click', (eventOnclick) => {
-  if (!eventOnclick.target.dataset.wrapper) {
-    return;
-  }
+  if (eventOnclick.target.dataset.wrapper) {
+    const item = eventOnclick.target.nextSibling;
 
-  const item = eventOnclick.target.nextSibling;
-
-  if (!item.style.display) {
-    item.style.display = 'none';
-  } else {
-    item.style.display = '';
+    item.style.display = !item.style.display ? 'none' : '';
   }
 });
