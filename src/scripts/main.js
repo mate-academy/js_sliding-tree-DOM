@@ -11,9 +11,10 @@ for (const item of document.querySelectorAll('li')) {
   item.childNodes[0].remove();
   item.prepend(span);
 
-  item.addEventListener('click', (e) => {
-    e.stopPropagation();
+  item.addEventListener('click', (clickEvent) => {
+    clickEvent.stopPropagation();
 
-    e.target.nextSibling.hidden = !e.target.nextSibling.hidden;
+    clickEvent.target
+      .nextSibling.hidden = !clickEvent.target.nextSibling.hidden;
   });
 }
