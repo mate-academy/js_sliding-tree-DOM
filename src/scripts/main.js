@@ -15,13 +15,5 @@ tree.addEventListener('click', (eventClick) => {
     return;
   }
 
-  switch (eventClick.target.nextSibling.hidden) {
-    case false:
-      eventClick.target.nextSibling.hidden = true;
-      break;
-
-    case true:
-      eventClick.target.nextSibling.hidden = false;
-      break;
-  };
+  eventClick.target.nextSibling.hidden = !eventClick.target.nextSibling.hidden;
 });
