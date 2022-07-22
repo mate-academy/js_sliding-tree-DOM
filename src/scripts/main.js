@@ -9,6 +9,7 @@ for (const element of allLi) {
 
     spanElement.innerText = element.childNodes[0].textContent.trim();
     spanElement.style.userSelect = 'none';
+    spanElement.dataset.clickable = true;
     // header of each list
     element.childNodes[0].remove();
     element.prepend(spanElement);
@@ -17,7 +18,7 @@ for (const element of allLi) {
 }
 
 tree.addEventListener('click', (e) => {
-  if (e.target.nodeName === 'SPAN') {
+  if (e.target.dataset.clickable) {
     const childUl = e.target.nextElementSibling;
 
     if (childUl.style.display === '') {
