@@ -7,16 +7,21 @@ list.querySelectorAll('li').forEach(item => {
 
   item.prepend(span);
   span.append(span.nextSibling);
+  span.classList.add('list_item');
+});
+
+list.querySelectorAll('ul').forEach(item => {
+  item.classList.add('branch');
 });
 
 list.addEventListener('click', e => {
-  const titleText = e.target.closest('span');
+  const titleText = e.target.closest('.list_item');
 
   if (!titleText) {
     return;
   }
 
-  const liContent = titleText.parentNode.querySelector('ul');
+  const liContent = titleText.parentNode.querySelector('.branch');
 
   liContent.hidden = !liContent.hidden;
 });
