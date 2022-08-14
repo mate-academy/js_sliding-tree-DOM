@@ -2,23 +2,22 @@
 
 // write code here
 const tree = document.querySelector('.tree');
+const elementTree = tree.querySelectorAll('li');
 
-function trees(item) {
-  for (const layer of item.children) {
-    if (layer.firstElementChild !== null && layer.tagName === 'LI') {
-      layer.insertAdjacentHTML('afterbegin', `
-      <span></span>`);
-    }
-    trees(layer);
+for (const item of elementTree) {
+  if (item.children.length > 0) {
+    const span = document.createElement('span');
+
+    span.append(item.childNodes[0]);
+    item.prepend(span);
   }
 }
-trees(tree);
 
 tree.addEventListener('click', (events) => {
-  const goin = events.target.children[0].tagName === 'SPAN';
-  const hide = events.target.children[1];
+  const goin = events.target.tagName === 'SPAN';
+  const hide = events.target.parentElement.children[1];
 
   if (goin) {
-    hide.hidden = hide.hidden === false;
+    hide.hidden = !hide.hidden;
   }
 });
