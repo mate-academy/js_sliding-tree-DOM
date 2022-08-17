@@ -8,10 +8,9 @@ titles.forEach(title => {
     const textNode = title.childNodes[0];
     const spanTitle = document.createElement('span');
 
-    spanTitle.textContent = textNode.textContent.trim();
     spanTitle.className = 'tree__title';
-    textNode.textContent = '';
-    title.insertAdjacentElement('afterbegin', spanTitle);
+    textNode.before(spanTitle);
+    spanTitle.prepend(textNode);
   }
 });
 
@@ -24,11 +23,6 @@ tree.addEventListener('click', event => {
   }
 
   const itemList = item.nextElementSibling;
-  const isHidden = itemList.getAttribute('hidden');
 
-  if (isHidden) {
-    itemList.removeAttribute('hidden');
-  } else {
-    itemList.setAttribute('hidden', 'true');
-  }
+  itemList.toggleAttribute('hidden');
 });
