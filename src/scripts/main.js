@@ -2,7 +2,7 @@
 
 const list = [ ...document.querySelectorAll('li > ul') ];
 
-list.map(element => {
+list.forEach(element => {
   const li = element.parentNode;
   const liTitle = li.firstChild;
 
