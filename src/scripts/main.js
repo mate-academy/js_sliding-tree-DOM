@@ -1,30 +1,20 @@
 'use strict';
 
-const liArr = [...document.querySelectorAll('li')];
-
-liArr.forEach(liItem => liItem.insertAdjacentHTML('afterbegin', `
-  <span>${liItem.innerHTML.split(' ').slice(0, 2).join(' ').trim()}</span>
-`));
-
-liArr.forEach(liItem => liItem.childNodes[3].remove());
-
 const list = document.querySelector('.tree');
-const handler = e => {
-  const targetItem = e.target.closest('span');
+const listItems = list.querySelectorAll('li');
 
-  if (!targetItem || !list.contains(targetItem)) {
-    return;
+for (const listItem of listItems) {
+  const span = document.createElement('span');
+
+  span.classList.add('show');
+  listItem.prepend(span);
+  span.append(span.nextSibling);
+}
+
+document.addEventListener('click', e => {
+  const headerChild = e.target.nextSibling;
+
+  if (headerChild) {
+    headerChild.hidden = !headerChild.hidden;
   }
-
-  const siblingForItem = targetItem.nextElementSibling;
-
-  if (siblingForItem) {
-    if (siblingForItem.hidden === true) {
-      siblingForItem.hidden = false;
-    } else {
-      siblingForItem.hidden = true;
-    }
-  }
-};
-
-list.addEventListener('click', handler);
+});
