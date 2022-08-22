@@ -3,7 +3,7 @@
 const liArr = [...document.querySelectorAll('li')];
 
 liArr.forEach(liItem => liItem.insertAdjacentHTML('afterbegin', `
-  <span>${liItem.innerHTML.split(' ')[0]}</span>
+  <span>${liItem.innerHTML.split(' ').slice(0, 2).join(' ').trim()}</span>
 `));
 
 liArr.forEach(liItem => liItem.childNodes[3].remove());
