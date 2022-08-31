@@ -3,21 +3,30 @@
 const tree = document.querySelector('.tree');
 const liArr = [...document.querySelectorAll('ul')];
 
-liArr.slice(1, liArr.length).forEach(item => {
+liArr.forEach(item => {
+  item.parentElement.className = 'listItem';
+  document.body.removeAttribute('class');
+});
+
+const headers = document.querySelectorAll('.listItem');
+
+headers.forEach(item => {
   const span = document.createElement('span');
 
   span.className = 'header';
-  span.innerText = item.parentElement.innerText;
+  span.innerText = item.innerHTML.split('<').slice(0, 1).join('').trim();
 
-  item.parentElement.className = 'head';
+  item.prepend(span);
+  span.nextSibling.remove();
 });
 
 tree.addEventListener('click', e => {
   const item = e.target;
 
-  if (item.className !== 'head') {
+  if (item.className !== 'header') {
     return;
   }
 
-  item.children[0].hidden = !item.children[0].hidden;
+  item.parentElement.children[1].hidden
+    = !item.parentElement.children[1].hidden;
 });
