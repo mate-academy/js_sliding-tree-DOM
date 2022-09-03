@@ -33,7 +33,6 @@ function addSpanToHeader(stringCollection) {
 
 addSpanToHeader(strCollection);
 
-/* Event delegation */
 mainlist.addEventListener('click', (e) => {
   const item = e.target.closest('.header-list');
 
