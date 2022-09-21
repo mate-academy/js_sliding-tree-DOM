@@ -11,22 +11,22 @@ let accordionOpened = true;
 
 treeItems.forEach(item => {
   if (item.children.length) {
-    const trigerText = item.firstChild.textContent.trim();
-    const trigerMarkup = `<span class="triger">${trigerText}</span>`;
+    const triggerText = item.firstChild.textContent.trim();
+    const triggerMarkup = `<span class="trigger">${triggerText}</span>`;
 
     item.firstChild.remove();
-    item.insertAdjacentHTML('afterbegin', trigerMarkup);
+    item.insertAdjacentHTML('afterbegin', triggerMarkup);
   }
 });
 
 tree.addEventListener('click', (e) => {
-  const accordionTriger = e.target.closest('.triger');
+  const accordionTrigger = e.target.closest('.trigger');
 
-  if (!accordionTriger) {
+  if (!accordionTrigger) {
     return;
   }
 
-  const accordionBody = accordionTriger.nextSibling;
+  const accordionBody = accordionTrigger.nextSibling;
 
   if (accordionOpened) {
     accardionClose(accordionBody, animationSettings);
