@@ -7,12 +7,15 @@ const animationSettings = {
   duration: 500,
   easing: 'ease',
 };
-let accordionOpened = true;
 
 treeItems.forEach(item => {
   if (item.children.length) {
     const triggerText = item.firstChild.textContent.trim();
-    const triggerMarkup = `<span class="trigger">${triggerText}</span>`;
+    const triggerMarkup = `
+      <span class="trigger" data-opened="true">
+        ${triggerText}
+      </span>
+    `;
 
     item.firstChild.remove();
     item.insertAdjacentHTML('afterbegin', triggerMarkup);
@@ -26,14 +29,14 @@ tree.addEventListener('click', (e) => {
     return;
   }
 
-  const accordionBody = accordionTrigger.nextSibling;
+  const accordionBody = accordionTrigger.nextElementSibling;
 
-  if (accordionOpened) {
+  if (accordionTrigger.dataset.opened === 'true') {
     accardionClose(accordionBody, animationSettings);
-    accordionOpened = false;
+    accordionTrigger.dataset.opened = false;
   } else {
     accardionOpen(accordionBody, animationSettings);
-    accordionOpened = true;
+    accordionTrigger.dataset.opened = true;
   }
 });
 
