@@ -1,8 +1,7 @@
 'use strict';
 
-const sections
-    = [...document.querySelectorAll('li')]
-    .filter(el => el.innerHTML.includes('ul'));
+const sections = [...document.querySelectorAll('li')]
+      .filter(el => el.innerHTML.includes('ul'));
 
 for (const section of sections) {
   const headline = document.createElement('span');
