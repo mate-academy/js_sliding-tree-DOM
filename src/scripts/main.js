@@ -1,7 +1,7 @@
 'use strict';
 
 const tree = document.body.querySelector('.tree');
-const liItems = document.body.querySelectorAll('.tree li');
+const liItems = tree.querySelectorAll('li');
 
 for (const li of liItems) {
   const span = document.createElement('span');
@@ -11,9 +11,11 @@ for (const li of liItems) {
 }
 
 tree.addEventListener('click', e => {
-  const hiddenElement = e.target.nextElementSibling;
+  const childrenContainer = e.target.parentNode.querySelector('ul');
 
-  if (hiddenElement) {
-    hiddenElement.hidden = !hiddenElement.hidden;
+  if (!childrenContainer || e.target.tagName !== 'SPAN') {
+    return;
   }
+
+  childrenContainer.hidden = !childrenContainer.hidden;
 });
