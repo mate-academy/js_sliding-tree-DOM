@@ -5,9 +5,7 @@ document.querySelector('.tree').addEventListener('click', (e) => {
     return;
   }
 
-  if (e.target.children[0].style.display === 'none') {
-    e.target.children[0].style.display = 'block';
-  } else {
-    e.target.children[0].style.display = 'none';
-  }
+  e.target.children[0].style.display === 'none'
+    ? e.target.children[0].style.display = 'block'
+    : e.target.children[0].style.display = 'none';
 });
