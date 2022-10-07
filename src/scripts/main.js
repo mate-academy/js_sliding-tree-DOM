@@ -11,15 +11,7 @@ const listEls = document.querySelectorAll('.tree li');
 });
 
 list.onclick = function(ev) {
-  if (!ev.target.tagName === 'SPAN') {
-    return;
-  }
+  const hide = ev.target.nextSibling;
 
-  const childrenContainer = ev.target.parentNode.querySelector('ul');
-
-  if (!childrenContainer) {
-    return;
-  }
-
-  childrenContainer.hidden = !childrenContainer.hidden;
+  hide.hidden = !hide.hidden;
 };
