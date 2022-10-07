@@ -1,11 +1,13 @@
 'use strict';
 
 document.querySelector('.tree').addEventListener('click', (e) => {
-  if (e.target.children[0] === undefined || e.target.localName === 'ul') {
+  const child = e.target.children[0];
+
+  if (child === undefined || e.target.localName === 'ul') {
     return;
   }
 
-  e.target.children[0].style.display === 'none'
-    ? e.target.children[0].style.display = 'block'
-    : e.target.children[0].style.display = 'none';
+  child.style.display === 'none'
+    ? child.style.display = 'block'
+    : child.style.display = 'none';
 });
