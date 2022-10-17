@@ -2,8 +2,6 @@
 
 const list = document.querySelector('.tree');
 
-console.log(list.style.display);
-
 list.addEventListener('click', (e) => {
   const item = e.target;
 
