@@ -4,7 +4,7 @@ const itemList = document.querySelector('.tree');
 
 function setSpan(list) {
   for (const item of list) {
-    if (item.children.length > 0) {
+    if (item.children.length) {
       const text = item.firstChild.textContent.trim();
       const spanElement = document.createElement('span');
 
@@ -13,7 +13,7 @@ function setSpan(list) {
       item.prepend(spanElement);
     }
 
-    setSpan(item.children)
+    setSpan(item.children);
   }
 }
 setSpan(itemList.children);
@@ -21,6 +21,7 @@ setSpan(itemList.children);
 itemList.addEventListener('click', function(e) {
   if (e.target.tagName === 'SPAN') {
     const target = e.target.nextElementSibling;
-    target.hidden = target.hidden ? false : true;
+
+    target.hidden = !target.hidden;
   }
-})
+});
