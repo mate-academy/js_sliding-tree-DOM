@@ -3,7 +3,7 @@
 const tree = document.querySelector('.tree');
 const list = document.querySelectorAll('li');
 
-[...list].map((el) => {
+list.forEach((el) => {
   const span = document.createElement('span');
 
   el.prepend(span);
@@ -12,10 +12,7 @@ const list = document.querySelectorAll('li');
 
 tree.addEventListener('click', ev => {
   const title = ev.target.nextSibling;
+  const prevTitleHiddenValue = title.hidden;
 
-  if (title.hidden === false) {
-    title.hidden = true;
-  } else {
-    title.hidden = false;
-  }
+  title.hidden = !prevTitleHiddenValue;
 });
