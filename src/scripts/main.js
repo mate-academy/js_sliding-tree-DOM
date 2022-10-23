@@ -20,6 +20,6 @@ for (const item of tree) {
       return;
     }
 
-    item.children[1].style.display = 'initial';
+    item.children[1].style.display = 'block';
   });
 }
