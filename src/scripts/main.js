@@ -1,6 +1,14 @@
 'use strict';
 
 const mainList = document.querySelector('.tree');
+const allLi = document.querySelectorAll('li');
+
+for (const someLi of allLi) {
+  const span = document.createElement('span');
+
+  someLi.prepend(span);
+  span.append(span.nextSibling);
+}
 
 mainList.addEventListener('click', (e) => {
   const allUl = document.querySelectorAll('ul');
@@ -11,8 +19,8 @@ mainList.addEventListener('click', (e) => {
     }
   }
 
-  const parentLi = e.target;
-  const childLi = parentLi.children[0];
-
-  childLi.hidden = (!childLi.hidden)? true: false;
+  const parentLiTitle = e.target;  
+  const liUnderTitle = parentLiTitle.nextSibling;
+  
+  liUnderTitle.hidden = (!liUnderTitle.hidden)? true: false;
 });
