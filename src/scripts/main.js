@@ -18,14 +18,8 @@ const createSpan = () => {
   span.prepend(headline.firstChild.nextSibling);
 
   span.addEventListener('click', (e) => {
-    const hidden = span.nextSibling.style;
+    const items = e.target.closest('span').nextSibling;
 
-    if (hidden.display === 'none') {
-      hidden.display = '';
-
-      return;
-    };
-
-    hidden.display = 'none';
+    items.hidden = !items.hidden;
   });
 });
