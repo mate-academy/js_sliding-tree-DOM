@@ -2,6 +2,20 @@
 
 const tree = document.querySelector('.tree');
 
+const lis = tree.querySelectorAll('li');
+
+lis.forEach(li => {
+  if (li.childNodes[0].nodeName !== '#text') {
+    return;
+  }
+
+  const span = document.createElement('span');
+
+  span.innerText = li.childNodes[0].data.trim();
+
+  li.childNodes[0].replaceWith(span);
+});
+
 tree.addEventListener('click', function(e) {
   const title = e.target;
 
