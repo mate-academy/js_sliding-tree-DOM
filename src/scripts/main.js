@@ -1,10 +1,9 @@
 'use strict';
 
 const tree = document.querySelector('.tree');
+const list = tree.querySelectorAll('li');
 
-const lis = tree.querySelectorAll('li');
-
-lis.forEach(li => {
+list.forEach(li => {
   if (li.childNodes[0].nodeName !== '#text') {
     return;
   }
