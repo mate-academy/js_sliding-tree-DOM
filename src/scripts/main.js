@@ -5,7 +5,7 @@ const titles = document.querySelectorAll('li');
 
 titles.forEach(el => {
   el.insertAdjacentHTML('afterbegin', `
-  <span> ${el.innerHTML.split('  ')[0]} </span>
+  <span> ${el.innerHTML.split(' ')[0]} </span>
   `);
   el.childNodes[3].remove();
 });
