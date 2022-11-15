@@ -20,16 +20,13 @@ getWrapInSpan(topics);
 
 document.body.addEventListener('click', e => {
   const item = e.target.closest('span');
+  const currList = e.target.parentElement.children[1];
 
   if (!item || !topics.contains(item)) {
     return;
   }
 
-  if (e.target.parentElement.children[1]) {
-    if (e.target.parentElement.children[1].hidden) {
-      e.target.parentElement.children[1].hidden = false;
-    } else {
-      e.target.parentElement.children[1].hidden = true;
-    }
+  if (currList) {
+    currList.hidden = !currList.hidden;
   }
 });
