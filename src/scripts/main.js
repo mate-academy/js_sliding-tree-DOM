@@ -1,27 +1,27 @@
 'use strict';
 
-const list = document.querySelector('.tree');
+const topics = document.querySelector('.tree');
 
-function f(listss) {
-  for (const key of [...listss.children]) {
+function getWrapInSpan(list) {
+  for (const listItem of [...list.children]) {
     const span = document.createElement('span');
-    const str = key.childNodes[0].textContent.trim();
+    const itemName = listItem.childNodes[0].textContent.trim();
 
-    span.innerText = str;
-    key.replaceChild(span, key.childNodes[0]);
+    span.innerText = itemName;
+    listItem.replaceChild(span, listItem.childNodes[0]);
 
-    if ([...key.children][1]) {
-      f(key.children[1]);
+    if ([...listItem.children][1]) {
+      getWrapInSpan(listItem.children[1]);
     }
   }
 }
 
-f(list);
+getWrapInSpan(topics);
 
 document.body.addEventListener('click', e => {
   const item = e.target.closest('span');
 
-  if (!item || !list.contains(item)) {
+  if (!item || !topics.contains(item)) {
     return;
   }
 
