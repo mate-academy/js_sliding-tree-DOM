@@ -2,14 +2,14 @@
 
 const list = document.querySelector('.tree');
 
-const liColection = document.querySelectorAll('li');
-const ulColection = document.querySelectorAll('ul');
+const liCollection = document.querySelectorAll('li');
+const ulCollection = document.querySelectorAll('ul');
 
-for (const ul of ulColection) {
+for (const ul of ulCollection) {
   ul.style.display = 'block';
 }
 
-for (const li of liColection) {
+for (const li of liCollection) {
   if (li.children.length > 0) {
     const span = document.createElement('span');
 
@@ -24,10 +24,8 @@ list.addEventListener('click', (e) => {
   const item = e.target;
 
   if (item.classList.contains('title')) {
-    if (item.nextSibling.style.display === 'block') {
-      item.nextSibling.style.display = 'none';
-    } else {
-      item.nextSibling.style.display = 'block';
-    }
+    item.nextSibling.style.display === 'block'
+      ? item.nextSibling.style.display = 'none'
+      : item.nextSibling.style.display = 'block';
   }
 });
