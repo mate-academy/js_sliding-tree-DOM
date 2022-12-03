@@ -1,42 +1,26 @@
 'use strict';
 
 const tree = document.querySelector('.tree');
+const listOfUl = document.querySelectorAll('ul');
 
-function listItems(collection) {
-  for (const item of collection) {
-    if (item.nodeName === 'LI') {
-      if (item.children.length > 0) {
-        item.innerHTML = editInnerHtml(item.innerHTML);
-      }
+const replaceTextWithSpan = (list) => {
+  for (const item of list) {
+    if (item.previousSibling.nodeValue.trim().length > 0) {
+      const parentItem = item.parentElement;
+      const nodeToDeleted = parentItem.firstChild;
+      const listHeader = parentItem.removeChild(nodeToDeleted).nodeValue;
+      const spanElement = document.createElement('span');
 
-      if (Object.values(item.children).length === 2) {
-        item.addEventListener('click', (e) => {
-          e.stopPropagation();
-
-          const currentElement = e.target.parentElement.lastElementChild;
-          const getElStyles = getComputedStyle(currentElement);
-          const currentDisplayStyel = getElStyles.getPropertyValue('display');
-
-          if (e.currentTarget === e.target.parentElement) {
-            if (currentDisplayStyel === 'none') {
-              e.target.parentElement.lastElementChild.style.display = 'block';
-            } else {
-              e.target.parentElement.lastElementChild.style.display = 'none';
-            }
-          }
-        });
-      }
+      spanElement.innerText = listHeader;
+      parentItem.prepend(spanElement);
     }
-    listItems(item.children);
   }
-}
+};
 
-listItems(tree.children);
+replaceTextWithSpan(listOfUl);
 
-function editInnerHtml(code) {
-  const index = code.indexOf('<') > 0 ? code.indexOf('<') : code.length;
-  const title = code.slice(0, index).trim();
-  const restOfHtml = code.slice(index);
-
-  return `<span>${title}</span>${restOfHtml}`;
-}
+tree.addEventListener('click', e => {
+  if (e.target.nodeName === 'SPAN') {
+    e.target.nextSibling.hidden = !e.target.nextSibling.hidden;
+  }
+});
