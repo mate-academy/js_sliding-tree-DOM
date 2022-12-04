@@ -3,8 +3,8 @@
 const list = document.querySelector('ul');
 const listElements = document.querySelectorAll('li');
 let clicked = false;
- 
-for (let element of listElements) {
+
+for (const element of listElements) {
   const newElement = document.createElement('span');
 
   newElement.textContent = element.childNodes[0].nodeValue;
@@ -13,17 +13,17 @@ for (let element of listElements) {
 }
 
 list.addEventListener('click', action => {
-   const targetElement = action.target;
+  const targetElement = action.target;
 
-   if (!targetElement.matches('span')) {
-     return;
-   }
+  if (!targetElement.matches('span')) {
+    return;
+  }
 
-   if (clicked === false) {
-     targetElement.nextElementSibling.style.display = 'none';
-     clicked = true;
-   } else {
-     targetElement.nextElementSibling.style.display = 'block';
-     clicked = false;
-   }
+  if (clicked === false) {
+    targetElement.nextElementSibling.style.display = 'none';
+    clicked = true;
+  } else {
+    targetElement.nextElementSibling.style.display = 'block';
+    clicked = false;
+  }
 });
