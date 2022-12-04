@@ -22,7 +22,7 @@ list.addEventListener('click', action => {
     return;
   }
 
-  if (clickedElements[targetHeader] === false){
+  if (clickedElements[targetHeader] === false) {
     targetElement.nextElementSibling.style.display = 'none';
     clickedElements[targetHeader] = true;
   } else {
