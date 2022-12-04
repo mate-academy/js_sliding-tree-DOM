@@ -2,28 +2,31 @@
 
 const list = document.querySelector('ul');
 const listElements = document.querySelectorAll('li');
-let clicked = false;
+const clickedElements = {};
 
 for (const element of listElements) {
   const newElement = document.createElement('span');
+  const header = element.childNodes[0].nodeValue;
 
-  newElement.textContent = element.childNodes[0].nodeValue;
+  clickedElements[header] = false;
+  newElement.textContent = header;
   element.prepend(newElement);
   element.childNodes[1].remove();
 }
 
 list.addEventListener('click', action => {
   const targetElement = action.target;
+  const targetHeader = targetElement.childNodes[0].nodeValue;
 
   if (!targetElement.matches('span')) {
     return;
   }
 
-  if (clicked === false) {
+  if (clickedElements[targetHeader] === false){
     targetElement.nextElementSibling.style.display = 'none';
-    clicked = true;
+    clickedElements[targetHeader] = true;
   } else {
     targetElement.nextElementSibling.style.display = 'block';
-    clicked = false;
+    clickedElements[targetHeader] = false;
   }
 });
