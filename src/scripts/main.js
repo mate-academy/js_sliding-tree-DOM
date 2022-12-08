@@ -5,7 +5,7 @@ const [...list] = document.querySelectorAll('li');
 for (let i = 0; i < list.length; i++) {
   const [...headline] = list[i].querySelectorAll('ul');
 
-  if (headline.length > 0) {
+  if (headline.length) {
     const text = list[i].firstChild.textContent;
 
     list[i].firstChild.textContent = '';
