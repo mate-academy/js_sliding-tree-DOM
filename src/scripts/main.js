@@ -19,7 +19,6 @@ items.forEach(el => {
 
 list.addEventListener('click', (ev) => {
   const span = ev.target.closest('SPAN');
-
   if (!span || !list.contains(span)) {
     return;
   }
