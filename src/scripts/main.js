@@ -3,8 +3,6 @@
 for (const ul of document.querySelectorAll('ul')) {
   const span = document.createElement('span');
 
-  console.log(ul.parentElement.tagName === 'LI');
-
   if (ul.parentElement.tagName === 'LI') {
     ul.parentElement.prepend(span);
     span.append(span.nextSibling);
