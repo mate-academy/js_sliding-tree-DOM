@@ -1,11 +1,12 @@
 'use strict';
 
-for (const li of document.querySelectorAll('li')) {
+for (const ul of document.querySelectorAll('ul')) {
   const span = document.createElement('span');
-  const listUlInLi = li.querySelectorAll('ul');
 
-  if (listUlInLi.length) {
-    li.prepend(span);
+  console.log(ul.parentElement.tagName === 'LI');
+
+  if (ul.parentElement.tagName === 'LI') {
+    ul.parentElement.prepend(span);
     span.append(span.nextSibling);
   }
 }
@@ -14,11 +15,10 @@ const spanList = document.querySelectorAll('span');
 
 spanList.forEach(el => {
   el.addEventListener('click', (e) => {
-    const displayStatus = e.target.parentNode.querySelector('ul').style.display;
+    const displayStatus = e.target.nextSibling.style.display;
 
-    e.target.parentNode
-      .querySelector('ul').style.display = displayStatus !== 'none'
-        ? 'none'
-        : 'block';
+    e.target.nextSibling.style.display = displayStatus !== 'none'
+      ? 'none'
+      : 'block';
   });
 });
