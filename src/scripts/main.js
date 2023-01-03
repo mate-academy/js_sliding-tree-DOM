@@ -13,9 +13,9 @@ for (const element of elementTree) {
 }
 
 tree.addEventListener('click', (eventClick) => {
-  if (!eventClick.target.nextSibling || eventClick.target.tagName !== 'SPAN') {
-    return;
-  }
+  const headerChild = eventClick.target.nextSibling;
 
-  eventClick.target.nextSibling.hidden = !eventClick.target.nextSibling.hidden;
+  if (headerChild) {
+    headerChild.hidden = !headerChild.hidden;
+  }
 });
