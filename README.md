@@ -1,5 +1,5 @@
 1. Replace `<your_account>` with your Github username in the link
-    - [DEMO LINK](https://<your_account>.github.io/js_sliding-tree-DOM/)
+    - [DEMO LINK](https://yevhenii-stanchenko.github.io/js_sliding-tree-DOM/)
 2. Follow [this instructions](https://mate-academy.github.io/layout_task-guideline/)
     - Run `npm run test` command to test your code;
     - Run `npm run test:only -- -n` to run fast test ignoring linter;
@@ -17,6 +17,15 @@ Hint: you need to wrap each header text into `span` tag.
 
 Do not change HTML or CSS in this task.
 
+Создайте расширяемое дерево.
+
+Требования:
+- Щелчок по заголовку должен скрыть или показать элементы.
+- Щелчок за пределами текста заголовка (в пустом месте) ничего не должен делать.
+
+Подсказка: вам нужно обернуть каждый текст заголовка тегом `span`.
+
+Не изменяйте HTML или CSS в этой задаче.
 ### Screenshot of the tree
 ![screenshot](src/images/sliding_tree.png)
 ![screenshot](src/images/sliding_tree2.png)
