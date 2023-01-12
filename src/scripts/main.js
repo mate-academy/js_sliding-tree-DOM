@@ -4,16 +4,20 @@ const tree = document.querySelector('.tree');
 const liContainer = document.querySelectorAll('li');
 
 for (const li of liContainer) {
-  if (li.children) {
+  if (li.children.length) {
     const span = document.createElement('span');
 
-    li.after(span);
-    span.appendChild(li);
+    li.prepend(span);
+    span.append(span.nextSibling);
   }
 }
 
 tree.addEventListener('click', (ev) => {
-  const container = ev.target.querySelector('ul');
+  if (ev.target.tagName !== 'SPAN') {
+    return;
+  }
 
-  container.hidden = !container.hidden;
+  const ul = ev.target.nextSibling;
+
+  ul.hidden = !ul.hidden;
 });
