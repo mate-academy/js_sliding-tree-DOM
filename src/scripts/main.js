@@ -6,11 +6,10 @@ const list = document.querySelector('.tree');
 
 for (const li of liWithChildren) {
   const span = document.createElement('span');
-  const text = li.firstChild.textContent;
 
+  li.insertBefore(span, li.firstElementChild);
+  span.innerText = li.firstChild.data;
   li.firstChild.remove();
-  li.insertBefore(span, li.firstChild);
-  span.innerText = text;
 }
 
 list.addEventListener('click', (e) => {
@@ -18,9 +17,5 @@ list.addEventListener('click', (e) => {
     return;
   }
 
-  if (e.target.nextSibling.style.display === 'none') {
-    e.target.nextSibling.style.display = 'inherit';
-  } else {
-    e.target.nextSibling.style.display = 'none';
-  }
+  e.target.nextElementSibling.hidden = !e.target.nextElementSibling.hidden;
 });
