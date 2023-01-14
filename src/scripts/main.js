@@ -1,7 +1,7 @@
 'use strict';
 
 const liArray = [...document.querySelectorAll('li')];
-const liWithChildren = liArray.filter(li => li.children.length);
+const liWithChildren = liArray.filter(li => li.children.length !== 0);
 const list = document.querySelector('.tree');
 
 for (const li of liWithChildren) {
