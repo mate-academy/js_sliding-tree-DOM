@@ -7,9 +7,8 @@ const list = document.querySelector('.tree');
 for (const li of liWithChildren) {
   const span = document.createElement('span');
 
-  li.insertBefore(span, li.firstElementChild);
   span.innerText = li.firstChild.data;
-  li.firstChild.remove();
+  li.firstChild.replaceWith(span);
 }
 
 list.addEventListener('click', (e) => {
