@@ -5,7 +5,7 @@ const list = document.querySelector('.tree');
 const listItems = [...document.querySelectorAll('li')];
 
 for (const item of listItems) {
-  if (item.children.length !== 0) {
+  if (item.children.length) {
     const wrapper = document.createElement('span');
 
     item.prepend(wrapper);
@@ -14,9 +14,11 @@ for (const item of listItems) {
 }
 
 list.addEventListener('click', function changeList(e) {
-  if (e.target.closest('span').nextSibling.hasAttribute('hidden')) {
-    e.target.closest('span').nextSibling.removeAttribute('hidden');
-  } else if (e.target.closest('span').nextSibling) {
-    e.target.closest('span').nextSibling.setAttribute('hidden', '');
+  const subList = e.target.closest('span').nextSibling;
+
+  if (subList.hasAttribute('hidden')) {
+    subList.removeAttribute('hidden');
+  } else if (subList) {
+    subList.setAttribute('hidden', '');
   }
 });
