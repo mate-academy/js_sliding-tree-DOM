@@ -26,7 +26,6 @@ document.addEventListener('click', e => {
   if (e.target.className.includes('listTitle')) {
     const list = e.target.parentElement.querySelector('.toRoll');
 
-    list.style.display = (list.style.display === 'none') ? 'inherit' : 'none';
-
+    list.style.display = (list.style.display === 'none') ? 'block' : 'none';
   }
 });
