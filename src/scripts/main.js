@@ -25,13 +25,5 @@ tree.addEventListener('click', e => {
     return;
   }
 
-  if (!ul.hidden) {
-    ul.style.height = 0;
-    ul.style.visibility = 'hidden';
-    ul.hidden = true;
-  } else {
-    ul.style.height = 'auto';
-    ul.style.visibility = 'visible';
-    ul.hidden = false;
-  }
+  ul.toggleAttribute('hidden');
 });
