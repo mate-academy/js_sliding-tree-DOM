@@ -18,13 +18,9 @@ for (const key of arrOftitles) {
       <span class="listTitle ${key}">${key}</span>`);
 }
 
-document.querySelector('body').innerHTML
-  = document.querySelector('body').innerHTML.replaceAll('<ul>', `
-    <ul class="toRoll">`);
-
 document.addEventListener('click', e => {
   if (e.target.className.includes('listTitle')) {
-    const list = e.target.parentElement.querySelector('.toRoll');
+    const list = e.target.parentElement.querySelector('ul');
 
     list.style.display = (list.style.display === 'none') ? 'block' : 'none';
   }
