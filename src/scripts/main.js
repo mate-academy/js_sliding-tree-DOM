@@ -1,6 +1,6 @@
 'use strict';
 
-// write code here
+// write code here .
 const header = document.querySelectorAll('li');
 let headerTitle = '';
 const arrOftitles = [];
