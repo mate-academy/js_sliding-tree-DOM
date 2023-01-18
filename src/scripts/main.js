@@ -1,6 +1,7 @@
 'use strict';
 
 const options = [...document.querySelectorAll('li')];
+const tree = document.querySelector('.tree');
 
 for (const option of options) {
   if (option.children.length > 0) {
@@ -15,14 +16,14 @@ for (const option of options) {
   }
 }
 
-const titles = [...document.querySelectorAll('span')];
+tree.addEventListener('click', e => {
+  const target = e.target;
 
-for (const title of titles) {
-  title.addEventListener('click', e => {
-    if (title.nextSibling.style.display === 'none') {
-      title.nextSibling.style.display = 'block';
+  if (target.tagName === 'SPAN') {
+    if (target.nextSibling.style.display === 'none') {
+      target.nextSibling.style.display = 'block';
     } else {
-      title.nextSibling.style.display = 'none';
+      target.nextSibling.style.display = 'none';
     }
-  });
-}
+  }
+});
