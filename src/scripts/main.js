@@ -1,21 +1,21 @@
 'use strict';
 
-const tree = document.querySelector('.tree');
-const allLi = [...tree.querySelectorAll('li')];
+const list = document.querySelector('.tree');
+const allListItem = [...list.querySelectorAll('li')];
 
-allLi.map(x => {
+allListItem.map(oneListItem => {
   const span = document.createElement('span');
 
-  x.prepend(span);
+  oneListItem.prepend(span);
   span.append(span.nextSibling);
 });
 
-tree.addEventListener('click', x => {
-  if (x.target.tagName === 'SPAN') {
-    if (x.target.nextSibling.hidden === false) {
-      x.target.nextSibling.hidden = true;
+list.addEventListener('click', even => {
+  if (even.target.tagName === 'SPAN') {
+    if (even.target.nextSibling.hidden === false) {
+      even.target.nextSibling.hidden = true;
     } else {
-      x.target.nextSibling.hidden = false;
+      even.target.nextSibling.hidden = false;
     }
     ;
   };
