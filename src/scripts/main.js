@@ -1,36 +1,21 @@
 'use strict';
 
-function AddSpanToUl(root) {
-  const ul = root.querySelectorAll('li');
+const tree = document.querySelector('.tree');
+const listItem = tree.querySelectorAll('li');
 
-  for (const li of ul) {
-    const data = li.textContent;
-    const span = document.createElement('span');
+for (const li of listItem) {
+  const span = document.createElement('span');
 
-    li.textContent = '';
-    span.textContent = data;
-    // li.innerHTML = `<span>${data}</span>`;
-    li.append(span);
-
-    if (li.querySelector('ul') === 'null') {
-      break;
-    }
-
-    AddSpanToUl(li.querySelector('ul'));
-  }
+  li.prepend(span);
+  span.append(span.nextSibling);
 }
 
-const tree = document.querySelector('.tree');
-
-// AddSpanToUl(tree);
-AddSpanToUl('tree');
-
 tree.addEventListener('click', e => {
-  if (!e.target.matches('li')) {
+  if (!e.target.closest('li')) {
     return;
   }
 
-  const ul = e.target.querySelector('ul');
+  const ul = e.target.closest('li').querySelector('ul');
 
   if (ul.style.display === 'none') {
     ul.style.display = 'list-item';
