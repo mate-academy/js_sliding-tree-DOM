@@ -3,7 +3,7 @@
 const li = document.querySelectorAll('li');
 const main = document.querySelector('.tree');
 
-[...li].forEach(el => {
+li.forEach(el => {
   const span = document.createElement('span');
 
   el.prepend(span);
