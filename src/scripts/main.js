@@ -24,16 +24,3 @@ tree.onclick = function(e) {
   }
   headline.hidden = !headline.hidden;
 };
-
-// tree.addEventListener('click', (e) => {
-//   if (e.target.tagName !== 'SPAN') {
-//     return;
-//   }
-
-//   const headline = e.target.parentNode.querySelector('ul');
-
-//   if (!headline) {
-//     return;
-//   }
-//   headline.hidden = !headline.hidden;
-// });
