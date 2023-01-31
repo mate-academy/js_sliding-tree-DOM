@@ -1,6 +1,5 @@
 'use strict';
 
-// write code here
 const tree = document.querySelector('.tree');
 const list = tree.querySelectorAll('li');
 
@@ -18,9 +17,7 @@ tree.onclick = function(e) {
 
   const child = e.target.parentNode.querySelector('ul');
 
-  if (!child) {
-    return;
+  if (child) {
+    child.hidden = !child.hidden;
   }
-
-  child.hidden = !child.hidden;
 };
