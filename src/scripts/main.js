@@ -13,11 +13,6 @@ for (const item of listItems) {
 tree.addEventListener('click', e => {
   const element = e.target.nextSibling;
 
-  if (element.getAttribute('hidden')) {
-    element.removeAttribute('hidden');
-
-    return;
-  }
-
-  element.setAttribute('hidden', true);
+  element.getAttribute('hidden') ? element.removeAttribute('hidden')
+    : element.setAttribute('hidden', true);
 });
