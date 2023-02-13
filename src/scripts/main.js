@@ -1,3 +1,23 @@
 'use strict';
 
-// write code here
+const tree = document.querySelector('.tree');
+const listItems = document.querySelectorAll('li');
+
+for (const item of listItems) {
+  const span = document.createElement('span');
+
+  item.prepend(span);
+  span.append(span.nextSibling);
+}
+
+tree.addEventListener('click', e => {
+  const element = e.target.nextSibling;
+
+  if (element.getAttribute('hidden')) {
+    element.removeAttribute('hidden');
+
+    return;
+  }
+
+  element.setAttribute('hidden', true);
+});
