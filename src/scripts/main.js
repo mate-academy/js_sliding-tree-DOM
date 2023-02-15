@@ -6,13 +6,15 @@ const tree = document.querySelector('.tree');
 
 treeRecursion([tree][0]);
 
+
+
 function treeRecursion(elem) {
+
   if (elem.children.length !== 0) {
-    const index = elem.innerHTML.indexOf('\n');
 
-    if (index > 0) {
-      const oldString = elem.innerHTML.slice(0, elem.innerHTML.indexOf('\n'));
+    if (elem.tagName === 'LI') {
 
+      const oldString = elem.firstChild.data.trim()
       const temp = `<span>${oldString}</span>`;
 
       const oldString2 = elem.innerHTML.replace(oldString, temp);
