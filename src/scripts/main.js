@@ -6,29 +6,26 @@ const tree = document.querySelector('.tree');
 
 treeRecursion([tree][0]);
 
-
-
 function treeRecursion(elem) {
+  if (!elem.children.length) {
+    return;
+}
 
-  if (elem.children.length !== 0) {
+if (elem.tagName === 'LI') {
+  const nameIdSpan = elem.firstChild.data.trim();
+  const spannedName = `<span>${nameIdSpan}</span>`;
 
-    if (elem.tagName === 'LI') {
+  const newInnerHtml = elem.innerHTML.replace(nameIdSpan, spannedName);
 
-      const oldString = elem.firstChild.data.trim()
-      const temp = `<span>${oldString}</span>`;
+  elem.innerHTML = newInnerHtml;
 
-      const oldString2 = elem.innerHTML.replace(oldString, temp);
+  elem.children[0].setAttribute('data-toggle-id', nameIdSpan);
+  elem.children[1].setAttribute('id', nameIdSpan);
+}
 
-      elem.innerHTML = oldString2;
-
-      elem.children[0].setAttribute('data-toggle-id', oldString);
-      elem.children[1].setAttribute('id', oldString);
-    }
-
-    for (let i = 0; i < elem.children.length; i++) {
-      treeRecursion(elem.children[i]);
-    }
-  }
+for (let i = 0; i < elem.children.length; i++) {
+  treeRecursion(elem.children[i]);
+}
 }
 
 tree.addEventListener('click', () => {
