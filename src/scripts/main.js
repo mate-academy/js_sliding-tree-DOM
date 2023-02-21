@@ -9,12 +9,14 @@ for (const item of list) {
   spanElement.append(spanElement.nextSibling);
 }
 
-const tree = document.querySelector('.tree');
+const treeElement = document.querySelector('.tree');
 
-tree.addEventListener('click', eventFunc => {
+treeElement.addEventListener('click', eventFunc => {
   const item = eventFunc.target.closest('li').children[1];
 
-  if (item) {
-    item.hidden = !item.hidden;
+  if (!item) {
+    return;
   }
+
+  item.hidden = !item.hidden;
 });
