@@ -6,7 +6,7 @@ liElements.forEach(li => {
   const newSpanElement = document.createElement('span');
   const item = li.children;
 
-  if (item.length > 0) {
+  if (item.length) {
     li.prepend(newSpanElement);
     newSpanElement.append(newSpanElement.nextSibling);
   }
@@ -23,7 +23,7 @@ for (const span of spanElements) {
     }
 
     if (children.style.display === 'none') {
-      children.style.display = 'initial';
+      children.style.display = 'block';
 
       return;
     }
