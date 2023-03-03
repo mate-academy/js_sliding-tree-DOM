@@ -19,13 +19,7 @@ const showHide = (e) => {
 
   const children = e.target.parentElement.querySelector('ul');
 
-  switch (children.hidden) {
-    case true:
-      children.hidden = false;
-      break;
-    default:
-      children.hidden = true;
-  };
+  children.hidden = !children.hidden;
 };
 
 tree.addEventListener('click', showHide);
