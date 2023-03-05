@@ -13,5 +13,5 @@ list.forEach(li => {
 tree.addEventListener('click', (e) => {
   const child = e.target.nextElementSibling;
 
-  child.hidden ? child.hidden = false : child.hidden = true;
+  child.hidden = !child.hidden;
 });
