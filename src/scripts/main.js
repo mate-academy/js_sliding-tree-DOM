@@ -12,10 +12,9 @@ treeElements.forEach(li => {
 });
 
 tree.addEventListener('click', e => {
-  const childrens = e.target.nextSibling;
+  const children = e.target.nextSibling;
 
   if (e.target.className === 'extraSpan') {
-    childrens.hidden = childrens.hidden === false
-      ? childrens.hidden = true : childrens.hidden = false;
+    children.hidden = !children.hidden;
   }
 });
