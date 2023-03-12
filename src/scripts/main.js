@@ -10,6 +10,6 @@ for (const item of li) {
   span.append(span.nextSibling);
 };
 
-tree.addEventListener('click', element => {
-  element.target.nextSibling.hidden = !element.target.nextSibling.hidden;
+tree.addEventListener('click', el => {
+  el.target.nextSibling.hidden = !el.target.nextSibling.hidden;
 });
