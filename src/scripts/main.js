@@ -1,45 +1,27 @@
 'use strict';
 
 const treeMain = document.querySelector('.tree');
-const li = document.querySelectorAll('li');
-const tree = [...li].filter(el => el.childElementCount);
+const listItems = document.querySelectorAll('li');
 
-for (let i = 0; i < tree.length; i++) {
-  const header = Array.from(tree[i].childNodes)
-    .filter(node => node.nodeType === 3 && node.textContent.trim().length > 1);
+for (const li of listItems) {
+  const span = document.createElement('span');
 
-  header.forEach(node => {
-    const span = document.createElement('span');
-
-    node.after(span);
-    span.appendChild(node);
-    span.setAttribute('data-toggle-id', `${span.textContent}`.trim());
-
-    if (!tree[i].children.length) {
-      return;
-    }
-
-    tree[i].children[1].setAttribute('id',
-      tree[i].children[0].textContent.trim());
-
-    treeRecursion([tree[i]][0]);
-
-    function treeRecursion(elem) {
-      for (let k = 0; k < elem.children.length; k++) {
-        treeRecursion(elem.children[k]);
-      }
-    }
-  });
+  li.prepend(span);
+  span.append(span.nextSibling);
 }
 
 treeMain.addEventListener('click', (e) => {
-  const id = e.target.dataset.toggleId;
+  const id = e.target.parentNode.querySelector('span');
 
   if (!id) {
     return;
   }
 
-  const elem = document.getElementById(id);
+  if (id.nextSibling === null) {
+    return;
+  }
 
-  elem.hidden = !elem.hidden;
+  id.nextSibling.hasAttribute('hidden')
+    ? id.nextSibling.removeAttribute('hidden')
+    : id.nextSibling.setAttribute('hidden', '');
 });
