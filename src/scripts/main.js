@@ -13,11 +13,7 @@ for (const li of listItems) {
 treeMain.addEventListener('click', (e) => {
   const id = e.target.parentNode.querySelector('span');
 
-  if (!id) {
-    return;
-  }
-
-  if (id.nextSibling === null) {
+  if (!id || id.nextSibling === null) {
     return;
   }
 
