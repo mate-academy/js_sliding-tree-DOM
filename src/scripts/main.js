@@ -13,9 +13,5 @@ for (const item of items) {
 list.addEventListener('click', e => {
   const sibling = e.target.closest('span');
 
-  if (sibling.nextSibling.hidden === false) {
-    sibling.nextSibling.hidden = true;
-  } else {
-    sibling.nextSibling.hidden = false;
-  }
+  sibling.nextSibling.hidden = !sibling.nextSibling.hidden;
 });
