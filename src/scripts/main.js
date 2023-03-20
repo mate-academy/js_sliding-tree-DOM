@@ -10,13 +10,6 @@ for (const item of liAll) {
   span.append(span.nextSibling);
 }
 
-tree.addEventListener('click', (e) => {
-  const item = e.target;
-  const child = item.closest('li').children[1];
-
-  if (!child) {
-    return;
-  }
-
-  child.hidden = !child.hidden;
+tree.addEventListener('click', el => {
+  el.target.nextSibling.hidden = !el.target.nextSibling.hidden;
 });
