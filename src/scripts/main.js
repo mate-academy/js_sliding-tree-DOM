@@ -9,8 +9,10 @@ for (const item of li) {
   span.append(span.nextSibling);
 
   document.addEventListener('click', e => {
-    if (e.target.closest('span')) {
-      e.target.nextSibling.hidden = !e.target.nextSibling.hidden;
+    const { closest, nextSibling } = e.target;
+
+    if (closest('span')) {
+      nextSibling.hidden = !nextSibling.hidden;
     }
   });
 }
