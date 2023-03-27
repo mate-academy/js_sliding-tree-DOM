@@ -11,9 +11,17 @@ for (const header of headers) {
 }
 
 tree.addEventListener('click', (e) => {
-  if (e.target.closest('span').nextSibling.style.display === 'none') {
-    e.target.closest('span').nextSibling.style.display = 'block';
-  } else {
-    e.target.closest('span').nextSibling.style.display = 'none';
+  if (e.target.tagName !== 'SPAN') {
+    return;
   }
+
+  const ul = e.target.parentNode.querySelector('ul');
+
+  if (!ul) {
+    return;
+  }
+
+  ul.style.display === 'none'
+    ? e.target.parentNode.querySelector('ul').style.display = 'block'
+    : e.target.parentNode.querySelector('ul').style.display = 'none';
 });
