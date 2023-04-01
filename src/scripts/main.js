@@ -14,10 +14,6 @@ tree.addEventListener('click', e => {
   const firstChild = e.target.nextSibling;
 
   if (firstChild) {
-    if (firstChild.hidden) {
-      return (firstChild.hidden = false);
-    }
-
-    firstChild.hidden = true;
+    return (firstChild.hidden = !firstChild.hidden);
   }
 });
