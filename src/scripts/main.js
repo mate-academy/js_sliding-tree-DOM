@@ -19,8 +19,9 @@ tree.addEventListener('click', (e) => {
     return;
   };
 
-  e.target.nextSibling.style.display
-  = (e.target.nextSibling.style.display !== 'none')
-      ? 'none'
-      : 'block';
+  const toggledDisplay = e.target.nextSibling.style.display === 'none'
+    ? 'block'
+    : 'none';
+
+  e.target.nextSibling.style.display = toggledDisplay;
 });
