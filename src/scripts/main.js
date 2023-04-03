@@ -7,5 +7,11 @@ document.addEventListener('click', e => {
     ul.style.display = getComputedStyle(ul).display === 'none'
       ? 'block'
       : 'none';
+
+    ul.style.pointerEvents = 'none';
   }
+});
+
+document.querySelectorAll('li').forEach(li => {
+  li.style.cursor = 'pointer';
 });
