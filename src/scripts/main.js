@@ -1,10 +1,10 @@
 'use strict';
 
-const tree = document.querySelector('.tree');
-const headers = tree.querySelectorAll('li');
+const list = document.querySelector('.tree');
+const headers = list.querySelectorAll('li');
 
-for (let i = 0; i < headers.length; i++) {
-  const header = headers[i];
+for (const element of headers) {
+  const header = element;
   const text = header.firstChild.textContent;
   const span = document.createElement('span');
 
@@ -15,13 +15,9 @@ for (let i = 0; i < headers.length; i++) {
 const spanElement = document.querySelectorAll('span');
 
 spanElement.forEach(item => {
-  const list = item.nextElementSibling;
+  const sibling = item.nextElementSibling;
 
   item.addEventListener('click', () => {
-    if (list.style.display === 'none') {
-      list.style.display = '';
-    } else {
-      list.style.display = 'none';
-    }
+    sibling.hidden = !sibling.hidden;
   });
 });
