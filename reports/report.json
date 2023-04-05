@@ -1,0 +1,129 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2023-04-03T16:28:46.279Z",
+    "end": "2023-04-03T16:28:46.858Z",
+    "duration": 561,
+    "testsRegistered": 2,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 1,
+    "hasSkipped": true
+  },
+  "results": [
+    {
+      "uuid": "0264bf1c-84bc-4b1a-8ba8-c02aaad6e305",
+      "title": "",
+      "fullFile": "cypress\\integration\\slidingTreeDom.spec.js",
+      "file": "cypress\\integration\\slidingTreeDom.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "dfa22e1e-01fc-4489-9da9-885718d993ef",
+          "title": "Sliding tree",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should hide/show first level <ul> elements by click ",
+              "fullTitle": "Sliding tree should hide/show first level <ul> elements by click ",
+              "timedOut": null,
+              "duration": 561,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.toggleTree('Fruit');\ncy.toggleTree('Fish');",
+              "err": {
+                "message": "TypeError: The following error originated from your application code, not from Cypress.\n\n  > Cannot read property 'querySelectorAll' of null\n\nWhen Cypress detects uncaught errors originating from your application it will automatically fail the current test.\n\nThis behavior is configurable, and you can choose to turn this off by listening to the `uncaught:exception` event.\n\nhttps://on.cypress.io/uncaught-exception-from-application\n\nBecause this error occurred during a `before each` hook we are skipping the remaining tests in the current suite: `Sliding tree`",
+                "estack": "TypeError: The following error originated from your application code, not from Cypress.\n\n  > Cannot read property 'querySelectorAll' of null\n\nWhen Cypress detects uncaught errors originating from your application it will automatically fail the current test.\n\nThis behavior is configurable, and you can choose to turn this off by listening to the `uncaught:exception` event.\n\nhttps://on.cypress.io/uncaught-exception-from-application\n\nBecause this error occurred during a `before each` hook we are skipping the remaining tests in the current suite: `Sliding tree`\n    at Object.parcelRequire.scripts/main.js (http://localhost:8080/main.d8ebb8d6.js:131:49)\n    at newRequire (http://localhost:8080/main.d8ebb8d6.js:47:24)\n    at http://localhost:8080/main.d8ebb8d6.js:81:7\n    at http://localhost:8080/main.d8ebb8d6.js:120:3",
+                "diff": null
+              },
+              "uuid": "55213291-caf3-4ef2-b7e1-dc5293996420",
+              "parentUUID": "dfa22e1e-01fc-4489-9da9-885718d993ef",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should hide/show second level <ul> elements by click",
+              "fullTitle": "Sliding tree should hide/show second level <ul> elements by click",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.toggleTree('Red');\ncy.toggleTree('Yellow');\ncy.toggleTree('Ocean fishes');\ncy.toggleTree('Freshwater fish');",
+              "err": {},
+              "uuid": "6f92ef5d-d6bc-4a8b-b84d-325b78f9a0f8",
+              "parentUUID": "dfa22e1e-01fc-4489-9da9-885718d993ef",
+              "isHook": false,
+              "skipped": true
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "55213291-caf3-4ef2-b7e1-dc5293996420"
+          ],
+          "pending": [],
+          "skipped": [
+            "6f92ef5d-d6bc-4a8b-b84d-325b78f9a0f8"
+          ],
+          "duration": 561,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.2.1"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "raw_reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "5.1.0"
+    }
+  }
+}
