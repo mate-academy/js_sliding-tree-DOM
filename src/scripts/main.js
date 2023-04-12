@@ -1,12 +1,12 @@
 'use strict';
 
-const list = document.querySelectorAll('li');
+const treeItems = document.querySelectorAll('li');
 
-list.forEach(el => {
-  if (el.children.length) {
+treeItems.forEach(item => {
+  if (item.children.length) {
     const span = document.createElement('span');
 
-    el.prepend(span);
+    item.prepend(span);
     span.append(span.nextSibling);
   }
 });
