@@ -1,9 +1,9 @@
 'use strict';
 
 const list = document.querySelector('.tree');
-const listOfli = document.querySelectorAll('li');
+const listItems = document.querySelectorAll('li');
 
-for (const li of listOfli) {
+for (const li of listItems) {
   const span = document.createElement('span');
 
   if (li.children.length !== 0) {
@@ -19,12 +19,9 @@ list.addEventListener('click', (events) => {
     return;
   }
 
-  const itemCliked = events.target;
+  const itemClicked = events.target;
 
-  if (itemCliked.nextElementSibling.hidden === true) {
-    itemCliked.nextElementSibling.hidden = false;
-  } else {
-    itemCliked.nextElementSibling.hidden = true;
-  }
+  itemClicked.nextElementSibling.hidden
+  = !itemClicked.nextElementSibling.hidden;
 }
 );
