@@ -18,9 +18,5 @@ tree.addEventListener('click', e => {
     return;
   }
 
-  if (item.hidden) {
-    item.hidden = false;
-  } else {
-    item.hidden = true;
-  }
+  item.hidden = !item.hidden;
 });
