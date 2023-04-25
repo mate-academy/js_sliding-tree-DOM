@@ -13,9 +13,7 @@ list.forEach(item => {
 tree.addEventListener('click', (e) => {
   const item = e.target.closest('span').nextSibling;
 
-  if (!item) {
-    return;
+  if (item) {
+    item.hidden = !item.hidden;
   }
-
-  item.hidden = !item.hidden;
 });
