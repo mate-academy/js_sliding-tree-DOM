@@ -1,28 +1,25 @@
 'use strict';
 
 const tree = document.querySelector('.tree');
+const liGroup = tree.querySelectorAll('LI');
 
-tree.addEventListener('click', e => {
-  const list = e.target.firstElementChild;
+liGroup.forEach(el => {
+  const span = document.createElement('SPAN');
 
-  if (list && list.tagName === 'UL') {
-    if (list.style.display === 'none') {
-      list.style.display = 'block';
-    } else {
-      list.style.display = 'none';
-    }
-  }
+  span.innerText = el.firstChild.nodeValue;
+  el.firstChild.remove();
+  el.prepend(span);
 });
 
-tree.addEventListener('mouseover', e => {
-  const li = e.target.closest('LI');
+tree.addEventListener('click', e => {
+  const list = e.target.closest('LI');
+  const childList = list.children[1];
 
-  if (li) {
-    li.style.cursor = 'pointer';
-    li.style.fontWeight = 'bold';
+  if (childList) {
+    if (childList.style.display === 'none') {
+      childList.style.display = 'block';
+    } else {
+      childList.style.display = 'none';
+    }
   }
-
-  li.addEventListener('mouseleave', () => {
-    li.style.fontWeight = 'normal';
-  });
 });
