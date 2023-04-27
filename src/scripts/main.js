@@ -13,3 +13,16 @@ tree.addEventListener('click', e => {
     }
   }
 });
+
+tree.addEventListener('mouseover', e => {
+  const li = e.target.closest('LI');
+
+  if (li) {
+    li.style.cursor = 'pointer';
+    li.style.fontWeight = 'bold';
+  }
+
+  li.addEventListener('mouseleave', () => {
+    li.style.fontWeight = 'normal';
+  });
+});
