@@ -11,3 +11,7 @@ list.addEventListener('click', (e) => {
     isHidden ? item.style.display = 'block' : item.style.display = 'none';
   }
 });
+
+document.addEventListener('mousedown', (e) => {
+  e.preventDefault();
+});
