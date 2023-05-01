@@ -11,17 +11,5 @@ for (const item of liElems) {
 }
 
 list.addEventListener('click', (evnt) => {
-  const item = evnt.target;
-
-  if (item.nextSibling === null) {
-    return;
-  }
-
-  if (item.nextSibling.style.display === 'none') {
-    item.nextSibling.style.display = 'block';
-
-    return;
-  }
-
-  item.nextSibling.style.display = 'none';
+  evnt.target.nextSibling.hidden = !evnt.target.nextSibling.hidden;
 });
