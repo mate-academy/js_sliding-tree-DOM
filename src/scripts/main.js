@@ -1,23 +1,26 @@
 'use strict';
 
+document.addEventListener('mousedown', (e) => {
+  e.preventDefault();
+});
+
 const list = document.querySelector('.tree');
+const items = list.querySelectorAll('li');
+
+items.forEach(item => {
+  const span = document.createElement('span');
+
+  item.prepend(span);
+  span.append(span.nextSibling);
+});
 
 list.addEventListener('click', (e) => {
-  if (e.target === list) {
+  if (e.target.tagName !== 'SPAN') {
     return;
   }
 
-  const items = e.target.children;
+  const element = e.target.nextSibling;
+  const isHidden = element.style.display === 'none';
 
-  [...items].forEach(item => {
-    if (item) {
-      const isHidden = item.style.display === 'none';
-
-      isHidden ? item.style.display = 'block' : item.style.display = 'none';
-    }
-  });
-});
-
-document.addEventListener('mousedown', (e) => {
-  e.preventDefault();
+  isHidden ? element.style.display = 'block' : element.style.display = 'none';
 });
