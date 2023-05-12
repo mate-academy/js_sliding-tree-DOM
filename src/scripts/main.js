@@ -2,23 +2,23 @@
 
 const myList = document.querySelector('.tree');
 
-const listItems = myList.getElementsByTagName('li');
+const listItems = myList.querySelectorAll('li');
 
-for (let i = 0; i < listItems.length; i++) {
-  listItems[i].hidden = false;
+listItems.forEach((listItem) => {
+  listItem.hidden = false;
 
   const newSpan = document.createElement('span');
 
-  listItems[i].insertAdjacentElement('beforebegin', newSpan);
-  newSpan.append(listItems[i]);
-}
+  listItem.insertAdjacentElement('beforebegin', newSpan);
+  newSpan.append(listItem);
+});
 
-const add = (e) => {
-  if (!e.target.children.length || e.target.tagName === 'UL') {
+const togglingList = (e) => {
+  if (!e.target.parentElement.tagName === 'SPAN') {
     return;
   }
 
   e.target.children[0].hidden = !e.target.children[0].hidden;
 };
 
-myList.addEventListener('click', add);
+myList.addEventListener('click', togglingList);
