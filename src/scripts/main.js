@@ -21,16 +21,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.target.closest('span')) {
       const subList = e.target.closest('span').nextElementSibling;
 
-      // subList.style.display = 'none';
       if (getComputedStyle(subList).display !== 'none') {
         subList.style.display = 'none';
       } else {
         subList.style.display = 'block';
       }
-
-      // if (!subList.style.display) {
-
-      // }
     };
   });
 });
