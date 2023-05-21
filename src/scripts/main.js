@@ -11,8 +11,8 @@ items.forEach(element => {
 });
 
 list.addEventListener('click', e => {
-  const triger = e.target;
-  const listSibling = triger.nextElementSibling;
+  const trigger = e.target;
+  const listSibling = trigger.nextElementSibling;
 
   if (e.target.tagName === 'SPAN' && listSibling !== null) {
     listSibling.hidden = !listSibling.hidden;
