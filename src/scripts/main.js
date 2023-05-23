@@ -10,12 +10,14 @@ listArr.forEach(list => {
   list.insertAdjacentElement('afterbegin', span);
 });
 
-document.addEventListener('click', evetio => {
-  if (evetio.target.tagName === 'SPAN') {
-    const eventParent = evetio.target.parentElement;
+document.addEventListener('click', e => {
+  if (e.target.closest('span')) {
+    const listItem = e.target.parentElement;
 
-    eventParent.innerHTML = ``;
-
-    eventParent.append(evetio.target);
+    if (listItem.lastElementChild.style.display === 'none') {
+      listItem.lastElementChild.style.display = 'block';
+    } else {
+      listItem.lastElementChild.style.display = 'none';
+    }
   }
 });
