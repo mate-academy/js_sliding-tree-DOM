@@ -17,7 +17,7 @@ list.addEventListener('click', (e) => {
     return;
   }
 
-  const item = e.target.closest('li').children[1];
+  const item = e.target.nextSibling;
 
   item.hidden = !item.hidden;
 });
