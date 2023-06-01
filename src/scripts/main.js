@@ -11,6 +11,10 @@ items.forEach(item => {
 });
 
 tree.addEventListener('click', (e) => {
+  if (e.target.tagName !== 'SPAN') {
+    return;
+  };
+
   const item = e.target.nextSibling;
 
   item.style.display === 'none'
