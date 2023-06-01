@@ -1,9 +1,9 @@
 'use strict';
 
 const mainList = document.querySelector('.tree');
-const listName = document.querySelectorAll('li');
+const listItems = document.querySelectorAll('li');
 
-[...listName].forEach(elem => {
+[...listItems].forEach(elem => {
   const span = document.createElement('span');
 
   elem.prepend(span);
@@ -11,7 +11,7 @@ const listName = document.querySelectorAll('li');
 });
 
 mainList.addEventListener('click', e => {
-  const item = e.target.closest('span').nextSibling;
+  const item = e.target.closest('span')?.nextSibling;
 
   item.hidden = !item.hidden;
 });
