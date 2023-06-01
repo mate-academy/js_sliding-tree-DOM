@@ -13,9 +13,5 @@ list.forEach((item) => {
 tree.addEventListener('click', (e) => {
   const item = e.target.nextSibling;
 
-  if (item.style.display === 'none') {
-    item.style.display = 'block';
-  } else {
-    item.style.display = 'none';
-  }
+  item.style.display = item.style.display === 'none' ? 'block' : 'none';
 });
