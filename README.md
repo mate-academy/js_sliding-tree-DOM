@@ -1,5 +1,5 @@
-1. Replace `<your_account>` with your Github username in the link
-    - [DEMO LINK](https://<your_account>.github.io/js_sliding-tree-DOM/)
+1. Replace `AnriiYelieva` with your Github username in the link
+    - [DEMO LINK](https://AnriiYelieva.github.io/js_sliding-tree-DOM/)
 2. Follow [this instructions](https://mate-academy.github.io/layout_task-guideline/)
     - Run `npm run test` command to test your code;
     - Run `npm run test:only -- -n` to run fast test ignoring linter;
