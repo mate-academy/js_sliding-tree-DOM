@@ -22,5 +22,5 @@ tree.addEventListener('click', e => {
 
   const ul = span.nextSibling;
 
-  ul.style.display = (ul.style.display === 'none') ? '' : 'none';
+  ul.style.display = ul.style.display === 'none' ? '' : 'none';
 });
