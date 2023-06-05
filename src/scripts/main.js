@@ -2,9 +2,8 @@
 
 const tree = document.querySelector('.tree');
 
-[...document.querySelectorAll('li')].map((li) => {
+[...document.querySelectorAll('li')].forEach(li => {
   const span = document.createElement('span');
-
   if (li.parentNode.querySelector('ul')) {
     li.prepend(span);
     span.prepend(span.nextSibling);
@@ -22,5 +21,6 @@ tree.addEventListener('click', e => {
     return;
   }
 
-  childrenContainer.hidden = !childrenContainer.hidden;
+  childrenContainer.style.display = (childrenContainer.style.display === 'none') ? 'block' : 'none';
 });
+
