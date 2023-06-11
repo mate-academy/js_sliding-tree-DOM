@@ -1,16 +1,58 @@
-/* eslint-disable max-len */
-/* eslint-disable no-console */
 'use strict';
 
+const food = {
+  'Drink': {
+    'Wine': {},
+    'Schnaps': {},
+  },
+
+  'Fruit': {
+    'Red': {
+      'Cherry': {},
+      'Strawberry': {},
+    },
+    'Yellow': {
+      'Banana': {},
+      'Pineapple': {},
+    },
+
+  },
+};
+
+const tree = document.querySelector('#tree');
+
+function createTree(element, data) {
+  function createList(obj) {
+    const ul = document.createElement('ul');
+
+    for (const key in obj) {
+      const li = document.createElement('li');
+
+      li.textContent = key;
+      ul.appendChild(li);
+
+      if (typeof obj[key] === 'object' && Object.keys(obj[key].length > 0)) {
+        li.appendChild(createList(obj[key]));
+      }
+    }
+
+    return ul;
+  }
+
+  const list = createList(data);
+
+  element.appendChild(list);
+};
+
+const newTree = createTree(tree, food);
+
+newTree();
+
 document.addEventListener('DOMContentLoaded', () => {
-  const tree = document.querySelector('.tree');
+  // const tree = document.querySelector('.tree');
 
   function labelTree(item) {
     console.log(item);
-
-    if (!item) {
-      return;
-    }
 
     if (!item.children.length) {
       return;
