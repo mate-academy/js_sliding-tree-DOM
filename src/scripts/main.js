@@ -1,31 +1,26 @@
 'use strict';
 
-const li = document.querySelectorAll('li');
+const lilist = document.querySelectorAll('li');
 
-for (let i = 0; i < li.length; i++) {
+lilist.forEach(li => {
   const span = document.createElement('span');
-  const firstChild = li[i].firstChild;
+  const firstChild = li.firstChild;
 
-  if (firstChild.textContent !== undefined) {
-    span.textContent = firstChild.textContent;
-    li[i].insertBefore(span, firstChild);
-    firstChild.textContent = '';
-  }
-}
+  span.textContent = firstChild.textContent;
+  li.insertBefore(span, firstChild);
+  firstChild.textContent = '';
+});
 
-const spans = document.querySelectorAll('span');
+const tree = document.querySelector('.tree');
 
-for (let i = 0; i < li.length; i++) {
+tree.addEventListener('click', (e) => {
+  if (e.target.tagName !== 'SPAN') {
+    return;
+  };
 
-  spans[i].addEventListener('click', e => {
-    e.stopPropagation();
+  const item = e.target.nextElementSibling;
 
-    const liChilds = li[i].querySelectorAll('li');
-
-    for (let j = 0; j < liChilds.length; j++) {
-      liChilds[j].style.display !== 'none'
-        ? liChilds[j].style.display = 'none'
-        : liChilds[j].style.display = 'list-item';
-    }
-  });
-}
+  item.style.display === 'none'
+    ? item.style.display = 'block'
+    : item.style.display = 'none';
+});
