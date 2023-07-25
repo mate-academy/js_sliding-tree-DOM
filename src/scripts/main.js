@@ -1,17 +1,14 @@
 'use strict';
 
-const lilist = document.querySelectorAll('li');
-
-lilist.forEach(li => {
-  const span = document.createElement('span');
-  const firstChild = li.firstChild;
-
-  span.textContent = firstChild.textContent;
-  li.insertBefore(span, firstChild);
-  firstChild.textContent = '';
-});
-
 const tree = document.querySelector('.tree');
+const listItems = document.querySelectorAll('li');
+
+listItems.forEach(item => {
+  const span = document.createElement('span');
+
+  item.prepend(span);
+  span.append(span.nextSibling);
+});
 
 tree.addEventListener('click', (e) => {
   if (e.target.tagName !== 'SPAN') {
