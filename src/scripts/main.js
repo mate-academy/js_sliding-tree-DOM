@@ -2,12 +2,11 @@
 
 // write code here
 
-const mainList = document.querySelector('.tree');
-const subList = [...mainList.getElementsByTagName('li')].filter(
+const mainList = [...document.querySelectorAll('li')].filter(
   el => el.firstElementChild
 );
 
-for (const element of subList) {
+for (const element of mainList) {
   const span = document.createElement('span');
 
   const firstChild = element.firstChild;
