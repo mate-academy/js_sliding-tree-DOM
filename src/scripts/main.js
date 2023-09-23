@@ -5,6 +5,7 @@ const branches = tree.querySelectorAll('li');
 
 branches.forEach((branch) => {
   const title = document.createElement('span');
+
   const prevTitle = branch.firstChild;
 
   title.textContent = prevTitle.textContent;
