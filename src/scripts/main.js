@@ -10,23 +10,23 @@ listitems.forEach(listHeader => {
 
   listitemssWrap.hidden = false;
 
-  listHeader.insertAdjacentElement('beforebegin', listitemssWrap);
-
-  listitemssWrap.insertAdjacentElement('afterbegin', listHeader);
+  if (listHeader.firstElementChild) {
+    listitemssWrap.textContent = listHeader.firstChild.textContent;
+    listHeader.firstChild.textContent = '';
+    listHeader.insertAdjacentElement('afterbegin', listitemssWrap);
+  };
 });
 
 list.addEventListener('click', function(evt) {
-  evt.preventDefault();
+  if (evt.target.tagName !== 'SPAN') {
+    return;
+  }
 
-  if (evt.target.parentNode.tagName === 'SPAN') {
-    const clicked = evt.target;
+  const clicked = evt.target;
 
-    if (clicked.firstElementChild) {
-      const child = clicked.firstElementChild;
+  if (clicked) {
+    const child = clicked.nextElementSibling;
 
-      child.hidden === false
-        ? child.hidden = true
-        : child.hidden = false;
-    };
+    child.hidden = !child.hidden;
   }
 });
