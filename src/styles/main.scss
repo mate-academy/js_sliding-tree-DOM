@@ -14,3 +14,17 @@ span:hover {
   font-weight: 700;
   cursor: pointer;
 }
+
+.tree ul {
+  max-height: 0;
+  opacity: 0;
+  transition:
+    max-height 0.2s ease-in-out,
+    opacity 0.3s ease-in-out;
+}
+
+.tree ul.visible {
+  max-height: fit-content;
+  opacity: 1;
+}
+

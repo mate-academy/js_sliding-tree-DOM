@@ -17,7 +17,7 @@ tree.onclick = function(e) {
     const ulElem = e.target.parentElement.querySelector('ul');
 
     if (ulElem) {
-      ulElem.hidden = !ulElem.hidden;
+      ulElem.classList.toggle('visible');
     }
   }
 };
