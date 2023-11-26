@@ -2,14 +2,6 @@
 
 const tree = document.querySelector('.tree');
 
-tree.onclick = function(e) {
-  const ulElem = e.target.querySelector('ul');
-
-  if (ulElem && e.target.tagName === 'LI') {
-    ulElem.hidden = !ulElem.hidden;
-  }
-};
-
 const li = tree.querySelectorAll('li');
 
 li.forEach(elem => {
@@ -19,3 +11,13 @@ li.forEach(elem => {
   elem.prepend(span);
   span.append(span.nextSibling);
 });
+
+tree.onclick = function(e) {
+  if (e.target.tagName === 'SPAN') {
+    const ulElem = e.target.parentElement.querySelector('ul');
+
+    if (ulElem) {
+      ulElem.hidden = !ulElem.hidden;
+    }
+  }
+};
