@@ -8,6 +8,7 @@ for (const li of elements) {
     const span = document.createElement('span');
 
     span.className = 'item';
+
     li.prepend(span);
     span.append(span.nextSibling);
   }
