@@ -17,7 +17,7 @@ tree.addEventListener('click', e => {
   if (e.target.className === 'item') {
     const children = e.target.parentNode.children;
 
-    if (children.length === 0) {
+    if (!children.length) {
       return;
     }
 
