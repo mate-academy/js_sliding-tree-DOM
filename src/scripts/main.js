@@ -15,8 +15,8 @@ const tree = document.getElementsByTagName('li');
 document.body.addEventListener('click', e => {
   const { target } = e;
 
-  if (target.localName === 'li') {
-    const elem = target.firstElementChild;
+  if (target.localName === 'span') {
+    const elem = target.nextElementSibling;
 
     if (elem) {
       elem.hidden = !elem.hidden;
