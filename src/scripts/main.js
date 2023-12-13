@@ -1,21 +1,20 @@
-'use strict';
+"use strict";
 
-document.addEventListener('DOMContentLoaded', () => {
-  const tree = document.querySelector('.tree');
+document.querySelectorAll(".tree li").forEach((li) => {
+  const span = document.createElement("span");
 
-  tree.addEventListener('click', (e) => {
-    const clickedElement = e.target;
+  li.prepend(span);
+  span.appendChild(span.nextSibling);
+});
 
-    // Check if the clicked element is a span inside an li element
-    if (clickedElement.tagName === 'SPAN'
-    && clickedElement.parentElement.tagName === 'LI') {
-      // Toggle the visibility of the nested ul element
-      const sublist = clickedElement.parentElement.querySelector('ul');
+document.querySelector(".tree").addEventListener("click", function (e) {
+  if (e.target.tagName !== "SPAN") {
+    return;
+  }
 
-      if (sublist) {
-        sublist.style.display = sublist.style.display
-        === 'none' ? 'block' : 'none';
-      }
-    }
-  });
+  const childrenContainer = e.target.parentNode.querySelector("ul");
+
+  if (childrenContainer) {
+    childrenContainer.hidden = !childrenContainer.hidden;
+  }
 });
