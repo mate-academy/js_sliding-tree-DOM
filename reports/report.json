@@ -2,14 +2,14 @@
   "stats": {
     "suites": 1,
     "tests": 2,
-    "passes": 1,
+    "passes": 2,
     "pending": 0,
-    "failures": 1,
-    "start": "2024-01-25T17:09:10.676Z",
-    "end": "2024-01-25T17:09:15.916Z",
-    "duration": 5198,
+    "failures": 0,
+    "start": "2024-01-26T17:10:36.436Z",
+    "end": "2024-01-26T17:10:37.799Z",
+    "duration": 1330,
     "testsRegistered": 2,
-    "passPercent": 50,
+    "passPercent": 100,
     "pendingPercent": 0,
     "other": 0,
     "hasOther": false,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "7cb70dde-1a59-49bc-83a4-864c56290a5a",
+      "uuid": "6c49736a-60a7-4ac0-9613-4f8826501bc9",
       "title": "",
       "fullFile": "cypress/integration/slidingTreeDom.spec.js",
       "file": "cypress/integration/slidingTreeDom.spec.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "9178dced-8a73-4129-b215-f67d2a8bd89e",
+          "uuid": "6d782132-baf5-4ad0-9694-6a3990a93a1d",
           "title": "Sliding tree",
           "fullFile": "",
           "file": "",
@@ -38,21 +38,17 @@
               "title": "should hide/show first level <ul> elements by click ",
               "fullTitle": "Sliding tree should hide/show first level <ul> elements by click ",
               "timedOut": null,
-              "duration": 4403,
-              "state": "failed",
-              "speed": null,
-              "pass": false,
-              "fail": true,
+              "duration": 529,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
               "pending": false,
               "context": null,
               "code": "cy.toggleTree('Fruit');\ncy.toggleTree('Fish');",
-              "err": {
-                "message": "AssertionError: Timed out retrying after 4000ms: expected '[ <ul>, 5 more... ]' not to be 'visible'",
-                "estack": "AssertionError: Timed out retrying after 4000ms: expected '[ <ul>, 5 more... ]' not to be 'visible'\n    at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\\integration\\slidingTreeDom.spec.js:101:45)",
-                "diff": null
-              },
-              "uuid": "55a00389-27c1-4e39-85e1-1f12f46770ad",
-              "parentUUID": "9178dced-8a73-4129-b215-f67d2a8bd89e",
+              "err": {},
+              "uuid": "f4cc90a3-f78e-449f-9530-296dd1f7271b",
+              "parentUUID": "6d782132-baf5-4ad0-9694-6a3990a93a1d",
               "isHook": false,
               "skipped": false
             },
@@ -60,7 +56,7 @@
               "title": "should hide/show second level <ul> elements by click",
               "fullTitle": "Sliding tree should hide/show second level <ul> elements by click",
               "timedOut": null,
-              "duration": 795,
+              "duration": 801,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -69,22 +65,21 @@
               "context": null,
               "code": "cy.toggleTree('Red');\ncy.toggleTree('Yellow');\ncy.toggleTree('Ocean fishes');\ncy.toggleTree('Freshwater fish');",
               "err": {},
-              "uuid": "44924cca-2869-40fd-95da-f84ef5d1bcf3",
-              "parentUUID": "9178dced-8a73-4129-b215-f67d2a8bd89e",
+              "uuid": "fbde49ba-1c69-4c99-8dae-b1ca880da055",
+              "parentUUID": "6d782132-baf5-4ad0-9694-6a3990a93a1d",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "44924cca-2869-40fd-95da-f84ef5d1bcf3"
+            "f4cc90a3-f78e-449f-9530-296dd1f7271b",
+            "fbde49ba-1c69-4c99-8dae-b1ca880da055"
           ],
-          "failures": [
-            "55a00389-27c1-4e39-85e1-1f12f46770ad"
-          ],
+          "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 5198,
+          "duration": 1330,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
