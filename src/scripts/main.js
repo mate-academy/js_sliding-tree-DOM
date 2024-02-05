@@ -1,16 +1,16 @@
 'use strict';
 
-const menu = document.querySelector('.tree');
-const items = document.querySelector('li');
+const liItems = document.querySelectorAll('li');
+const tree = document.querySelector('.tree');
 
-[...items].map(item => {
+for (const li of liItems) {
   const span = document.createElement('span');
 
-  item.prepend(span);
+  li.prepend(span);
   span.append(span.nextSibling);
-});
+}
 
-menu.addEventListener('click', (e) => {
+tree.addEventListener('click', (e) => {
   const item = e.target;
 
   if (item.parentNode.children[1]) {
