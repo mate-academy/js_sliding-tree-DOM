@@ -1,3 +1,13 @@
 'use strict';
 
-// write code here
+document.addEventListener('click', (e) => {
+  if (e.target === document.body) {
+    return;
+  }
+
+  if (!e.target.firstElementChild) {
+    return;
+  }
+
+  e.target.firstElementChild.hidden = !e.target.firstElementChild.hidden;
+});
