@@ -4,10 +4,10 @@ const tree = document.querySelector('.tree');
 const liItems = tree.querySelectorAll('li');
 
 liItems.forEach((li) => {
-  const span = document.createElement('span');
+  const headerWrapper = document.createElement('span');
 
-  li.prepend(span);
-  span.append(span.nextSibling);
+  li.prepend(headerWrapper);
+  headerWrapper.append(headerWrapper.nextSibling);
 });
 
 tree.addEventListener('click', (e) => {
