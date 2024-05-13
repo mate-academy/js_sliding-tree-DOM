@@ -4,14 +4,14 @@ const tree = document.querySelector('.tree');
 const liItems = tree.querySelectorAll('li');
 
 liItems.forEach((li) => {
-  const headerWrapper = document.createElement('span');
+  const span = document.createElement('span');
 
-  li.prepend(headerWrapper);
-  headerWrapper.append(headerWrapper.nextSibling);
+  li.prepend(span);
+  span.append(span.nextSibling);
 });
 
 tree.addEventListener('click', (e) => {
-  if (e.target.tagName !== 'span') {
+  if (e.target.tagName !== 'SPAN') {
     return;
   }
 
