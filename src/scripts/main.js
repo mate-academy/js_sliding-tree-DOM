@@ -18,8 +18,9 @@ tree.addEventListener('click', (e) => {
 
     if (hiddenUl.style.display !== 'none') {
       hiddenUl.style.display = 'none';
-    } else {
-      hiddenUl.style.display = '';
+      return;
     }
+    
+    hiddenUl.style.display = '';
   }
 });
