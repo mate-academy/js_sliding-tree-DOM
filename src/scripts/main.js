@@ -5,8 +5,10 @@ const liElems = document.querySelectorAll('li');
 liElems.forEach((li) => {
   const span = document.createElement('span');
 
-  li.prepend(span);
-  span.append(span.nextSibling);
+  if (li.childNodes.length !== 1) {
+    li.prepend(span);
+    span.append(span.nextSibling);
+  }
 
   const findUl = span.nextElementSibling;
 
