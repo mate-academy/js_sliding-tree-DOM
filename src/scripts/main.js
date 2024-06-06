@@ -16,18 +16,20 @@ li.forEach((item) => {
   }
 });
 
-const span = document.querySelectorAll('span');
+tree.addEventListener('click', (e) => {
+  const item = e.target.closest('li');
 
-span.forEach((item) => {
-  const list = item.nextElementSibling;
+  if (e.target.tagName !== 'SPAN') {
+    return;
+  }
 
-  list.style.display = 'block';
+  if (item.lastElementChild.tagName === 'UL') {
+    const list = item.querySelector('ul');
 
-  item.addEventListener('click', () => {
-    if (list.style.display === 'block') {
-      list.style.display = 'none';
-    } else {
+    if (list.style.display === 'none') {
       list.style.display = 'block';
+    } else {
+      list.style.display = 'none';
     }
-  });
+  }
 });
