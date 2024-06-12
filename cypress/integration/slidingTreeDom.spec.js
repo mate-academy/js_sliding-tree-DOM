@@ -7,7 +7,7 @@ Cypress.Commands.add('toggleTree', (selector) => {
   cy.contains(selector).parent().find('ul').should('be.visible');
 });
 
-describe(('Sliding tree'), () => {
+describe('Sliding tree', () => {
   beforeEach(() => {
     cy.visit('/');
   });
