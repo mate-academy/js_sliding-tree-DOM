@@ -1,6 +1,8 @@
 'use strict';
 
-let headers = document.querySelectorAll('li:has(ul)');
+let headers = document.querySelectorAll('li');
+
+headers = [...headers].filter((header) => header.querySelector('ul'));
 
 headers.forEach((header) => {
   const headerText = header.firstChild;
