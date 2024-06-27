@@ -10,7 +10,7 @@ for (const li of tree.querySelectorAll('li')) {
   li.prepend(span);
 }
 
-tree.onclick = function (e) {
+tree.addEventListener('click', function (e) {
   if (e.target.tagName !== 'SPAN') {
     return;
   }
@@ -22,4 +22,4 @@ tree.onclick = function (e) {
   }
 
   childrenContainer.hidden = !childrenContainer.hidden;
-};
+});
