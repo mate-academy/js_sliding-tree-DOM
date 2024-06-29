@@ -1,17 +1,15 @@
 'use strict';
 
 const fullList = document.querySelector('.tree');
-const mainArrLi = [...fullList.children].map((li) => li);
-const subArrLi = [...fullList.children]
-  .map((li) => [...li.children[0].children])
-  .flat();
+const arrOfLi = [...fullList.querySelectorAll('li')].filter((li) => {
+  return li.childNodes.length === 3;
+});
 
 function getTitles(arr) {
   return arr.map((li) => li.childNodes[0].wholeText.trim());
 }
 
-const mainArrHeadlines = getTitles(mainArrLi);
-const subArrHeadlines = getTitles(subArrLi);
+const arrOfHeadlines = getTitles(arrOfLi);
 
 function helper(arr, titles) {
   arr.forEach((li, idx) => {
@@ -20,8 +18,7 @@ function helper(arr, titles) {
   });
 }
 
-helper(mainArrLi, mainArrHeadlines);
-helper(subArrLi, subArrHeadlines);
+helper(arrOfLi, arrOfHeadlines);
 
 function wrapHeadline(i, titles) {
   const span = document.createElement('span');
