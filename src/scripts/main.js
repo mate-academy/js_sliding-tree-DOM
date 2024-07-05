@@ -18,13 +18,18 @@ tree.addEventListener('click', (e) => {
   const children = [...e.target.parentElement.children];
 
   children.forEach((element) => {
-    if (element.tagName === 'UL' && element.style.display === 'none') {
+    if (
+      e.target.tagName === 'SPAN' &&
+      element.tagName === 'UL' &&
+      element.style.display === 'none'
+    ) {
       element.style.display = 'block';
 
       return;
     }
 
     if (
+      e.target.tagName === 'SPAN' &&
       element.tagName === 'UL' &&
       getComputedStyle(element).display === 'block'
     ) {
