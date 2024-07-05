@@ -21,12 +21,7 @@ tree.addEventListener('click', (e) => {
   if (e.target.nodeName === 'SPAN') {
     const ul = e.target.nextElementSibling;
 
-    if (ul.classList.contains('hidden')) {
-      ul.classList.toggle('hidden');
-      ul.style.display = 'block';
-    } else {
-      ul.classList.toggle('hidden');
-      ul.style.display = 'none';
-    }
+    ul.classList.toggle('hidden');
+    ul.style.display = ul.classList.contains('hidden') ? 'none' : 'block';
   }
 });
