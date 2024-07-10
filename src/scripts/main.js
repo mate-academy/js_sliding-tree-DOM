@@ -9,7 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const span = document.createElement('span');
 
     span.style.cursor = 'pointer';
-    span.textContent = item.firstChild.textContent;
+    // Extract the text content from the list item and set it as the span's text
+    span.textContent = item.childNodes[0].nodeValue.trim();
 
     span.addEventListener('click', (e) => {
       e.stopPropagation(); // Prevent the event from bubbling up
@@ -23,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Replace the text node with the span
-    item.insertBefore(span, item.firstChild);
-    item.firstChild.nodeValue = '';
+    item.insertBefore(span, item.childNodes[0]);
+    item.removeChild(item.childNodes[1]);
   });
 });
