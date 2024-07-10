@@ -25,12 +25,5 @@ document.addEventListener('DOMContentLoaded', () => {
     // Replace the text node with the span
     item.insertBefore(span, item.firstChild);
     item.firstChild.nodeValue = '';
-
-    // Initially hide all nested lists
-    const secondChildUl = item.querySelector('ul');
-
-    if (secondChildUl) {
-      secondChildUl.style.display = 'none';
-    }
   });
 });
