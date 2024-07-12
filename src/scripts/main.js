@@ -1,25 +1,29 @@
 'use strict';
 
 document.addEventListener('DOMContentLoaded', () => {
-  const headers = document.querySelectorAll('li > ul > li');
+  function wrapHeadersWithSpan(headers) {
+    headers.forEach((header) => {
+      const span = document.createElement('span');
 
-  headers.forEach((header) => {
-    const span = document.createElement('span');
+      span.textContent = header.childNodes[0].nodeValue.trim();
+      header.childNodes[0].nodeValue = '';
+      header.insertBefore(span, header.firstChild);
 
-    span.innerHTML = header.innerHTML;
-    header.innerHTML = '';
-    header.appendChild(span);
+      // eslint-disable-next-line no-shadow
+      span.addEventListener('click', (event) => {
+        event.stopPropagation();
 
-    // eslint-disable-next-line no-shadow
-    span.addEventListener('click', (event) => {
-      event.stopPropagation();
+        const nestedList = header.querySelector('ul');
 
-      const nestedList = header.querySelector('ul');
-
-      if (nestedList) {
-        nestedList.style.display =
-          nestedList.style.display === 'none' ? 'block' : 'none';
-      }
+        if (nestedList) {
+          nestedList.style.display =
+            nestedList.style.display === 'none' ? 'block' : 'none';
+        }
+      });
     });
-  });
+  }
+
+  const allHeaders = document.querySelectorAll('li > ul');
+
+  wrapHeadersWithSpan(Array.from(allHeaders).map((ul) => ul.parentElement));
 });
