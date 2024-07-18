@@ -1,17 +1,17 @@
 'use strict';
 
 const tree = document.querySelector('.tree');
-const li = tree.querySelectorAll('li');
+const allLiElements = tree.querySelectorAll('li');
 
-li.forEach((li) => {
-  const ul = li.querySelector('ul');
+allLiElements.forEach((listItem) => {
+  const ul = listItem.querySelector('ul');
 
   if (ul) {
     const span = document.createElement('span');
-    const text = li.firstChild;
+    const text = listItem.firstChild;
 
     span.textContent = text.textContent;
-    li.insertBefore(span, text);
+    listItem.insertBefore(span, text);
     text.remove();
   }
 });
