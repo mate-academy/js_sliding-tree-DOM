@@ -14,7 +14,6 @@ document.querySelector('.tree').addEventListener('click', (e) => {
   const headLine = e.target.closest('.tree__headline');
 
   if (headLine) {
-    headLine.nextSibling.style.display =
-      headLine.nextSibling.style.display === '' ? 'none' : '';
+    headLine.nextSibling.hidden = !headLine.nextSibling.hidden;
   }
 });
