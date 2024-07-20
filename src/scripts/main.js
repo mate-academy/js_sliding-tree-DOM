@@ -1,26 +1,20 @@
 'use strict';
 
 document.querySelectorAll('li').forEach((item) => {
-  if (!item.querySelector('ul')) {
-    return;
+  if (item.querySelector('ul')) {
+    const span = document.createElement('span');
+
+    span.textContent = item.firstChild.textContent;
+    item.firstChild.replaceWith(span);
   }
-
-  const span = document.createElement('span');
-
-  span.className = 'tree__headline';
-  span.append(item.firstChild);
-  span.after(item.firstElementChild);
-  item.prepend(span);
 });
 
 document.querySelector('.tree').addEventListener('click', (e) => {
-  const headLine = e.target.closest('.tree__headline');
+  const headLine = e.target.closest('span');
 
-  if (!headLine) {
-    return;
+  if (headLine) {
+    headLine.nextSibling.style.display = headLine.nextSibling.style.display
+      ? ''
+      : 'none';
   }
-
-  headLine.nextSibling.style.display = headLine.nextSibling.style.display
-    ? ''
-    : 'none';
 });
