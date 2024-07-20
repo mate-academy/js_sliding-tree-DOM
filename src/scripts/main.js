@@ -1,14 +1,18 @@
 'use strict';
 
-const lis = document.querySelectorAll('li:has(ul)');
+const items = document.querySelectorAll('li');
 
-lis.forEach((el) => {
+items.forEach((item) => {
+  if (!item.querySelector('ul')) {
+    return;
+  }
+
   const span = document.createElement('span');
 
   span.className = 'tree__headline';
-  span.append(el.firstChild);
-  span.after(el.firstElementChild);
-  el.prepend(span);
+  span.append(item.firstChild);
+  span.after(item.firstElementChild);
+  item.prepend(span);
 });
 
 const tree = document.querySelector('.tree');
@@ -20,9 +24,7 @@ tree.addEventListener('click', (e) => {
     return;
   }
 
-  if (headLine.nextSibling.style.display === 'none') {
-    headLine.nextSibling.style.display = '';
-  } else {
-    headLine.nextSibling.style.display = 'none';
-  }
+  headLine.nextSibling.style.display = headLine.nextSibling.style.display
+    ? ''
+    : 'none';
 });
