@@ -4,7 +4,7 @@ document.querySelectorAll('li').forEach((item) => {
   if (item.querySelector('ul')) {
     const span = document.createElement('span');
 
-    span.textContent = item.firstChild.textContent;
+    span.textContent = item.firstChild.textContent.trim();
     item.firstChild.replaceWith(span);
   }
 });
