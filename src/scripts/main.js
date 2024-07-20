@@ -13,9 +13,7 @@ document.querySelectorAll('li').forEach((item) => {
   item.prepend(span);
 });
 
-const tree = document.querySelector('.tree');
-
-tree.addEventListener('click', (e) => {
+document.querySelector('.tree').addEventListener('click', (e) => {
   const headLine = e.target.closest('.tree__headline');
 
   if (!headLine) {
