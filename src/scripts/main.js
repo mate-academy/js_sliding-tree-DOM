@@ -1,8 +1,6 @@
 'use strict';
 
-const items = document.querySelectorAll('li');
-
-items.forEach((item) => {
+document.querySelectorAll('li').forEach((item) => {
   if (!item.querySelector('ul')) {
     return;
   }
