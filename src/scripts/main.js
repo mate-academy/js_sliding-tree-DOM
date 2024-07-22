@@ -4,35 +4,40 @@ const tree = document.querySelector('.tree');
 
 const treeLi = [...tree.querySelectorAll('li')];
 
-treeLi.forEach((item) => {
-  if (item.children.length > 0) {
-    const nameItem = item.firstChild.textContent.trim();
+// variant_1
+// treeLi.forEach((item, i) => {
+//   const span = document.createElement('span');
 
-    item.firstChild.innerHTML = `<span> ${nameItem} </span>`;
+//   item.prepend(span);
+//   span.prepend(span.nextSibling);
+// });
+
+// tree.addEventListener('click', (e) => {
+//   if (e.target.tagName === 'SPAN') {
+//     const el = e.target.nextSibling;
+
+//     if (el) {
+//       el.hidden = !el.hidden;
+//     }
+//   }
+// });
+
+// variant_2
+treeLi.forEach((item, i) => {
+  if (item.children.length > 0) {
+    const nameItem = `<span>${item.firstChild.textContent.trim()}</span>`;
+
+    item.firstChild.textContent = '';
+    item.insertAdjacentHTML('afterbegin', nameItem);
   }
 });
 
-const hide = `position: absolute ; opacity: 0 ; visibility: hidden;`;
-const show = `position: initial  ; opacity: 1 ;visibility: initial `;
-
 tree.addEventListener('click', (e) => {
-  if (e.target.tagName === 'UL') {
-    return;
-  }
+  if (e.target.tagName === 'SPAN') {
+    const el = e.target.nextElementSibling;
 
-  if (
-    e.target.children &&
-    !e.target.classList.contains('hide') &&
-    !e.target.classList.contains('tree')
-  ) {
-    [...e.target.children].forEach((item) => {
-      e.target.classList.add('hide');
-      item.style.cssText = hide;
-    });
-  } else {
-    [...e.target.children].forEach((item) => {
-      e.target.classList.remove('hide');
-      item.style.cssText = show;
-    });
+    if (el) {
+      el.hidden = !el.hidden;
+    }
   }
 });
