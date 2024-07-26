@@ -17,7 +17,10 @@ const App = () => {
   for (const headline of headlines) {
     const span = SpanElement();
 
-    if (headline.firstChild.textContent.includes('  ')) {
+    if (
+      headline.firstChild.textContent.trim().length !==
+      headline.firstChild.textContent.length
+    ) {
       span.textContent = headline.firstChild.textContent;
       headline.firstChild.replaceWith(span);
     }
