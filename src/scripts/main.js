@@ -13,28 +13,24 @@ const SpanElement = (text) => {
   return span;
 };
 
-const App = () => {
-  for (const headline of headlines) {
-    const span = SpanElement();
+for (const headline of headlines) {
+  const span = SpanElement();
 
-    if (
-      headline.firstChild.textContent.trim().length !==
-      headline.firstChild.textContent.length
-    ) {
-      span.textContent = headline.firstChild.textContent;
-      headline.firstChild.replaceWith(span);
-    }
-
-    span.addEventListener('click', () => {
-      const list = headline.children[indexTitle];
-
-      if (list.style.display === '') {
-        list.style.display = 'none';
-      } else {
-        list.style.display = '';
-      }
-    });
+  if (
+    headline.firstChild.textContent.trim().length !==
+    headline.firstChild.textContent.length
+  ) {
+    span.textContent = headline.firstChild.textContent;
+    headline.firstChild.replaceWith(span);
   }
-};
 
-App();
+  span.addEventListener('click', () => {
+    const list = headline.children[indexTitle];
+
+    if (list.style.display === '') {
+      list.style.display = 'none';
+    } else {
+      list.style.display = '';
+    }
+  });
+}
