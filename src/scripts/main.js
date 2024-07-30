@@ -14,13 +14,9 @@ li.forEach((item) => {
 });
 
 function checkCssProperty(element) {
-  if (element) {
-    const style = window.getComputedStyle(element);
+  const style = window.getComputedStyle(element);
 
-    if (style) {
-      return style.getPropertyValue('display') === 'none';
-    }
-  }
+  return style.getPropertyValue('display') === 'none';
 }
 
 document.querySelector('.tree').addEventListener('click', (e) => {
