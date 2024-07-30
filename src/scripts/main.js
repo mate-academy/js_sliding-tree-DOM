@@ -1,16 +1,5 @@
 'use strict';
 
-// write code here
-// const li = document.querySelectorAll('li');
-
-// Array.from(li).forEach((item) => {
-//   const span = document.createElement('span');
-
-//   item.parentNode.insertBefore(span, item);
-
-//   span.append(item);
-// });
-
 const li = Array.from(document.querySelectorAll('li'));
 
 li.forEach((item) => {
