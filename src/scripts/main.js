@@ -7,7 +7,8 @@ list.addEventListener('click', (e) => {
   const span = e.target.closest('span');
 
   if (span) {
-    const current = span.closest('ul');
+    const current = span.closest('li');
+
     const subList = current.querySelector('ul');
 
     if (subList) {
