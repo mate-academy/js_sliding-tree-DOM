@@ -1,7 +1,5 @@
 'use strict';
 
-'use strict';
-
 const allLi = document.querySelectorAll('li');
 const filteredLi = Array.from(allLi).filter(
   (li) => li.querySelector('ul') !== null,
