@@ -1,9 +1,7 @@
 'use strict';
 
 document.addEventListener('DOMContentLoaded', function () {
-  // Додаємо тег `span` для кожного заголовка
   document.querySelectorAll('.tree li').forEach((li) => {
-    // Якщо в li є вкладений ul, то обгортаємо текст у span
     if (li.querySelector('ul')) {
       const span = document.createElement('span');
 
@@ -12,7 +10,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  // Додаємо обробник подій на кожен span
   document.querySelectorAll('.tree span').forEach((span) => {
     span.addEventListener('click', function () {
       const childUl = this.nextElementSibling;
