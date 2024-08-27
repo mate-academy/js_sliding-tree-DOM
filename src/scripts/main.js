@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   document.querySelectorAll('.tree span').forEach((span) => {
-    span.addEventListener('click', function () {
+    span.addEventListener('click', () => {
       const childUl = this.nextElementSibling;
 
       if (childUl) {
