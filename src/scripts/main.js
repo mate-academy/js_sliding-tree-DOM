@@ -1,6 +1,6 @@
 'use strict';
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.tree li').forEach((li) => {
     if (li.querySelector('ul')) {
       const span = document.createElement('span');
