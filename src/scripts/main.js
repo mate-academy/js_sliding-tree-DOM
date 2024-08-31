@@ -1,11 +1,20 @@
 'use strict';
 
 const tree = document.querySelector('.tree');
-const ul = document.querySelectorAll('ul');
+const ul = [...document.querySelectorAll('ul')];
 
-ul.forEach((el) => {
+const a = ul.map((el) => {
+  const span = document.createElement('span');
+
+  el.parentNode.insertBefore(span, el);
+  span.append(el);
+
+  return el;
+});
+
+a.forEach((el) => {
   if (!el.className) {
-    el.style.visibility = 'hidden';
+    el.style.display = 'none';
   }
 });
 
@@ -14,8 +23,8 @@ tree.addEventListener('click', (e) => {
     const childUl = e.target.querySelector('ul');
 
     if (childUl) {
-      childUl.style.visibility =
-        childUl.style.visibility === 'hidden' ? 'visible' : 'hidden';
+      childUl.style.display =
+        childUl.style.display === 'none' ? 'block' : 'none';
     }
   }
 });
