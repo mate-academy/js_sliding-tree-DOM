@@ -6,7 +6,7 @@
     - Run `npm run test:only -- -l` to run fast test with additional info in console ignoring linter.
 
 ### Task: Sliding tree
-
+ 
 Create an expandable tree.
 
 Requirements:
