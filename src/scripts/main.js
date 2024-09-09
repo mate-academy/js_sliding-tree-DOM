@@ -31,12 +31,10 @@ tree.addEventListener(
   'click',
   (ev) => {
     if (ev.target.tagName === 'SPAN') {
-      for (const child of ev.target.closest('li').children) {
-        child.style.display =
-          child.style.display !== 'none' && child.tagName !== 'SPAN'
-            ? 'none'
-            : 'block';
-      }
+      const hideList = ev.target.nextSibling;
+
+      hideList.style.display =
+        hideList.style.display !== 'none' ? 'none' : 'block';
     }
   },
   true,
