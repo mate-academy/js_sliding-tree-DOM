@@ -3,7 +3,6 @@
 const tree = document.querySelector('.tree');
 
 function addSpanForLiHeader(element, nameOfClass) {
-  // Check if the text is already wrapped in a span
   const allLi = element.querySelectorAll('li');
 
   for (const li of allLi) {
