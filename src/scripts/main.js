@@ -1,13 +1,15 @@
 'use strict';
 
 function wrapHeaderIntoSpan(parentElement) {
-  Array.from(parentElement).forEach((child) => {
+  parentElement.forEach((child) => {
     if (child.querySelector('ul')) {
       const span = document.createElement('span');
       const childText = child.firstChild;
 
-      span.textContent = childText.textContent.trim();
-      child.replaceChild(span, childText);
+      if (childText.nodeType === Node.TEXT_NODE) {
+        span.textContent = childText.textContent.trim();
+        child.replaceChild(span, childText);
+      }
 
       wrapHeaderIntoSpan(child.querySelectorAll('ul > li'));
     }
