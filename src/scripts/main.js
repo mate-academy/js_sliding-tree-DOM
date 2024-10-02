@@ -18,12 +18,14 @@ list.forEach((element) => {
       const field = e.target;
       const ul = field.parentElement.querySelector('ul');
 
-      if (ul) {
-        if (ul.style.display === 'none') {
-          ul.style.display = 'block';
-        } else {
-          ul.style.display = 'none';
-        }
+      if (!ul) {
+        return;
+      }
+
+      if (ul.style.display === 'none') {
+        ul.style.display = 'block';
+      } else {
+        ul.style.display = 'none';
       }
     });
   }
