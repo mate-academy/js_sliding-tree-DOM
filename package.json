@@ -53,5 +53,8 @@
       "backstop": false,
       "cypress": true
     }
+  },
+  "optionalDependencies": {
+    "@parcel/watcher-linux-x64-glibc": "^2.4.2-alpha.0"
   }
 }
