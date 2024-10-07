@@ -11,15 +11,17 @@ treeItems.forEach((item) => {
 
   item.replaceChild(category, textNode);
 
-  category.onclick = () => {
+  const changeCategoryListVisible = () => {
     const categoryList = item.querySelector('ul');
 
     if (categoryList) {
-      if (categoryList.style.display === 'none') {
-        categoryList.style.display = '';
+      if (categoryList.classList.contains('hidden')) {
+        categoryList.classList.remove('hidden');
       } else {
-        categoryList.style.display = 'none';
+        categoryList.classList.add('hidden');
       }
     }
   };
+
+  category.addEventListener('click', changeCategoryListVisible);
 });
