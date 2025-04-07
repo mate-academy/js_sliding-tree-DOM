@@ -11,11 +11,7 @@ tree.querySelectorAll('ul').forEach((list) => {
 
   spanListHeader.addEventListener('click', () => {
     Array.from(list.children).forEach((item) => {
-      if (item.style.display === 'none') {
-        item.style.display = 'block';
-      } else {
-        item.style.display = 'none';
-      }
+      item.style.display = item.style.display === 'none' ? 'list-item' : 'none';
     });
   });
 });
