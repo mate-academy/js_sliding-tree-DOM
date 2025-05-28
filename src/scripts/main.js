@@ -9,7 +9,10 @@ treeItems.forEach((element) => {
   spanElement.innerHTML = element.firstChild.textContent;
 
   element.insertBefore(spanElement, element.firstChild);
-  element.firstChild.nextSibling.remove();
+
+  if (element.firstChild.nextSibling) {
+    element.firstChild.nextSibling.remove();
+  }
 
   spanElement.addEventListener('click', (e) => {
     const nextEl = e.target.nextElementSibling;
