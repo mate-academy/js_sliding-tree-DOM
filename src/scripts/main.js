@@ -5,18 +5,28 @@ const liElements = tree.querySelectorAll('li');
 
 liElements.forEach((li) => {
   if (li.querySelector('ul')) {
-    const textNode = li.childNodes[0];
-    const span = document.createElement('span');
+    const textNode = Array.from(li.childNodes).find(
+      (node) =>
+        node.nodeType === Node.TEXT_NODE && node.textContent.trim() !== '',
+    );
 
-    span.innerText = textNode.textContent.trim();
-    li.replaceChild(span, textNode);
+    if (textNode) {
+      const span = document.createElement('span');
+
+      span.textContent = textNode.textContent.trim();
+      li.replaceChild(span, textNode);
+    }
   }
 });
 
 tree.addEventListener('click', (e) => {
-  const ul = e.target.parentElement.querySelector('ul');
+  const clickedEl = e.target;
 
-  if (ul) {
-    ul.style.display = ul.style.display === 'none' ? 'block' : 'none';
+  if (clickedEl.tagName === 'SPAN') {
+    const ul = clickedEl.parentElement.querySelector('ul');
+
+    if (ul) {
+      ul.style.display = ul.style.display === 'none' ? 'block' : 'none';
+    }
   }
 });
