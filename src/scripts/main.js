@@ -4,14 +4,17 @@ document.addEventListener('DOMContentLoaded', () => {
   const tree = document.querySelector('.tree');
 
   for (const li of tree.querySelectorAll('li')) {
-    const firstChild = li.firstChild;
+    const childNodes = Array.from(li.childNodes);
 
-    if (firstChild.nodeType === Node.TEXT_NODE) {
-      const span = document.createElement('span');
+    for (const node of childNodes) {
+      if (node.nodeType === Node.TEXT_NODE && node.textContent.trim() !== '') {
+        const span = document.createElement('span');
 
-      span.textContent = firstChild.textContent.trim();
-      li.insertBefore(span, firstChild);
-      li.removeChild(firstChild);
+        span.textContent = node.textContent.trim();
+        li.insertBefore(span, node);
+        li.removeChild(node);
+        break;
+      }
     }
   }
 
