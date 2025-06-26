@@ -1,16 +1,15 @@
 'use strict';
 
-const tree = document.querySelectorAll('.tree > li > ul > li');
+const itemListTree = document.querySelectorAll('.tree li');
 
-tree.forEach((li) => {
-  const ul = li.querySelector('ul');
-
+itemListTree.forEach((li) => {
   const firstNode = Array.from(li.childNodes).find(
     (node) =>
       node.nodeType === Node.TEXT_NODE && node.textContent.trim() !== '',
   );
+  // const ul = li.querySelector('ul');
 
-  if (ul && firstNode) {
+  if (firstNode) {
     const span = document.createElement('span');
 
     span.textContent = firstNode.textContent;
