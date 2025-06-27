@@ -1,25 +1,30 @@
 'use strict';
 
-// write code here
-
 const tree = document.querySelector('.tree');
+
+const collectionOfLi = document.querySelectorAll('li');
+
+collectionOfLi.forEach((li) => {
+  const span = document.createElement('span');
+
+  li.before(span);
+
+  span.prepend(li);
+});
 
 tree.style.cursor = 'pointer';
 
 tree.addEventListener('click', (e) => {
-  const li = e.target.closest('li');
+  const targetSpan = e.target.closest('span');
 
-  let childrenUl;
-
-  if (li !== null) {
-    childrenUl = li.querySelector('ul');
+  if (e.target.tagName === 'SPAN') {
+    return;
   }
 
-  if (li && e.target.tagName !== 'UL') {
-    if (childrenUl.style.display === 'none') {
-      childrenUl.style.display = 'block';
-    } else {
-      childrenUl.style.display = 'none';
-    }
+  const childrenUl = targetSpan.querySelector('ul');
+
+  if (childrenUl) {
+    childrenUl.style.display =
+      childrenUl.style.display === 'none' ? 'block' : 'none';
   }
 });
