@@ -24,12 +24,13 @@ document.addEventListener('click', (e) => {
 
   const list = e.target.closest('li');
 
-  const closestUl = list.querySelector('ul');
+  const closestUl = list.querySelector(':scope > ul');
 
   if (!closestUl) {
     return;
   }
 
-  closestUl.style.display =
-    closestUl.style.display === 'none' ? 'block' : 'none';
+  const isHidden = window.getComputedStyle(closestUl).display === 'none';
+
+  closestUl.style.display = isHidden ? 'block' : 'none';
 });
