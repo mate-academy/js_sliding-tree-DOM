@@ -18,11 +18,11 @@ for (const li of liArray) {
 }
 
 document.addEventListener('click', (e) => {
-  const list = e.target.closest('li');
-
-  if (!list) {
+  if (e.target.tagName !== 'SPAN') {
     return;
   }
+
+  const list = e.target.closest('li');
 
   const closestUl = list.querySelector('ul');
 
@@ -30,8 +30,6 @@ document.addEventListener('click', (e) => {
     return;
   }
 
-  const currentStatus = closestUl.style.display && 'block';
-
   closestUl.style.display =
-    closestUl.style.display === 'none' ? currentStatus : 'none';
+    closestUl.style.display === 'none' ? 'block' : 'none';
 });
