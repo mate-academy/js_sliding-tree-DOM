@@ -12,12 +12,20 @@ document.addEventListener('DOMContentLoaded', function () {
       continue;
     }
 
-    const text = li.firstChild;
+    const textNode = Array.from(li.childNodes).find(
+      (node) =>
+        node.nodeType === Node.TEXT_NODE && node.textContent.trim() !== '',
+    );
+
+    if (!textNode) {
+      continue;
+    }
+
     const span = document.createElement('span');
 
-    span.textContent = text.textContent.trim();
-    li.insertBefore(span, text);
-    li.removeChild(text);
+    span.textContent = textNode.textContent.trim();
+    li.insertBefore(span, textNode);
+    li.removeChild(textNode);
 
     span.style.cursor = 'pointer';
 
