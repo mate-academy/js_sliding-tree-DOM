@@ -26,10 +26,12 @@ spanAll.forEach((sp) => {
     const parentSpan = e.target.parentElement;
     const ulInside = parentSpan.querySelector('ul');
 
-    if (ulInside.style.display === 'none') {
-      ulInside.style.display = '';
-    } else {
-      ulInside.style.display = 'none';
+    if (ulInside) {
+      if (ulInside.style.display === 'none') {
+        ulInside.style.display = '';
+      } else {
+        ulInside.style.display = 'none';
+      }
     }
   });
 });
