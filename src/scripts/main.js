@@ -10,9 +10,11 @@ for (const li of listItems) {
       node.nodeType === Node.TEXT_NODE && node.textContent.trim() !== '',
   );
 
-  span.textContent = text.textContent.trim();
-  li.insertBefore(span, text);
-  li.removeChild(text);
+  if (text !== undefined) {
+    span.textContent = text.textContent.trim();
+    li.insertBefore(span, text);
+    li.removeChild(text);
+  }
 }
 
 const spanItems = document.querySelectorAll('span');
