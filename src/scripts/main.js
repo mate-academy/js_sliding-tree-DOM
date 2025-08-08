@@ -13,10 +13,12 @@ li.forEach((item) => {
   });
 
   span.addEventListener('click', () => {
-    if (span.nextElementSibling.style.display === 'none') {
-      span.nextElementSibling.style.display = 'block';
-    } else {
-      span.nextElementSibling.style.display = 'none';
+    const next = span.nextElementSibling;
+
+    if (!next) {
+      return;
     }
+
+    next.style.display = next.style.display === 'none' ? 'block' : 'none';
   });
 });
