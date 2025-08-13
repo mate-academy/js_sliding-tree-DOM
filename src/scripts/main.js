@@ -12,13 +12,15 @@ titleList.forEach((li) => {
   }
 });
 
-const spans = document.querySelectorAll('span');
+const spans = document.querySelectorAll('.tree span');
 
 spans.forEach((span) => {
   span.addEventListener('click', (e) => {
     const parentLi = e.target.parentElement;
-    const child = parentLi.querySelector('ul');
+    const child = parentLi.firstElementChild.nextElementSibling;
 
-    child.style.display = child.style.display === 'none' ? '' : 'none';
+    if (child) {
+      child.style.display = child.style.display === 'none' ? '' : 'none';
+    }
   });
 });
