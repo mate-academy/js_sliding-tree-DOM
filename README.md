@@ -1,6 +1,6 @@
 1. Replace `<your_account>` with your Github username in the link
-    - [DEMO LINK](https://<your_account>.github.io/js_sliding-tree-DOM/)
-2. Follow [this instructions](https://mate-academy.github.io/layout_task-guideline/)
+    - [DEMO LINK](https://Alya-ya.github.io/js_sliding-tree-DOM/)
+2. Follow [this instructions](https://Alya-ya.github.io/layout_task-guideline/)
     - Run `npm run test` command to test your code;
     - Run `npm run test:only -- -n` to run fast test ignoring linter;
     - Run `npm run test:only -- -l` to run fast test with additional info in console ignoring linter.
@@ -9,7 +9,7 @@
 
 Create an expandable tree.
 
-Requirements: 
+Requirements:
 - Clicking on the headline should hide or show elements.
 - Clicking outside the title text (in an empty place) should do nothing.
 
