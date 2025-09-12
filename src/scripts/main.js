@@ -1,6 +1,7 @@
 'use strict';
 
 const headers = document.querySelectorAll('li');
+const tree = document.querySelector('.tree');
 
 for (const header of headers) {
   if (header.childNodes.length > 1) {
@@ -16,14 +17,18 @@ for (const header of headers) {
   }
 }
 
-const spans = document.querySelectorAll('span');
+tree.addEventListener('click', (e) => {
+  if (e.target.tagName === 'SPAN') {
+    const parentElem = e.target.parentNode;
 
-spans.addEventListener('click', (e) => {
-  for (const child of e.target.children) {
-    if (child.style.display === 'none') {
-      child.style.display = 'block';
-    } else {
-      child.style.display = 'none';
+    for (const child of parentElem.children) {
+      if (child.tagName === 'UL') {
+        if (child.style.display === 'none') {
+          child.style.display = 'block';
+        } else {
+          child.style.display = 'none';
+        }
+      }
     }
   }
 });
