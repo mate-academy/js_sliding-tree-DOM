@@ -48,10 +48,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
       li.insertBefore(span, nestedUl);
 
-      nestedUl.style.display = 'none';
+      // nestedUl.style.display = 'none';
 
       span.addEventListener('click', () => {
-        nestedUl.style.display = nestedUl.style.display === 'none' ? 'block' : 'none';
+        nestedUl.style.display =
+          nestedUl.style.display === 'none' ? 'block' : 'none';
       });
     }
   });
