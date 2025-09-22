@@ -1,39 +1,49 @@
 'use strict';
 
 document.querySelectorAll('.tree li').forEach((li) => {
-  const childUl = li.querySelector('ul');
+  const childUl = li.querySelector(':scope > ul');
 
-  if (childUl) {
-    const text =
-      li.firstChild && li.firstChild.textContent
-        ? li.firstChild.textContent.trim()
-        : '';
-
-    if (text) {
-      const span = document.createElement('span');
-
-      span.textContent = text;
-      li.firstChild.textContent = '';
-      li.insertBefore(span, childUl);
-    }
-  }
-});
-
-document.querySelector('.tree').addEventListener('click', (e) => {
-  let span = e.target.closest('span');
-
-  if (!span && e.target.tagName === 'LI') {
-    span = e.target.querySelector(':scope > span');
-  }
-
-  if (!span) {
+  if (!childUl) {
     return;
   }
 
-  const li = span.parentElement;
-  const childUl = li.querySelector(':scope > ul');
+  let textNode = null;
 
-  if (childUl) {
-    childUl.hidden = !childUl.hidden;
+  for (const node of li.childNodes) {
+    if (node.nodeType === Node.TEXT_NODE && node.textContent.trim()) {
+      textNode = node;
+      break;
+    }
   }
+
+  if (!textNode) {
+    return;
+  }
+
+  const span = document.createElement('span');
+
+  span.textContent = textNode.textContent.trim();
+  textNode.textContent = '';
+  li.insertBefore(span, childUl);
 });
+
+const tree = document.querySelector('.tree');
+
+if (tree) {
+  tree.addEventListener('click', (e) => {
+    const target =
+      e.target.nodeType === Node.TEXT_NODE ? e.target.parentElement : e.target;
+    const span = target.closest('span');
+
+    if (!span || span.parentElement.tagName !== 'LI') {
+      return;
+    }
+
+    const li = span.parentElement;
+    const childUl = li.querySelector(':scope > ul');
+
+    if (childUl) {
+      childUl.hidden = !childUl.hidden;
+    }
+  });
+}
