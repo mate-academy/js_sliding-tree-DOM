@@ -7,34 +7,46 @@ listLi.forEach((li) => {
   if (li.querySelector('ul')) {
     const title = li.firstChild;
 
+    if (title.nodeType !== 3) {
+      return;
+    }
+
     const span = document.createElement('span');
 
-    span.innerText = title.textContent.trim();
+    span.textContent = title.textContent.trim();
 
     title.replaceWith(span);
   }
 });
 
 tree.addEventListener('click', (e) => {
+  if (!tree) {
+    return;
+  }
+
   if (e.target.tagName === 'SPAN') {
     const target = e.target;
 
-    if (target.className === 'off') {
-      target.className = 'on';
+    if (target.classList.contains('off')) {
+      target.classList.remove('off');
+      target.classList.add('on');
     } else {
-      target.className = 'off';
+      target.classList.remove('on');
+      target.classList.add('off');
     }
 
     const child = target.nextElementSibling;
 
-    switch (target.className) {
-      case 'on':
-        child.style.display = 'block';
-        break;
+    if (child.tagName === 'UL') {
+      switch (target.className) {
+        case 'on':
+          child.style.display = 'block';
+          break;
 
-      case 'off':
-        child.style.display = 'none';
-        break;
+        case 'off':
+          child.style.display = 'none';
+          break;
+      }
     }
   }
 });
