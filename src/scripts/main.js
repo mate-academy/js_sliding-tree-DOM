@@ -5,48 +5,32 @@ const listLi = tree.querySelectorAll('li');
 
 listLi.forEach((li) => {
   if (li.querySelector('ul')) {
-    const title = li.firstChild;
+    for (const node of li.childNodes) {
+      if (node.nodeType === Node.TEXT_NODE) {
+        const span = document.createElement('span');
 
-    if (title.nodeType !== 3) {
-      return;
-    }
+        span.textContent = node.textContent.trim();
 
-    const span = document.createElement('span');
-
-    span.textContent = title.textContent.trim();
-
-    title.replaceWith(span);
-  }
-});
-
-tree.addEventListener('click', (e) => {
-  if (!tree) {
-    return;
-  }
-
-  if (e.target.tagName === 'SPAN') {
-    const target = e.target;
-
-    if (target.classList.contains('off')) {
-      target.classList.remove('off');
-      target.classList.add('on');
-    } else {
-      target.classList.remove('on');
-      target.classList.add('off');
-    }
-
-    const child = target.nextElementSibling;
-
-    if (child.tagName === 'UL') {
-      switch (target.className) {
-        case 'on':
-          child.style.display = 'block';
-          break;
-
-        case 'off':
-          child.style.display = 'none';
-          break;
+        node.replaceWith(span);
       }
     }
   }
 });
+
+if (tree) {
+  tree.addEventListener('click', (e) => {
+    if (e.target.tagName === 'SPAN') {
+      const target = e.target;
+
+      target.classList.toggle('off');
+
+      const child = target.nextElementSibling;
+
+      if (target.classList.contains('off')) {
+        child.style.display = 'none';
+      } else {
+        child.style.display = 'block';
+      }
+    }
+  });
+}
