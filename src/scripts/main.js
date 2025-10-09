@@ -1,51 +1,61 @@
 'use strict';
 
 const tree = document.querySelector('.tree');
-const list = tree.querySelectorAll('li');
 
-for (const li of list) {
-  const hasSpan = li.querySelector(':scope > span');
+if (!tree) {
+} else {
+  const list = tree.querySelectorAll('li');
 
-  if (hasSpan) {
-    continue;
-  }
+  for (const li of list) {
+    const hasSpan = li.querySelector(':scope > span');
 
-  const childList = li.querySelector(':scope > ul');
+    if (hasSpan) {
+      continue;
+    }
 
-  if (!childList) {
-    continue;
-  }
+    const childList = li.querySelector(':scope > ul');
 
-  let textNode = null;
+    if (!childList) {
+      continue;
+    }
 
-  for (const node of li.childNodes) {
-    if (node.nodeType === 3 && node.textContent.trim() !== '') {
-      textNode = node;
-      break;
+    let textNode = null;
+
+    for (const node of li.childNodes) {
+      if (node.nodeType === 3 && node.textContent.trim() !== '') {
+        textNode = node;
+        break;
+      }
+    }
+
+    if (textNode) {
+      const span = document.createElement('span');
+
+      span.textContent = textNode.textContent.trim();
+
+      li.insertBefore(span, childList);
+      li.removeChild(textNode);
     }
   }
 
-  if (textNode) {
-    const span = document.createElement('span');
+  tree.addEventListener('click', (e) => {
+    const span = e.target.closest('span');
 
-    span.textContent = textNode.textContent.trim();
+    if (!span) {
+      return;
+    }
 
-    li.insertBefore(span, childList);
-    li.removeChild(textNode);
-  }
+    const parentLi = span.parentElement;
+
+    if (!parentLi || parentLi.tagName !== 'LI') {
+      return;
+    }
+
+    const childList = parentLi.querySelector(':scope > ul');
+
+    if (!childList) {
+      return;
+    }
+    childList.hidden = !childList.hidden;
+  });
 }
-
-tree.addEventListener('click', (e) => {
-  if (e.target.tagName !== 'SPAN') {
-    return;
-  }
-
-  const parentLi = e.target.parentElement;
-  const childList = parentLi.querySelector(':scope > ul');
-
-  if (!childList) {
-    return;
-  }
-
-  childList.hidden = !childList.hidden;
-});
