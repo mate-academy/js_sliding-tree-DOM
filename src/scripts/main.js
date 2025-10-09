@@ -22,20 +22,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let headerSpan = li.querySelector(':scope > .tree-label');
 
-    if (!headerSpan) {
-      const textNode = Array.from(li.childNodes).find(
+    if (!headerSpan || headerSpan.tagName !== 'SPAN') {
+      const nodes = Array.from(li.childNodes).filter(
+        (n) => n.nodeName !== 'UL',
+      );
+
+      headerSpan = document.createElement('span');
+      headerSpan.className = 'tree-label';
+
+      const textNode = nodes.find(
         (n) => n.nodeType === Node.TEXT_NODE && n.textContent.trim() !== '',
       );
 
+      headerSpan.textContent = textNode ? textNode.textContent.trim() : '';
+
       if (textNode) {
-        headerSpan = document.createElement('span');
-        headerSpan.className = 'tree-label';
-        headerSpan.textContent = textNode.textContent.trim();
         li.replaceChild(headerSpan, textNode);
       } else {
-        headerSpan = document.createElement('span');
-        headerSpan.className = 'tree-label';
-        headerSpan.textContent = '';
         li.insertBefore(headerSpan, childUl);
       }
     }
@@ -47,14 +50,14 @@ document.addEventListener('DOMContentLoaded', () => {
     childUl.style.transition = 'max-height 260ms ease, opacity 260ms ease';
     childUl.style.maxHeight = '0';
     childUl.style.opacity = '0';
+    childUl.style.pointerEvents = 'none';
     childUl.dataset.open = 'false';
 
-    // --- ВІДКРИТТЯ ---
     function openUl(ul) {
-      ul.dataset.open = 'true';
-      ul.style.visibility = 'visible';
+      ul.style.pointerEvents = 'auto';
       ul.style.opacity = '1';
       ul.style.maxHeight = ul.scrollHeight + 'px';
+      ul.dataset.open = 'true';
 
       ul.addEventListener(
         'transitionend',
@@ -68,24 +71,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function closeUl(ul) {
+      ul.style.pointerEvents = 'none';
+      ul.style.opacity = '0';
+      ul.style.maxHeight = '0';
       ul.dataset.open = 'false';
-      ul.style.maxHeight = ul.scrollHeight + 'px';
-
-      requestAnimationFrame(() => {
-        ul.style.maxHeight = '0';
-        ul.style.opacity = '0';
-      });
-
-      setTimeout(() => {
-        if (ul.dataset.open === 'false') {
-          ul.style.visibility = 'hidden';
-        }
-      }, 260);
     }
 
-    headerSpan.addEventListener('click', (e) => {
-      e.stopPropagation();
-
+    headerSpan.addEventListener('click', () => {
       const isOpen = childUl.dataset.open === 'true';
 
       if (isOpen) {
@@ -94,7 +86,5 @@ document.addEventListener('DOMContentLoaded', () => {
         openUl(childUl);
       }
     });
-
-    childUl.style.visibility = 'hidden';
   });
 });
