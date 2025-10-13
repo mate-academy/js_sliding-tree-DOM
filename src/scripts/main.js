@@ -26,11 +26,23 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   tree.addEventListener('click', (e) => {
-    if (!e.target.closest('span')) {
+    const span = e.target.closest('span');
+
+    if (!span) {
       return;
     }
 
-    const childUL = e.target.parentNode.querySelector('ul');
+    if (!tree.contains(span)) {
+      return;
+    }
+
+    const li = span.parentElement;
+
+    if (!li) {
+      return;
+    }
+
+    const childUL = li.querySelector(':scope > ul');
 
     if (!childUL) {
       return;
