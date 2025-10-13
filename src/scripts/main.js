@@ -2,9 +2,14 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   const tree = document.querySelector('.tree');
+
+  if (!tree) {
+    return;
+  }
+
   const listOfLi = tree.querySelectorAll('li');
 
-  if (!tree || !listOfLi) {
+  if (!listOfLi) {
     return;
   }
 
@@ -12,20 +17,25 @@ document.addEventListener('DOMContentLoaded', () => {
     const span = document.createElement('span');
 
     li.prepend(span);
-    span.append(span.nextSibling);
+
+    const text = span.nextSibling;
+
+    if (text && text.nodeType === Node.TEXT_NODE) {
+      span.append(text);
+    }
   }
 
   tree.addEventListener('click', (e) => {
-    if (e.target.tagName !== 'SPAN') {
+    if (!e.target.closest('span')) {
       return;
     }
 
-    const childerUL = e.target.parentNode.querySelector('ul');
+    const childUL = e.target.parentNode.querySelector('ul');
 
-    if (!childerUL) {
+    if (!childUL) {
       return;
     }
 
-    childerUL.hidden = !childerUL.hidden;
+    childUL.hidden = !childUL.hidden;
   });
 });
