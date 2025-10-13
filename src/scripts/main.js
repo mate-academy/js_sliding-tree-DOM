@@ -3,37 +3,58 @@
 // write code here
 const treeItems = document.querySelectorAll('.tree li');
 
-// Проходимо по кожному <li>
 treeItems.forEach((li) => {
-  // Перевіряємо, чи має цей <li> вкладений список
-  const childUl = li.querySelector('ul');
+  // Знаходимо безпосереднього дочірнього <ul> — тільки пряме піддерево
+  const childUl = li.querySelector(':scope > ul');
 
   if (!childUl) {
     return;
-  } // Якщо немає вкладеного списку — пропускаємо
+  } // якщо вкладеного списку немає — пропускаємо
 
-  // Беремо текстовий вузол і обгортаємо його у <span>
-  const text = li.firstChild.textContent.trim();
+  // Шукаємо перший непорожній текстовий вузол (назву гілки)
+  let headerTextNode = null;
 
-  if (!text) {
-    return;
+  for (const node of li.childNodes) {
+    if (node.nodeType === Node.TEXT_NODE && node.nodeValue.trim().length > 0) {
+      headerTextNode = node;
+      break;
+    }
   }
 
+  if (!headerTextNode) {
+    return;
+  } // якщо текстового вузла немає — нічого не робимо
+
+  // Створюємо <span> і замінюємо ним текстовий вузол
   const span = document.createElement('span');
 
-  span.textContent = text;
-  li.firstChild.textContent = ''; // очищаємо текст у <li>
-  li.insertBefore(span, childUl); // вставляємо span перед вкладеним ul
+  span.textContent = headerTextNode.nodeValue.trim();
+  span.tabIndex = 0; // фокусування з клавіатури
+  span.style.cursor = 'pointer';
+
+  li.replaceChild(span, headerTextNode);
 
   // Початково приховуємо вкладений список
   childUl.style.display = 'none';
 
-  // Додаємо обробник кліку тільки на span
-  span.addEventListener('click', () => {
-    if (childUl.style.display === 'none') {
-      childUl.style.display = 'block';
-    } else {
-      childUl.style.display = 'none';
+  // Функція перемикання
+  const toggleSubtree = () => {
+    const isHidden = childUl.style.display === 'none';
+
+    childUl.style.display = isHidden ? 'block' : 'none';
+  };
+
+  // Клік по заголовку (тільки span) — показує/ховає піддерево
+  span.addEventListener('click', (e) => {
+    e.stopPropagation();
+    toggleSubtree();
+  });
+
+  // Додаємо підтримку клавіатури (Enter / Пробіл)
+  span.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+      e.preventDefault();
+      toggleSubtree();
     }
   });
 });
