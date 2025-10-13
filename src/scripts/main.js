@@ -4,53 +4,75 @@
 const treeItems = document.querySelectorAll('.tree li');
 
 treeItems.forEach((li) => {
-  // Знаходимо безпосереднього дочірнього <ul> — тільки пряме піддерево
+  // Знаходимо безпосередній дочірній <ul> — тільки пряме піддерево
   const childUl = li.querySelector(':scope > ul');
 
   if (!childUl) {
     return;
   } // якщо вкладеного списку немає — пропускаємо
 
-  // Шукаємо перший непорожній текстовий вузол (назву гілки)
-  let headerTextNode = null;
+  // ===== ВИЯВЛЕННЯ ЗАГОЛОВКА =====
+  let headerNode = null;
 
+  // спочатку шукаємо непорожній текстовий вузол
   for (const node of li.childNodes) {
     if (node.nodeType === Node.TEXT_NODE && node.nodeValue.trim().length > 0) {
-      headerTextNode = node;
+      headerNode = node;
       break;
     }
   }
 
-  if (!headerTextNode) {
-    return;
-  } // якщо текстового вузла немає — нічого не робимо
+  // якщо не знайдено текстового — шукаємо перший елемент, який не є <ul>
+  if (!headerNode) {
+    const candidate = Array.from(li.children).find(
+      (el) => el.tagName.toLowerCase() !== 'ul',
+    );
 
-  // Створюємо <span> і замінюємо ним текстовий вузол
+    if (candidate) {
+      headerNode = candidate;
+    }
+  }
+
+  // якщо заголовка взагалі не знайдено — виходимо
+  if (!headerNode) {
+    return;
+  }
+
+  // ===== ОБГОРТАННЯ У SPAN =====
   const span = document.createElement('span');
 
-  span.textContent = headerTextNode.nodeValue.trim();
-  span.tabIndex = 0; // фокусування з клавіатури
+  span.tabIndex = 0;
   span.style.cursor = 'pointer';
 
-  li.replaceChild(span, headerTextNode);
+  if (headerNode.nodeType === Node.TEXT_NODE) {
+    // Якщо це текстовий вузол
+    span.textContent = headerNode.nodeValue.trim();
+    li.replaceChild(span, headerNode);
+  } else {
+    // Якщо це елемент (наприклад, <a> або <strong>)
+    const element = headerNode;
 
+    li.replaceChild(span, element); // замінюємо елемент на span
+    span.appendChild(element); // додаємо елемент всередину span
+  }
+
+  // ===== ПОВЕДІНКА =====
   // Початково приховуємо вкладений список
   childUl.style.display = 'none';
 
-  // Функція перемикання
   const toggleSubtree = () => {
     const isHidden = childUl.style.display === 'none';
 
     childUl.style.display = isHidden ? 'block' : 'none';
   };
 
-  // Клік по заголовку (тільки span) — показує/ховає піддерево
+  // Клік — перемикання
   span.addEventListener('click', (e) => {
     e.stopPropagation();
     toggleSubtree();
   });
 
-  // Додаємо підтримку клавіатури (Enter / Пробіл)
+  // Клавіатура — Enter / Пробіл
   span.addEventListener('keydown', (e) => {
     if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
       e.preventDefault();
