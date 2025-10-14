@@ -1,3 +1,39 @@
 'use strict';
 
-// write code here
+const tree = document.querySelector('.tree');
+
+if (tree) {
+  tree.querySelectorAll('li').forEach((li) => {
+    const text = [...li.childNodes].find(
+      (node) => node.nodeType === 3 && node.textContent.trim() !== '',
+    );
+
+    if (text) {
+      const span = document.createElement('span');
+
+      span.textContent = text.textContent;
+      li.insertBefore(span, text);
+      li.removeChild(text);
+    }
+  });
+
+  tree.addEventListener('click', (e) => {
+    if (e.target.tagName !== 'SPAN') {
+      return;
+    }
+
+    const li = e.target.closest('li');
+
+    if (!li) {
+      return;
+    }
+
+    const ul = li.querySelector(':scope > ul');
+
+    if (!ul) {
+      return;
+    }
+
+    ul.style.display = ul.style.display === 'none' ? '' : 'none';
+  });
+}
