@@ -28,7 +28,7 @@ if (tree) {
       return;
     }
 
-    const ul = li.querySelector('ul');
+    const ul = li.querySelector(':scope > ul');
 
     if (!ul) {
       return;
