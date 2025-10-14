@@ -2,31 +2,38 @@
 
 const tree = document.querySelector('.tree');
 
-tree.querySelectorAll('li').forEach((li) => {
-  const text = [...li.childNodes].find(
-    (node) => node.nodeType === 3 && node.textContent.trim() !== '',
-  );
+if (tree) {
+  tree.querySelectorAll('li').forEach((li) => {
+    const text = [...li.childNodes].find(
+      (node) => node.nodeType === 3 && node.textContent.trim() !== '',
+    );
 
-  if (text) {
-    const span = document.createElement('span');
+    if (text) {
+      const span = document.createElement('span');
 
-    span.textContent = text.textContent;
-    li.insertBefore(span, text);
-    li.removeChild(text);
-  }
-});
+      span.textContent = text.textContent;
+      li.insertBefore(span, text);
+      li.removeChild(text);
+    }
+  });
 
-tree.addEventListener('click', (e) => {
-  if (e.target.tagName !== 'SPAN') {
-    return;
-  }
+  tree.addEventListener('click', (e) => {
+    if (e.target.tagName !== 'SPAN') {
+      return;
+    }
 
-  const li = e.target.closest('li');
-  const ul = li.querySelector('ul');
+    const li = e.target.closest('li');
 
-  if (!ul && !li) {
-    return;
-  }
+    if (!li) {
+      return;
+    }
 
-  ul.style.display = ul.style.display === 'none' ? '' : 'none';
-});
+    const ul = li.querySelector('ul');
+
+    if (!ul) {
+      return;
+    }
+
+    ul.style.display = ul.style.display === 'none' ? '' : 'none';
+  });
+}
