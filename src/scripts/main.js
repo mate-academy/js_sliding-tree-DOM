@@ -16,7 +16,11 @@ tree.forEach((element) => {
   element.prepend(span);
 
   span.addEventListener('click', (e) => {
-    const ul = span.nextSibling;
+    const ul = span.nextElementSibling;
+
+    if (!ul) {
+      return;
+    }
 
     ul.hidden = !ul.hidden;
   });
