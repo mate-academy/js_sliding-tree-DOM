@@ -7,6 +7,10 @@ const tree = document.querySelectorAll('.tree li');
 tree.forEach((element) => {
   const text = element.firstChild;
 
+  if (!text) {
+    return;
+  }
+
   const span = document.createElement('span');
 
   span.textContent = text.textContent;
