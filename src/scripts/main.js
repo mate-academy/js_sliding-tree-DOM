@@ -23,5 +23,9 @@ document.addEventListener('click', (e) => {
   const li = e.target.closest('li');
   const sub = li.querySelector(':scope > ul');
 
+  if (!sub) {
+    return;
+  }
+
   sub.style.display = sub.style.display ? '' : 'none';
 });
