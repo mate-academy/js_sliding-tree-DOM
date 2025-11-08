@@ -13,7 +13,7 @@ headLines
     span.textContent = textNode.textContent.trim();
     li.replaceChild(span, textNode);
 
-    li.addEventListener('click', (ev) => {
+    span.addEventListener('click', (ev) => {
       ev.stopPropagation();
 
       if (li.querySelector('ul').style.display === 'none') {
