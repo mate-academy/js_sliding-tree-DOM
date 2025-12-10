@@ -1,28 +1,35 @@
 'use strict';
 
-const liElements = document.querySelectorAll('li');
+const ul = document.querySelector('.tree');
+const listItems = ul.querySelectorAll('li');
 
-liElements.forEach((li) => {
-  const text = li.firstChild.textContent.trim();
-  const span = document.createElement('span');
+listItems.forEach((li) => {
+  const childNodes = Array.from(li.childNodes);
+  const textNode = childNodes.find(
+    (node) => node.nodeType === 3 && node.textContent.trim() !== '',
+  );
 
-  span.textContent = text;
+  if (textNode) {
+    const span = document.createElement('span');
 
-  li.firstChild.remove();
-  li.prepend(span);
+    span.textContent = textNode.textContent;
+    textNode.replaceWith(span);
+  }
 });
 
-document.addEventListener('click', (e) => {
+ul.addEventListener('click', (e) => {
   if (e.target.tagName !== 'SPAN') {
     return;
   }
 
   const li = e.target.closest('li');
-  const childUl = li.querySelector(':scope > ul');
+  const childrenUl = li.querySelector(':scope > ul');
 
-  if (!childUl) {
+  if (!childrenUl) {
     return;
   }
 
-  childUl.style.display = childUl.style.display === 'none' ? '' : 'none';
+  const isHidden = childrenUl.style.display === 'none';
+
+  childrenUl.style.display = isHidden ? '' : 'none';
 });
