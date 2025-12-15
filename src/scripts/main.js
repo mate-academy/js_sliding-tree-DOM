@@ -5,7 +5,7 @@ const li = document.querySelectorAll('li');
 
 li.forEach((element) => {
   const span = document.createElement('span');
-  const text = element.firstChild.textContent.trim();
+  const text = element.childNodes[0].textContent.trim();
 
   span.textContent = text;
 
