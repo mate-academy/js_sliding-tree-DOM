@@ -14,6 +14,11 @@ li.forEach((element) => {
 
 nav.addEventListener('click', (e) => {
   const span = e.target.closest('span');
+
+  if (!span) {
+    return;
+  }
+
   const li2 = span.closest('li');
   const ul = li2.querySelector(':scope > ul');
 
