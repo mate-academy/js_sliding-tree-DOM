@@ -7,14 +7,19 @@ tree.querySelectorAll('li').forEach((el) => {
     (node) => node.nodeType === Node.TEXT_NODE && node.textContent.trim(),
   );
 
-  const span = document.createElement('span');
+  if (textNode) {
+    const span = document.createElement('span');
 
-  span.textContent = textNode.textContent.trim();
-
-  textNode.replaceWith(span);
+    span.textContent = textNode.textContent.trim();
+    textNode.replaceWith(span);
+  }
 });
 
 tree.addEventListener('click', (e) => {
+  if (e.target.tagName !== 'SPAN') {
+    return;
+  }
+
   const parentLi = e.target.parentElement;
   const childUl = parentLi.querySelector('ul');
 
