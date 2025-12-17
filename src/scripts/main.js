@@ -7,7 +7,7 @@ if (lists) {
   for (const list of lists) {
     const head = list.previousSibling;
 
-    if (head) {
+    if (head && head.nodeType === 3) {
       const newHead = document.createElement('span');
 
       newHead.textContent = head.textContent;
