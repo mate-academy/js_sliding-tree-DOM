@@ -2,11 +2,12 @@
 
 const allLi = document.querySelectorAll('li');
 
-allLi.forEach(li => {
+allLi.forEach((li) => {
   if (li.querySelector('ul')) {
-    li.childNodes.forEach(node => {
+    li.childNodes.forEach((node) => {
       if (node.nodeType === Node.TEXT_NODE) {
         const span = document.createElement('span');
+
         span.textContent = node.textContent;
         node.replaceWith(span);
 
@@ -24,5 +25,4 @@ allLi.forEach(li => {
     });
   }
 });
-
 
