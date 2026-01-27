@@ -3,23 +3,29 @@
 const lis = document.querySelectorAll('li');
 
 lis.forEach((li) => {
-  const span = document.createElement('span');
+  const textNodes = Array.from(li.childNodes).filter((node) => {
+    return node.nodeType === Node.TEXT_NODE && node.textContent.trim() !== '';
+  });
 
-  while (li.firstChild) {
-    span.appendChild(li.firstChild);
-  }
+  textNodes.forEach((textNode) => {
+    const span = document.createElement('span');
 
-  li.appendChild(span);
+    span.textContent = textNode.textContent;
+
+    li.replaceChild(span, textNode);
+  });
 });
 
-lis.forEach((li) => {
-  li.addEventListener('click', (ev) => {
-    const childrenContainer = li.querySelector('ul');
+const spans = document.querySelectorAll('span');
+
+spans.forEach((sp) => {
+  sp.addEventListener('click', (ev) => {
+    const childrenContainer = sp.parentElement.querySelector('ul');
 
     if (childrenContainer) {
       childrenContainer.hidden = !childrenContainer.hidden;
-      li.classList.toggle('closed');
-      li.classList.toggle('open');
+      sp.classList.toggle('closed');
+      sp.classList.toggle('open');
     }
 
     ev.stopPropagation();
