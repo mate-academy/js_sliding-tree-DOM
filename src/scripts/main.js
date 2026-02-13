@@ -1,17 +1,29 @@
 'use strict';
 
-const tree = document.querySelector(".tree")
+const tree = document.querySelector('.tree');
 
-tree.addEventListener("click", (event) => {
-    const element = event.target
-
-    if (element.hasChildNodes()) {
-        for (const child of element.children) {
-            if (child.style.display === 'none') {
-                child.style.display = '';
-            } else {
-                child.style.display = 'none';
-            }
-        } 
+if (!tree) {
+} else {
+    tree.querySelectorAll('li').forEach(li => {
+    const firstNode = li.firstChild;
+    if (firstNode && firstNode.nodeType === Node.TEXT_NODE && firstNode.textContent.trim() !== '') {
+        const span = document.createElement('span');
+        span.textContent = firstNode.textContent.trim();
+        firstNode.textContent = '';
+        li.insertBefore(span, firstNode);
     }
-})
+    });
+
+    tree.addEventListener('click', evt => {
+    const span = evt.target.closest('span');
+    if (!span || !tree.contains(span)) return;
+
+    const li = span.parentElement;
+    if (!li) return;
+
+    const subtree = li.querySelector(':scope > ul');
+    if (!subtree) return;
+
+    subtree.style.display = subtree.style.display === 'none' ? '' : 'none';
+    });
+}
