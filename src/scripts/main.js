@@ -1,3 +1,5 @@
+'use strict';
+
 document.addEventListener('click', (e) => {
   const span = e.target.closest('span');
 
@@ -5,15 +7,21 @@ document.addEventListener('click', (e) => {
     return;
   }
 
-  const headline = span.closest('h1, h2, h3, h4, h5, h6');
-
-  if (!headline) {
+  if (e.target.closest('a, button, input')) {
     return;
   }
 
-  const nextElement = headline.nextElementSibling;
+  const parentLi = span.closest('li');
 
-  if (nextElement) {
-    nextElement.classList.toggle('hidden');
+  if (!parentLi) {
+    return;
   }
+
+  const childList = parentLi.querySelector(':scope > ul');
+
+  if (!childList) {
+    return;
+  }
+
+  childList.classList.toggle('hidden');
 });
