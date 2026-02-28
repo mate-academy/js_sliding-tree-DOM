@@ -1,23 +1,43 @@
 'use strict';
 
-const tree = document.querySelector('.tree');
+document.addEventListener('DOMContentLoaded', () => {
+  const tree = document.querySelector('.tree');
 
-tree.addEventListener('click', (e) => {
-  if (e.target.tagName !== 'SPAN') {
-    return;
+  for (const li of tree.querySelectorAll('li')) {
+    const textNode = Array.from(li.childNodes).find(
+      (node) => node.nodeType === 3 && node.textContent.trim(),
+    );
+
+    if (!textNode) {
+      continue;
+    }
+
+    if (li.querySelector(':scope > span')) {
+      continue;
+    }
+
+    const span = document.createElement('span');
+
+    span.textContent = textNode.textContent.trim();
+
+    li.insertBefore(span, textNode);
+    li.removeChild(textNode);
   }
 
-  const li = e.target.closest('li');
+  tree.addEventListener('click', (e) => {
+    const span = e.target.closest('span');
 
-  if (!li) {
-    return;
-  }
+    if (!span) {
+      return;
+    }
 
-  const childUl = li.querySelector(':scope > ul');
+    const li = span.closest('li');
+    const childUl = li.querySelector(':scope >ul');
 
-  if (!childUl) {
-    return;
-  }
+    if (!childUl) {
+      return;
+    }
 
-  childUl.hidden = !childUl.hidden;
+    childUl.hidden = !childUl.hidden;
+  });
 });
