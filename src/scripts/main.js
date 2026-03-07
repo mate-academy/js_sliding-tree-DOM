@@ -8,10 +8,10 @@ function addSpan(ul) {
   const li = ul.querySelectorAll('li');
 
   li.forEach((element) => {
-    const textNodes = element.childNodes;
+    const textNodes = Array.from(element.childNodes);
 
     textNodes.forEach((text) => {
-      if (text.nodeType === 3) {
+      if (text.nodeType === 3 && text.textContent.trim() !== '') {
         const span = document.createElement('span');
 
         span.appendChild(text);
