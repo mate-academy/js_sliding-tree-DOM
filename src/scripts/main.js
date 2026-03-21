@@ -4,11 +4,13 @@ const li = document.querySelectorAll('li');
 
 li.forEach((one) => {
   const textNode = one.firstChild;
-  const span = document.createElement('span');
 
-  one.insertBefore(span, textNode);
+  if (textNode) {
+    const span = document.createElement('span');
 
-  span.appendChild(textNode);
+    one.insertBefore(span, textNode);
+    span.appendChild(textNode);
+  }
 });
 
 const tree = document.querySelector('.tree');
