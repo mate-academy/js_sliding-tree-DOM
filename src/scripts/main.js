@@ -15,6 +15,10 @@ items.forEach((li) => {
 
   const span = document.createElement('span');
 
+  if (!textNode) {
+    return;
+  }
+
   span.textContent = textNode.textContent;
   li.replaceChild(span, textNode);
 });
