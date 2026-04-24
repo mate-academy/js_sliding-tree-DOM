@@ -1,6 +1,5 @@
 'use strict';
 
-// write code here
 const li = document.querySelectorAll('li');
 
 li.forEach((e) => {
