@@ -9,7 +9,7 @@
 
 Create an expandable tree.
 
-Requirements: 
+Requirements:
 - Clicking on the headline should hide or show elements.
 - Clicking outside the title text (in an empty place) should do nothing.
 
