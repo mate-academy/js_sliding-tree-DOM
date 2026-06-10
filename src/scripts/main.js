@@ -54,8 +54,8 @@ window.addEventListener('DOMContentLoaded', () => {
 
   wrapHeadlineText(tree);
 
-  tree.addEventListener('click', (event) => {
-    const headlineSpan = event.target.closest('span');
+  tree.addEventListener('click', (clickEvent) => {
+    const headlineSpan = clickEvent.target.closest('span');
 
     if (!headlineSpan || !tree.contains(headlineSpan)) {
       return;
