@@ -17,6 +17,10 @@ liElems.forEach((li) => {
     const clickedElem = e.target;
     const hideUl = clickedElem.parentElement.querySelector('ul');
 
+    if (!hideUl) {
+      return;
+    }
+
     if (hideUl.style.display === 'none') {
       hideUl.style.display = 'block';
     } else {
