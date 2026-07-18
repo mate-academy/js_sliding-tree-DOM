@@ -2,24 +2,29 @@
 
 const tree = document.querySelector('.tree');
 
+const listItems = tree.querySelectorAll('li');
+
+listItems.forEach((li) => {
+  if (li.querySelector('ul')) {
+    const text = li.firstChild.textContent;
+
+    li.firstChild.remove();
+
+    const span = document.createElement('span');
+
+    span.textContent = text;
+    li.prepend(span);
+  }
+});
+
 tree.addEventListener('click', (e) => {
   const curr = e.target;
 
-  if (curr.children[0].children.length > 1) {
-    // curr.children.style.display = 'none';
-    if (curr.style.fontWeight !== 'bold') {
-      curr.style.fontWeight = 'bold';
+  if (curr.matches('span')) {
+    if (curr.nextSibling.style.display === 'none') {
+      curr.nextSibling.style.display = '';
     } else {
-      curr.style.fontWeight = '';
-    }
-
-    for (const item of [...curr.querySelectorAll('li')]) {
-      // item.style.display = 'none';
-      if (item.hidden) {
-        item.removeAttribute('hidden');
-      } else {
-        item.setAttribute('hidden', 'true');
-      }
+      curr.nextSibling.style.display = 'none';
     }
   }
 });
