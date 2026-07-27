@@ -17,9 +17,8 @@ refs.listTitleEl.forEach((li) => {
   span.textContent = li.firstChild.textContent.trim();
   li.firstChild.replaceWith(span);
 
-  let displayList = nestedList.style.display;
-
   span.addEventListener('click', () => {
-    displayList = displayList === 'none' ? '' : 'none';
+    nestedList.style.display =
+      nestedList.style.display === 'none' ? '' : 'none';
   });
 });
