@@ -19,5 +19,7 @@ document.querySelector('.tree').addEventListener('click', (e) => {
 
   const menu = target.parentNode.querySelector('ul');
 
-  menu.hidden = !menu.hidden;
+  if (menu) {
+    menu.hidden = !menu.hidden;
+  }
 });
