@@ -23,7 +23,9 @@ const processTreeItem = (element) => {
   element.insertBefore(span, nestedList);
   textNode.remove();
 
-  span.addEventListener('click', handleToggleNode(span));
+  span.addEventListener('click', () => {
+    handleToggleNode(span);
+  });
 };
 
 const handleToggleNode = (span) => {
