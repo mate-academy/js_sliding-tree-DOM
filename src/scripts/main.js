@@ -1,19 +1,29 @@
 'use strict';
 
-document.addEventListener('click', (e) => {
-  const clicked = e.target.closest('li');
+const lis = document.querySelectorAll('li');
 
-  if (!clicked) {
-    return 0;
+for (const li of lis) {
+  const text = li.firstChild;
+
+  if (text && text.nodeType === Node.TEXT_NODE) {
+    const span = document.createElement('span');
+
+    span.textContent = text.textContent;
+
+    li.replaceChild(span, text);
+  }
+}
+
+document.addEventListener('click', (e) => {
+  if (e.target.tagName !== 'SPAN') {
+    return;
   }
 
-  const ul = clicked.querySelectorAll(':scope > ul');
+  const ul = e.target.parentElement.querySelector('ul');
 
   if (!ul) {
     return;
   }
 
-  for (const u of ul) {
-    u.style.display = u.style.display === 'none' ? 'block' : 'none';
-  }
+  ul.style.display = ul.style.display === 'none' ? 'block' : 'none';
 });
