@@ -2,13 +2,10 @@
 
 // write code here
 (function() {
-  "use strict";
 
   function wrapHeadings() {
     const allLi = document.querySelectorAll('.tree li');
     allLi.forEach(li => {
-      const childUl = li.querySelector(':scope > ul');
-      if (!childUl) return;
       const firstChild = li.childNodes[0];
       if (firstChild && firstChild.nodeType === Node.TEXT_NODE) {
         const text = firstChild.textContent.trim();
@@ -36,6 +33,7 @@
     const childUl = parentLi.querySelector(':scope > ul');
     if (!childUl) return;
 
+    e.stopPropagation();
     parentLi.classList.toggle('open');
     headingSpan.classList.toggle('open-indicator');
   }
