@@ -17,10 +17,10 @@ list.addEventListener('click', (e) => {
   if (e.target.tagName === 'SPAN') {
     const nextUlDisplay = e.target.nextElementSibling.style;
 
-    if (nextUlDisplay.display === 'none') {
-      nextUlDisplay.display = 'block';
-    } else {
+    if (nextUlDisplay.display === '' || nextUlDisplay.display === 'block') {
       nextUlDisplay.display = 'none';
+    } else if (nextUlDisplay.display === 'none') {
+      nextUlDisplay.display = 'block';
     }
   }
 });
