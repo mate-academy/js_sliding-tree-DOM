@@ -15,7 +15,7 @@ treeItems.forEach((n) => {
 tree.addEventListener('click', (e) => {
   const nestedUl = e.target.closest('li').querySelector('ul');
 
-  if (!tree.contains(e.target)) {
+  if (e.target.tagName !== 'SPAN') {
     return;
   }
 
