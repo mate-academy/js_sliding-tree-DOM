@@ -12,8 +12,12 @@ list.forEach((el) => {
 });
 
 tree.addEventListener('click', (e) => {
-  const li = e.target.parentNode;
-  const ulInIl = li.querySelector('ul');
+  if (e.target.tagName === 'SPAN') {
+    const li = e.target.parentNode;
+    const ulInLi = li.querySelector('ul');
 
-  ulInIl.hidden = !ulInIl.hidden;
+    if (ulInLi) {
+      ulInLi.hidden = !ulInLi.hidden;
+    }
+  }
 });
