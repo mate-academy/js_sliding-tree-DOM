@@ -6,7 +6,14 @@ const uls = tree.querySelectorAll('ul');
 const headers = [];
 
 for (const elem of uls) {
-  headers.push(elem.parentNode);
+  const liElem = elem.parentNode;
+  const liTextElem = liElem.firstChild;
+  const wrap = document.createElement('span');
+
+  wrap.textContent = liTextElem.textContent;
+
+  liElem.replaceChild(wrap, liTextElem);
+  headers.push(liElem.firstChild);
 }
 
 headers.forEach((header) => {
