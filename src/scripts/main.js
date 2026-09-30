@@ -9,6 +9,11 @@ const tree = document.querySelector('.tree');
 const listItems = tree.querySelectorAll('li');
 
 for (const li of listItems) {
+  const nestedUl = li.querySelector(':scope > ul');
+  if (!nestedUl) {
+    continue;
+  }
+
   const span = document.createElement('span');
 
   span.textContent = li.firstChild.textContent.trim();
@@ -17,19 +22,20 @@ for (const li of listItems) {
 }
 
 tree.addEventListener('click', (e) => {
-  if (e.target.tagName !== 'SPAN') {
+  const span = e.target.closest('span');
+  if (!span || !tree.contains(span)) {
     return;
   }
 
-  const li = e.target.parentElement;
-  const nestedUl = li.querySelector('ul');
+  const li = span.parentElement;
+  const nestedUl = li.querySelector(':scope > ul');
 
   if (!nestedUl) {
     return;
   }
 
   if (nestedUl.style.display === 'none') {
-    nestedUl.style.display = '';
+    nestedUl.style.display = 'block';
   } else {
     nestedUl.style.display = 'none';
   }
