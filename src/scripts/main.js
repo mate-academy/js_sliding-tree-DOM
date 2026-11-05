@@ -4,9 +4,6 @@
 
 const ul = document.querySelector('ul');
 
-// console.log(lists[2].textContent.trim().split('\n'));
-// console.log(ul.innerHTML.replaceAll(' ', '').split('\n').slice(1, -1));
-
 const elements = ul.innerHTML
   .replaceAll('  ', '')
   .split('\n')
