@@ -4,7 +4,7 @@
 
 // write code here
 const tree = document.querySelector('.tree');
-const li = tree.querySelectorAll('li:has(ul)');
+const li = tree.querySelectorAll('li');
 
 li.forEach((s) => {
   const span = document.createElement('span');
@@ -20,6 +20,8 @@ spans.forEach((span) => {
   span.addEventListener('click', () => {
     const ul = span.parentElement.querySelector('ul');
 
-    ul.hidden = !ul.hidden;
+    if (ul) {
+      ul.hidden = !ul.hidden;
+    }
   });
 });
